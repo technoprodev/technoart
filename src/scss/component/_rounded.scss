@@ -1,0 +1,45 @@
+.square {
+  border-radius: 0;
+}
+.circle {
+  border-radius: 50%;
+}
+.rounded {
+  border-radius: 8px;
+}
+.rounded-xs {
+  border-radius: 3px;
+}
+.rounded-sm {
+  border-radius: 8px;
+}
+.rounded-md {
+  border-radius: 13px;
+}
+.rounded-lg {
+  border-radius: 18px;
+}
+
+@media (max-width: 767px) {
+  .m-square {
+    border-radius: 0;
+  }
+  .m-circle {
+    border-radius: 50%;
+  }
+  .m-rounded {
+    border-radius: 8px;
+  }
+  .m-rounded-xs {
+    border-radius: 3px;
+  }
+  .m-rounded-sm {
+    border-radius: 8px;
+  }
+  .m-rounded-md {
+    border-radius: 13px;
+  }
+  .m-rounded-lg {
+    border-radius: 18px;
+  }
+}

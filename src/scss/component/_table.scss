@@ -1,0 +1,55 @@
+.table {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.table th,
+.table td {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  vertical-align: top;
+}
+.table thead th {
+  font-weight: inherit;
+  vertical-align: bottom;
+}
+
+.table tr:not(:first-child) {
+  border-top: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+.table.table-no-line tr:not(:first-child) {
+  border-top: 0 solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+.table thead tr:last-child {
+  border-bottom: 1px solid map-get(map-get($color-grayscale, ""), "border-light");
+}
+.table tbody + tbody {
+  border-top: 1px solid map-get(map-get($color-grayscale, ""), "border-light");
+}
+
+.table-bordered {
+  border: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+.table-bordered th:not(:last-child),
+.table-bordered td:not(:last-child) {
+  border-right: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .02);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, .04);
+}
+
+.table-nowrap th,
+.table-nowrap td {
+  white-space: nowrap;
+}
+
+.table-text-middle tbody td {
+  vertical-align: middle;
+}

@@ -1,0 +1,75 @@
+@each $name, $values in $color-grayscale {
+  .text-light#{$name} {
+    color: map-get($values, "text-light");
+  }
+  .text-gray#{$name} {
+    color: map-get($values, "text-gray");
+  }
+  .text-dark#{$name} {
+    color: map-get($values, "text-dark");
+  }
+}
+@each $name, $values in $color {
+  .text-light-#{$name} {
+    color: map-get($values, "text-light");
+  }
+  .text-#{$name} {
+    color: map-get($values, "text");
+  }
+  .text-dark-#{$name} {
+    color: map-get($values, "text-dark");
+  }
+}
+
+@each $name, $values in $color-grayscale {
+  .hover-text-light#{$name}:hover,
+  .submenu-text-light#{$name} > li li > a,
+  .menu-active-text-light#{$name} > .active > a,
+  .submenu-active-text-light#{$name} > li .active > a,
+  .menu-hover-text-light#{$name} > li > a:hover,
+  .submenu-hover-text-light#{$name} > li li > a:hover {
+    color: map-get($values, "text-light");
+  }
+  .hover-text-gray#{$name}:hover,
+  .submenu-text-gray#{$name} > li li > a,
+  .menu-active-text-gray#{$name} > .active > a,
+  .submenu-active-text-gray#{$name} > li .active > a,
+  .menu-hover-text-gray#{$name} > li > a:hover,
+  .submenu-hover-text-gray#{$name} > li li > a:hover {
+    color: map-get($values, "text-gray");
+  }
+  .hover-text-dark#{$name}:hover,
+  .submenu-text-dark#{$name} > li li > a,
+  .menu-active-text-dark#{$name} > .active > a,
+  .submenu-active-text-dark#{$name} > li .active > a,
+  .menu-hover-text-dark#{$name} > li > a:hover,
+  .submenu-hover-text-dark#{$name} > li li > a:hover {
+    color: map-get($values, "text-dark");
+  }
+}
+@each $name, $values in $color {
+  .hover-text-light-#{$name}:hover,
+  .submenu-text-light-#{$name} > li li > a,
+  .menu-active-text-light-#{$name} > .active > a,
+  .submenu-active-text-light-#{$name} > li .active > a,
+  .menu-hover-text-light-#{$name} > li > a:hover,
+  .submenu-hover-text-light-#{$name} > li li > a:hover {
+    color: map-get($values, "text-light");
+  }
+  .hover-text-#{$name}:hover,
+  .submenu-text-#{$name} > li li > a,
+  .menu-active-text-#{$name} > .active > a,
+  .submenu-active-text-#{$name} > li .active > a,
+  .menu-hover-text-#{$name} > li > a:hover,
+  .submenu-hover-text-#{$name} > li li > a:hover {
+    color: map-get($values, "text");
+  }
+  .hover-text-dark-#{$name}:hover,
+  .submenu-text-dark-#{$name} > li li > a,
+  .menu-active-text-dark-#{$name} > .active > a,
+  .submenu-active-text-dark-#{$name} > li .active > a,
+  .menu-hover-text-dark-#{$name} > li > a:hover,
+  .submenu-hover-text-dark-#{$name} > li li > a:hover {
+    color: map-get($values, "text-dark");
+  }
+}

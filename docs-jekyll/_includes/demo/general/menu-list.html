@@ -1,0 +1,111 @@
+{% capture basicurl %}{{ page.url | sanitize_url }}/{% endcapture %}
+
+<li class="{% if page.group == 'demo-general-home' %}active {% endif %}has-submenu"><a href="">Home</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if basicurl == '/demo/general/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/">Home</a></li>
+    <li class="{% if basicurl == '/demo/general/home-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/home-2">Home 2</a></li>
+    <li class="{% if basicurl == '/demo/general/home-3/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/home-3/">Home 3</a></li>
+    <li class="{% if basicurl == '/demo/general/home-4/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/home-4/">Home 4</a></li>
+    <li class="{% if basicurl == '/demo/general/home-5/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/home-5/">Home 5</a></li>
+  </ul>
+</li>
+<li class="{% if page.group == 'demo-general-service' %}active {% endif %}has-submenu"><a href="">Service</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if basicurl == '/demo/general/service-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/service-1/">Service 1</a></li>
+    <li class="{% if basicurl == '/demo/general/service-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/service-2/">Service 2</a></li>
+  </ul>
+</li>
+<li class="{% if page.group == 'demo-general-portfolio' %}active {% endif %}has-submenu"><a href="">Portfolio</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if basicurl == '/demo/general/portfolio-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/portfolio-1/">Portfolio 1</a></li>
+    <li class="{% if basicurl == '/demo/general/portfolio-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/portfolio-2/">Portfolio 2</a></li>
+  </ul>
+</li>
+<li class="{% if page.group == 'demo-general-pricing' %}active {% endif %}has-submenu"><a href="">Pricing</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if basicurl == '/demo/general/pricing-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/pricing-1/">Pricing 1</a></li>
+    <li class="{% if basicurl == '/demo/general/pricing-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/pricing-2/">Pricing 2</a></li>
+  </ul>
+</li>
+<li class="{% if page.group == 'demo-general-faq' %}active {% endif %}has-submenu"><a href="">FAQ</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if basicurl == '/demo/general/faq-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/faq-1/">FAQ 1</a></li>
+    <li class="{% if basicurl == '/demo/general/faq-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/faq-2/">FAQ 2</a></li>
+  </ul>
+</li>
+<li class="{% if page.group == 'demo-general-other' %}active {% endif %}has-submenu align-right"><a href="">Other</a>
+  <ul class="border-top border-azure border-thin">
+    <li class="{% if page.group == 'demo-general-our-team' %}active {% endif %}has-submenu"><a href="">Our Team</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/our-team-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/our-team-1/">Our Team 1</a></li>
+        <li class="{% if basicurl == '/demo/general/our-team-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/our-team-2/">Our Team 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-our-client' %}active {% endif %}has-submenu"><a href="">Our Client</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/our-client-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/our-client-1/">Our Client 1</a></li>
+        <li class="{% if basicurl == '/demo/general/our-client-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/our-client-2/">Our Client 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-about-us' %}active {% endif %}has-submenu"><a href="">About Us</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/about-us-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/about-us-1/">About Us 1</a></li>
+        <li class="{% if basicurl == '/demo/general/about-us-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/about-us-2/">About Us 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-contact-us' %}active {% endif %}has-submenu"><a href="">Contact Us</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/contact-us-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/contact-us-1/">Contact Us 1</a></li>
+        <li class="{% if basicurl == '/demo/general/contact-us-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/contact-us-2/">Contact Us 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-my-profile' %}active {% endif %}has-submenu"><a href="">My Profile</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/view-profile-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/view-profile-1/">View Profile 1</a></li>
+        <li class="{% if basicurl == '/demo/general/view-profile-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/view-profile-2/">View Profile 2</a></li>
+        <li class="{% if basicurl == '/demo/general/edit-profile-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/edit-profile-1/">Edit Profile 1</a></li>
+        <li class="{% if basicurl == '/demo/general/edit-profile-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/edit-profile-2/">Edit Profile 2</a></li>
+        <li class="{% if basicurl == '/demo/general/change-password-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/change-password-1/">Change Password 1</a></li>
+        <li class="{% if basicurl == '/demo/general/change-password-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/change-password-2/">Change Password 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-auth' %}active {% endif %}has-submenu"><a href="">Authentication</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/login-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/login-1/">Login 1</a></li>
+        <li class="{% if basicurl == '/demo/general/login-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/login-2/">Login 2</a></li>
+        <li class="{% if basicurl == '/demo/general/register-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/register-1/">Register 1</a></li>
+        <li class="{% if basicurl == '/demo/general/register-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/register-2/">Register 2</a></li>
+        <li class="{% if basicurl == '/demo/general/forgot-password-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/forgot-password-1/">Forgot Password 1</a></li>
+        <li class="{% if basicurl == '/demo/general/forgot-password-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/forgot-password-2/">Forgot Password 2</a></li>
+        <li class="{% if basicurl == '/demo/general/reset-password-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/reset-password-1/">Reset Password 1</a></li>
+        <li class="{% if basicurl == '/demo/general/reset-password-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/reset-password-2/">Reset Password 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-error' %}active {% endif %}has-submenu"><a href="">Error</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/404-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/404-1/">404 1</a></li>
+        <li class="{% if basicurl == '/demo/general/404-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/404-2/">404 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-coming-soon' %}active {% endif %}has-submenu"><a href="">Coming Soon</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/coming-soon-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/coming-soon-1/">Coming Soon 1</a></li>
+        <li class="{% if basicurl == '/demo/general/coming-soon-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/coming-soon-2/">Coming Soon 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-legal' %}active {% endif %}has-submenu"><a href="">Legal</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/privacy-policy-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/privacy-policy-1/">Privacy Policy 1</a></li>
+        <li class="{% if basicurl == '/demo/general/privacy-policy-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/privacy-policy-2/">Privacy Policy 2</a></li>
+        <li class="{% if basicurl == '/demo/general/term-of-service-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/term-of-service-1/">Term of Service 1</a></li>
+        <li class="{% if basicurl == '/demo/general/term-of-service-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/term-of-service-2/">Term of Service 2</a></li>
+      </ul>
+    </li>
+    <li class="{% if page.group == 'demo-general-search-result' %}active {% endif %}has-submenu"><a href="">Search Result</a>
+      <ul class="border-top border-azure border-thin">
+        <li class="{% if basicurl == '/demo/general/search-result-1/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/search-result-1/">Search Result 1</a></li>
+        <li class="{% if basicurl == '/demo/general/search-result-2/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/general/search-result-2/">Search Result 2</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>

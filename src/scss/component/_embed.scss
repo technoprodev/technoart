@@ -1,0 +1,41 @@
+.has-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.has-embed::before {
+  display: block;
+  content: "";
+}
+.embed-21by9::before {
+  padding-top: percentage(9 / 21);
+}
+
+.embed-16by9::before {
+  padding-top: percentage(9 / 16);
+}
+
+.embed-4by3::before {
+  padding-top: percentage(3 / 4);
+}
+
+.embed-1by1::before {
+  padding-top: percentage(1 / 1);
+}
+
+.has-embed .embed,
+.has-embed iframe,
+.has-embed embed,
+.has-embed object,
+.has-embed video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

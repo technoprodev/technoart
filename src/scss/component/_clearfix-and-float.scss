@@ -1,0 +1,37 @@
+.clearfix {
+  @include clearfix();
+}
+.pull-left,
+.pull-right,
+.pull-none, {
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.pull-none {
+  float: none !important;
+}
+@media (max-width: 767px) {
+  .m-pull-left,
+  .m-pull-right,
+  .m-pull-none, {
+    max-width: 100%;
+    word-break: normal;
+    word-wrap: break-word;
+  }
+  .m-pull-right {
+    float: right !important;
+  }
+  .m-pull-left {
+    float: left !important;
+  }
+  .m-pull-none {
+    float: none !important;
+  }
+}

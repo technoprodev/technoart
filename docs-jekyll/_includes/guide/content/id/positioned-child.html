@@ -1,0 +1,70 @@
+# Positioned Child
+
+Description.
+
+{% capture option %}
+.has-positioned-child - Tambahkan kelas ini pada element yang memiliki child yang ingin diatur posisinya.
+--- - ---
+.top-left - Tambahkan kelas ini pada child yang ingin diposisikan ke top-left.
+.top-left-upside - Tambahkan kelas ini pada child yang ingin diposisikan ke top-left-upside.
+.top-left-outside - Tambahkan kelas ini pada child yang ingin diposisikan ke top-left-outside.
+.top-center - Tambahkan kelas ini pada child yang ingin diposisikan ke top-center.
+.top-center-upside - Tambahkan kelas ini pada child yang ingin diposisikan ke top-center-upside.
+.top-right - Tambahkan kelas ini pada child yang ingin diposisikan ke top-right.
+.top-right-upside - Tambahkan kelas ini pada child yang ingin diposisikan ke top-right-upside.
+.top-right-outside - Tambahkan kelas ini pada child yang ingin diposisikan ke top-right-outside.
+.middle-left - Tambahkan kelas ini pada child yang ingin diposisikan ke middle-left.
+.middle-center - Tambahkan kelas ini pada child yang ingin diposisikan ke middle-center.
+.middle-right - Tambahkan kelas ini pada child yang ingin diposisikan ke middle-right.
+.bottom-left - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-left.
+.bottom-left-downside - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-left-downside.
+.bottom-left-outside - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-left-outside.
+.bottom-center - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-center.
+.bottom-center-downside - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-center-downside.
+.bottom-right - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-right.
+.bottom-right-downside - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-right-downside.
+.bottom-right-outside - Tambahkan kelas ini pada child yang ingin diposisikan ke bottom-right-outside.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="has-positioned-child padding-100 border bg-lighter">
+  <div class="top-left">.top-left</div>
+  <div class="top-left-upside">.top-left-upside</div>
+  <div class="top-center">.top-center</div>
+  <div class="top-center-upside">.top-center-upside</div>
+  <div class="top-right">.top-right</div>
+  <div class="top-right-upside">.top-right-upside</div>
+  <div class="middle-left">.middle-left</div>
+  <div class="middle-center">.middle-center</div>
+  <div class="middle-right">.middle-right</div>
+  <div class="bottom-left">.bottom-left</div>
+  <div class="bottom-left-downside">.bottom-left-downside</div>
+  <div class="bottom-center">.bottom-center</div>
+  <div class="bottom-center-downside">.bottom-center-downside</div>
+  <div class="bottom-right">.bottom-right</div>
+  <div class="bottom-right-downside">.bottom-right-downside</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="has-positioned-child show-child-on-hover padding-100 border bg-lighter text-center">
+  <div class="top-left-outside">.top-left-outside</div>
+  <div class="top-right-outside">.top-right-outside</div>
+  <div class="bottom-left-outside">.bottom-left-outside</div>
+  <div class="bottom-right-outside">.bottom-right-outside </div>
+  Hover Me
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="has-positioned-child padding-30 border bg-lighter">
+  <div class="top-left bg-red fs-11 padding-x-5">Best Seller</div>
+  <div class="top-right-outside bg-azure fs-11 padding-x-5 text-center">I<br>D</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

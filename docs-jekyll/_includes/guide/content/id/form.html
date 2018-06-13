@@ -1,0 +1,776 @@
+# Form
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Basic Usage
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper">
+    <label for="text" class="form-label">Text</label>
+    <input class="form-text" id="text" name="text" placeholder="Text" type="text">
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea" class="form-label">Textarea</label>
+    <textarea class="form-textarea" id="textarea" name="textarea" placeholder="Textarea"></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown" class="form-label">Dropdown</label>
+    <select class="form-dropdown" id="dropdown" name="dropdown">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown-multiple" class="form-label">Dropdown Multiple</label>
+    <select class="form-dropdown" id="dropdown-multiple" name="dropdown-multiple" size="4" multiple="">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox</label>
+    <div class="form-checkbox">
+      <label>
+        <input name="checkbox" value="1" type="checkbox" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="checkbox" value="2" type="checkbox">
+        option 2
+      </label>
+      <label>
+        <input name="checkbox" value="3" type="checkbox">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Inline</label>
+    <div class="form-checkbox form-checkbox-inline">
+      <label>
+        <input name="checkbox-inline" value="1" type="checkbox" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="checkbox-inline" value="2" type="checkbox">
+        option 2
+      </label>
+      <label>
+        <input name="checkbox-inline" value="3" type="checkbox">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Elegant</label>
+    <div class="form-checkbox form-checkbox-elegant">
+      <label>
+        <input name="checkbox-elegant" value="1" type="checkbox" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="checkbox-elegant" value="2" type="checkbox"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="checkbox-elegant" value="3" type="checkbox"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Fancy</label>
+    <div class="form-checkbox form-checkbox-fancy">
+      <label>
+        <input name="checkbox-fancy" value="1" type="checkbox" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="checkbox-fancy" value="2" type="checkbox"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="checkbox-fancy" value="3" type="checkbox"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio</label>
+    <div class="form-radio">
+      <label>
+        <input name="radio" value="1" type="radio" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="radio" value="2" type="radio">
+        option 2
+      </label>
+      <label>
+        <input name="radio" value="3" type="radio">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Inline</label>
+    <div class="form-radio form-radio-inline">
+      <label>
+        <input name="radio-inline" value="1" type="radio" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="radio-inline" value="2" type="radio">
+        option 2
+      </label>
+      <label>
+        <input name="radio-inline" value="3" type="radio">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Elegant</label>
+    <div class="form-radio form-radio-elegant">
+      <label>
+        <input name="radio-elegant" value="1" type="radio" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="radio-elegant" value="2" type="radio"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="radio-elegant" value="3" type="radio"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Fancy</label>
+    <div class="form-radio form-radio-fancy">
+      <label>
+        <input name="radio-fancy" value="1" type="radio" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="radio-fancy" value="2" type="radio"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="radio-fancy" value="3" type="radio"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="file" class="form-label">File</label>
+    <input class="form-file" id="file" name="file" type="file">
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Static</label>
+    <div class="form-static">Technoart: No more custom CSS</div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Form Icon
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper">
+    <label for="text-icon" class="form-label">Text Icon</label>
+    <div class="form-icon">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <input class="form-text" id="text-icon" name="text-icon" placeholder="Text" type="text">
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-icon" class="form-label">Textarea Icon</label>
+    <div class="form-icon">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <textarea class="form-textarea" id="textarea-icon" name="textarea-icon" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Form Size
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper">
+    <label for="text-xs" class="form-label">Text Extra Small</label>
+    <input class="form-text form-xs" id="text-xs" name="text-xs" placeholder="Text" type="text">
+  </div>
+  <div class="form-wrapper">
+    <label for="text-sm" class="form-label">Text Small</label>
+    <input class="form-text form-sm" id="text-sm" name="text-sm" placeholder="Text" type="text">
+  </div>
+  <div class="form-wrapper">
+    <label for="text-md" class="form-label">Text Medium</label>
+    <input class="form-text form-md" id="text-md" name="text-md" placeholder="Text" type="text">
+  </div>
+  <div class="form-wrapper">
+    <label for="text-lg" class="form-label">Text Large</label>
+    <input class="form-text form-lg" id="text-lg" name="text-lg" placeholder="Text" type="text">
+  </div>
+  <hr class="margin-y-30">
+  <div class="form-wrapper">
+    <label for="textarea-xs" class="form-label">Textarea Extra Small</label>
+    <textarea class="form-textarea form-xs" id="textarea-xs" name="textarea-xs" placeholder="Textarea"></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-sm" class="form-label">Textarea Small</label>
+    <textarea class="form-textarea form-sm" id="textarea-sm" name="textarea-sm" placeholder="Textarea"></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-md" class="form-label">Textarea Medium</label>
+    <textarea class="form-textarea form-md" id="textarea-md" name="textarea-md" placeholder="Textarea"></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-lg" class="form-label">Textarea Large</label>
+    <textarea class="form-textarea form-lg" id="textarea-lg" name="textarea-lg" placeholder="Textarea"></textarea>
+  </div>
+  <hr class="margin-y-30">
+  <div class="form-wrapper">
+    <label for="dropdown-xs" class="form-label">Dropdown Extra Small</label>
+    <select class="form-dropdown form-xs" id="dropdown-xs" name="dropdown-xs">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown-sm" class="form-label">Dropdown Small</label>
+    <select class="form-dropdown form-sm" id="dropdown-sm" name="dropdown-sm">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown-md" class="form-label">Dropdown Medium</label>
+    <select class="form-dropdown form-md" id="dropdown-md" name="dropdown-md">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown-lg" class="form-label">Dropdown Large</label>
+    <select class="form-dropdown form-lg" id="dropdown-lg" name="dropdown-lg">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <hr class="margin-y-30">
+  <div class="form-wrapper">
+    <label class="form-label">#keterangan</label>
+    <div class="form-static">Checkbox, Radio, File & Static doesn't have size class</div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Form Icon with Size
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper">
+    <label for="text-icon-xs" class="form-label">Text Icon Extra Small</label>
+    <div class="form-icon form-xs">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <input class="form-text" id="text-icon-xs" name="text-icon-xs" placeholder="Text" type="text">
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="text-icon-sm" class="form-label">Text Icon Small</label>
+    <div class="form-icon form-sm">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <input class="form-text" id="text-icon-sm" name="text-icon-sm" placeholder="Text" type="text">
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="text-icon-md" class="form-label">Text Icon Medium</label>
+    <div class="form-icon form-md">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <input class="form-text" id="text-icon-md" name="text-icon-md" placeholder="Text" type="text">
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="text-icon-lg" class="form-label">Text Icon Large</label>
+    <div class="form-icon form-lg">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <input class="form-text" id="text-icon-lg" name="text-icon-lg" placeholder="Text" type="text">
+    </div>
+  </div>
+  <hr class="margin-y-30">
+  <div class="form-wrapper">
+    <label for="textarea-icon-xs" class="form-label">Textarea Icon Extra Small</label>
+    <div class="form-icon form-xs">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <textarea class="form-textarea" id="textarea-icon-xs" name="textarea-icon-xs" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-icon-sm" class="form-label">Textarea Icon Small</label>
+    <div class="form-icon form-sm">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <textarea class="form-textarea" id="textarea-icon-sm" name="textarea-icon-sm" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-icon-md" class="form-label">Textarea Icon Medium</label>
+    <div class="form-icon form-md">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <textarea class="form-textarea" id="textarea-icon-md" name="textarea-icon-md" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-icon-lg" class="form-label">Textarea Icon Large</label>
+    <div class="form-icon form-lg">
+      <i class="icon-prepend fa fa-user"></i>
+      <i class="icon-append fa fa-user"></i>
+      <textarea class="form-textarea" id="textarea-icon-lg" name="textarea-icon-lg" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Disabled and Readonly
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper">
+    <label for="text-disabled" class="form-label">Text Disabled</label>
+    <input class="form-text" id="text-disabled" name="text-disabled" placeholder="Text" type="text" disabled="">
+  </div>
+  <div class="form-wrapper">
+    <label for="text-readonly" class="form-label">Text Readonly</label>
+    <input class="form-text" id="text-readonly" name="text-readonly" placeholder="Text" type="text" readonly="">
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-disabled" class="form-label">Textarea Disabled</label>
+    <textarea class="form-textarea" id="textarea-disabled" name="textarea-disabled" placeholder="Textarea" disabled=""></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="textarea-readonly" class="form-label">Textarea Readonly</label>
+    <textarea class="form-textarea" id="textarea-readonly" name="textarea-readonly" placeholder="Textarea" readonly=""></textarea>
+  </div>
+  <div class="form-wrapper">
+    <label for="select-disabled" class="form-label">Dropdown Disabled</label>
+    <select class="form-dropdown" id="select-disabled" name="select-disabled" disabled="">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label for="dropdown-multiple-disabled" class="form-label">Dropdown Multiple Disabled</label>
+    <select class="form-dropdown" id="dropdown-multiple-disabled" name="dropdown-multiple-disabled" size="4" multiple="" disabled="">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Disabled</label>
+    <div class="form-checkbox">
+      <label>
+        <input name="checkbox-disabled" value="1" type="checkbox" checked="" disabled>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="checkbox-disabled" value="2" type="checkbox" disabled="">
+        option 2 disabled
+      </label>
+      <label>
+        <input name="checkbox-disabled" value="3" type="checkbox" disabled="">
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Inline Disabled</label>
+    <div class="form-checkbox form-checkbox-inline">
+      <label>
+        <input name="checkbox-inline-disabled" value="1" type="checkbox" checked="" disabled>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="checkbox-inline-disabled" value="2" type="checkbox" disabled="">
+        option 2 disabled
+      </label>
+      <label>
+        <input name="checkbox-inline-disabled" value="3" type="checkbox" disabled="">
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Elegant Disabled</label>
+    <div class="form-checkbox form-checkbox-elegant">
+      <label>
+        <input name="checkbox-elegant-disabled" value="1" type="checkbox" checked="" disabled><i></i>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="checkbox-elegant-disabled" value="2" type="checkbox" disabled=""><i></i>
+        option 2 disabled
+      </label>
+      <label>
+        <input name="checkbox-elegant-disabled" value="3" type="checkbox" disabled=""><i></i>
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Checkbox Fancy Disabled</label>
+    <div class="form-checkbox form-checkbox-fancy">
+      <label>
+        <input name="checkbox-fancy-disabled" value="1" type="checkbox" checked="" disabled><i></i>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="checkbox-fancy-disabled" value="2" type="checkbox" disabled=""><i></i>
+        option 2 disabled
+      </label>
+      <label>
+        <input name="checkbox-fancy-disabled" value="3" type="checkbox" disabled=""><i></i>
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Disabled</label>
+    <div class="form-radio">
+      <label>
+        <input name="radio-disabled" value="1" type="radio" checked="" disabled>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="radio-disabled" value="2" type="radio" disabled="">
+        option 2 disabled
+      </label>
+      <label>
+        <input name="radio-disabled" value="3" type="radio" disabled="">
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Inline Disabled</label>
+    <div class="form-radio form-radio-inline">
+      <label>
+        <input name="radio-inline-disabled" value="1" type="radio" checked="" disabled>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="radio-inline-disabled" value="2" type="radio" disabled="">
+        option 2 disabled
+      </label>
+      <label>
+        <input name="radio-inline-disabled" value="3" type="radio" disabled="">
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Elegant Disabled</label>
+    <div class="form-radio form-radio-elegant">
+      <label>
+        <input name="radio-elegant-disabled" value="1" type="radio" checked="" disabled><i></i>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="radio-elegant-disabled" value="2" type="radio" disabled=""><i></i>
+        option 2 disabled
+      </label>
+      <label>
+        <input name="radio-elegant-disabled" value="3" type="radio" disabled=""><i></i>
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">Radio Fancy Disabled</label>
+    <div class="form-radio form-radio-fancy">
+      <label>
+        <input name="radio-fancy-disabled" value="1" type="radio" checked="" disabled><i></i>
+        option 1 disabled
+      </label>
+      <label>
+        <input name="radio-fancy-disabled" value="2" type="radio" disabled=""><i></i>
+        option 2 disabled
+      </label>
+      <label>
+        <input name="radio-fancy-disabled" value="3" type="radio" disabled=""><i></i>
+        option 3 disabled
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper">
+    <label for="file-disabled" class="form-label">File Disabled</label>
+    <input class="form-file" id="file-disabled" name="file-disabled" type="file" disabled="">
+  </div>
+  <div class="form-wrapper">
+    <label class="form-label">#keterangan</label>
+    <div class="form-static">Dropdown, Checkbox, Radio & File doesn't have readonly</div>
+    <div class="form-static">Static doesn't have disabled and readonly</div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Inline Form
+
+Description.
+
+{% capture example %}
+<form>
+  <div class="form-wrapper form-inline">
+    <label for="inline-text" class="form-label margin-top-5">Text (Inline)</label>
+    <input class="form-text" id="inline-text" name="inline-text" placeholder="Text" type="text">
+    <label for="inline-textarea" class="form-label margin-top-5">Textarea (Inline)</label>
+    <textarea class="form-textarea" id="inline-textarea" name="inline-textarea" placeholder="Textarea"></textarea>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label for="inline-dropdown" class="form-label margin-top-5">Dropdown (Inline)</label>
+    <select class="form-dropdown" id="inline-dropdown" name="inline-dropdown">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+    <label for="dropdown-inline-multiple" class="form-label margin-top-5">Dropdown Multiple (Inline)</label>
+    <select class="form-dropdown" id="dropdown-inline-multiple" name="dropdown-inline-multiple" size="4" multiple="">
+      <optgroup label="Group 1" value="Group 1">
+        <option value="Alpha">Alpha</option>
+        <option value="Echo">Echo</option>
+      </optgroup>
+      <optgroup label="Group 2" value="Group 1">
+        <option value="Bravo">Bravo</option>
+        <option value="Charlie">Charlie</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label class="form-label">Checkbox (Inline)</label>
+    <div class="form-checkbox">
+      <label>
+        <input name="inline-checkbox" value="1" type="checkbox" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="inline-checkbox" value="2" type="checkbox">
+        option 2
+      </label>
+      <label>
+        <input name="inline-checkbox" value="3" type="checkbox">
+        option 3
+      </label>
+    </div>
+    <label class="form-label">Checkbox Inline (Inline)</label>
+    <div class="form-checkbox form-checkbox-inline">
+      <label>
+        <input name="inline-checkbox-inline" value="1" type="checkbox" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="inline-checkbox-inline" value="2" type="checkbox">
+        option 2
+      </label>
+      <label>
+        <input name="inline-checkbox-inline" value="3" type="checkbox">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label class="form-label">Checkbox Elegant (Inline)</label>
+    <div class="form-checkbox form-checkbox-elegant">
+      <label>
+        <input name="inline-checkbox-elegant" value="1" type="checkbox" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="inline-checkbox-elegant" value="2" type="checkbox"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="inline-checkbox-elegant" value="3" type="checkbox"><i></i>
+        option 3
+      </label>
+    </div>
+    <label class="form-label">Checkbox Fancy (Inline)</label>
+    <div class="form-checkbox form-checkbox-fancy">
+      <label>
+        <input name="inline-checkbox-fancy" value="1" type="checkbox" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="inline-checkbox-fancy" value="2" type="checkbox"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="inline-checkbox-fancy" value="3" type="checkbox"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label class="form-label">Radio (Inline)</label>
+    <div class="form-radio">
+      <label>
+        <input name="inline-radio" value="1" type="radio" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="inline-radio" value="2" type="radio">
+        option 2
+      </label>
+      <label>
+        <input name="inline-radio" value="3" type="radio">
+        option 3
+      </label>
+    </div>
+    <label class="form-label">Radio Inline (Inline)</label>
+    <div class="form-radio form-radio-inline">
+      <label>
+        <input name="inline-radio-inline" value="1" type="radio" checked="">
+        option 1
+      </label>
+      <label>
+        <input name="inline-radio-inline" value="2" type="radio">
+        option 2
+      </label>
+      <label>
+        <input name="inline-radio-inline" value="3" type="radio">
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label class="form-label">Radio Elegant (Inline)</label>
+    <div class="form-radio form-radio-elegant">
+      <label>
+        <input name="inline-radio-elegant" value="1" type="radio" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="inline-radio-elegant" value="2" type="radio"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="inline-radio-elegant" value="3" type="radio"><i></i>
+        option 3
+      </label>
+    </div>
+    <label class="form-label">Radio Fancy (Inline)</label>
+    <div class="form-radio form-radio-fancy">
+      <label>
+        <input name="inline-radio-fancy" value="1" type="radio" checked=""><i></i>
+        option 1
+      </label>
+      <label>
+        <input name="inline-radio-fancy" value="2" type="radio"><i></i>
+        option 2
+      </label>
+      <label>
+        <input name="inline-radio-fancy" value="3" type="radio"><i></i>
+        option 3
+      </label>
+    </div>
+  </div>
+  <div class="form-wrapper form-inline">
+    <label for="inline-file" class="form-label">File (Inline)</label>
+    <input class="form-file" id="inline-file" name="inline-file" type="file">
+    <label class="form-label">Static (Inline)</label>
+    <div class="form-static">Technoart: No more custom CSS</div>
+  </div>
+</form>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

@@ -1,0 +1,31 @@
+# Stretch
+
+Description.
+
+{% capture option %}
+.stretch-xs - Memberi efek stretch pada elemen sebesar 10% dari ukuran semula.
+.stretch-sm - Memberi efek stretch pada elemen sebesar 20% dari ukuran semula.
+.stretch-md - Memberi efek stretch pada elemen sebesar 30% dari ukuran semula.
+.stretch-lg - Memberi efek stretch pada elemen sebesar 40% dari ukuran semula.
+---
+.stretch-y-xs - Memberi efek stretch keatas dan kebawah pada elemen sebesar 10% dari ukuran semula.
+.stretch-y-sm - Memberi efek stretch keatas dan kebawah pada elemen sebesar 20% dari ukuran semula.
+.stretch-y-md - Memberi efek stretch keatas dan kebawah pada elemen sebesar 30% dari ukuran semula.
+.stretch-y-lg - Memberi efek stretch keatas dan kebawah pada elemen sebesar 40% dari ukuran semula.
+---
+.stretch-x-xs - Memberi efek stretch kekiri dan kekanan pada elemen sebesar 10% dari ukuran semula.
+.stretch-x-sm - Memberi efek stretch kekiri dan kekanan pada elemen sebesar 20% dari ukuran semula.
+.stretch-x-md - Memberi efek stretch kekiri dan kekanan pada elemen sebesar 30% dari ukuran semula.
+.stretch-x-lg - Memberi efek stretch kekiri dan kekanan pada elemen sebesar 40% dari ukuran semula.
+---
+.stretch-none - Menghilangkan efek stretch pada elemen.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<button class="button margin-right-30">original</button>
+<button class="button stretch-x-md">.stretch-x-md</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

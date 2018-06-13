@@ -1,0 +1,17 @@
+# Image
+
+Secara default, komponen <span class="text-rose">img</span> ditampilkan sesuai dengan ukuran aslinya. Misalnya, image.jpg dengan ukuran asli 300x300 akan ditampilkan pada halaman web dengan ukuran yang sama yaitu 300px x 300px. Masalah akan muncul ketika <span class="text-rose">img</span> ditampilkan pada layar mobile, yaitu <span class="text-rose">img</span> terlihat terlalu besar melebihi ukuran parent containernya.
+
+Solusi untuk masalah tersebut adalah, atur lebar <span class="text-rose">img</span> menjadi 100%. Lebar <span class="text-rose">img</span> akan menjadi sama dengan parent containernya, sehingga ketika <span class="text-rose">img</span> ditampilkan pada layar mobile, ukurannya akan menyesuaikan lebar parentnya. Memastikan <span class="text-rose">img</span> nyaman dilihat karena ukurannya yang responsif.
+
+{% capture option %}
+.img-responsive - mengatur lebar img agar menyesuaikan lebar parent containernya.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<img alt="Technoart guide" src="{{ site.baseurl }}/assets/img/tom-barrett-525188-unsplash.jpg" class="img-responsive">
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

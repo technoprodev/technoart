@@ -1,0 +1,264 @@
+.wrapper,
+.wrapper-boxed {
+  position: relative;
+  min-height: 100vh;
+}
+.wrapper-boxed {
+  width: 88%;
+  margin-right: auto;
+  margin-left: auto;
+  color: map-get(map-get($color-grayscale, "est"), "text-gray");
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper-boxed .container{
+    width: 680px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper-boxed .container{
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper-boxed .container{
+    width: 1100px;
+  }
+}
+
+.header {
+  position: relative;
+  @include clearfix();
+}
+.header .container {
+  position: relative;
+}
+.header-right-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.header-right-bottom > .menu-x {
+  float: right;
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+}
+
+.header-left {
+  position: absolute;
+  width: 240px;
+  height: 100%;
+}
+.header-right  {
+  margin-left: 240px;
+}
+
+
+.has-sidebar-left,
+.has-sidebar-right {
+  position: relative;
+  transition: margin .2s ease-out, background-image .2s ease-out;
+}
+.sidebar-left,
+.sidebar-right {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 240px;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: map-get(map-get($color-grayscale, "est"), "text-light");
+  transition: left .2s ease-out, right .2s ease-out;
+}
+.sidebar-left {
+  left: 0;
+}
+.sidebar-right {
+  right: 0;
+}
+.hide-sidebar-left > .sidebar-left {
+  left: -240px;
+}
+.hide-sidebar-right > .sidebar-right {
+  right: -240px;
+}
+.sidebar-left:hover,
+.sidebar-right:hover {
+  overflow-y: auto;
+}
+.has-sidebar-left:not(.hide-sidebar-left) > .page-wrapper {
+  margin-left: 240px;
+}
+.has-sidebar-right:not(.hide-sidebar-right) > .page-wrapper {
+  margin-right: 240px;
+}
+
+.sidebar-left-hide-default {
+  margin-left: -240px;
+}
+.sidebar-right-hide-default {
+  margin-right: -240px;
+}
+
+@media (max-width: 767px) {
+  .sidebar-left-hide-default {
+    margin-left: 0;
+  }
+  .has-sidebar-left:not(.hide-sidebar-left) > .page-wrapper {
+    margin-left: 0;
+  }
+  .has-sidebar-right:not(.hide-sidebar-right) > .page-wrapper {
+    margin-right: 0;
+  }
+
+  .sidebar-left {
+    left: -240px;
+  }
+
+  .sidebar-left-hide-default > .sidebar-left {
+    left: 0;
+  }
+  .sidebar-left-hide-default::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=");
+    background-repeat: repeat;
+  }
+
+  .sidebar-right {
+    right: -240px;
+  }
+
+  .sidebar-right-hide-default > .sidebar-right {
+    right: 0;
+  }
+  .sidebar-right-hide-default::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=");
+    background-repeat: repeat;
+  }
+}
+
+[data-toggle="sidebar-left"],
+[data-toggle="sidebar-right"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+.footer-fixed {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.has-sidebar-left .footer-fixed {
+  left: 231px;
+}
+.has-sidebar-right .footer-fixed {
+  right: 231px;
+}
+@media (max-width: 767px) {
+  .has-sidebar-left .footer-fixed {
+    left: 0;
+  }
+  .has-sidebar-right .footer-fixed {
+    right: 0;
+  }
+}
+
+// utility
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.fixed {
+  position: fixed;
+}
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+}
+.scroll-y {
+  overflow-y: auto;
+}
+.scroll-x {
+  overflow-x: auto;
+}
+.hover-scroll-y,
+.hover-scroll-x {
+  overflow-y: hidden;
+}
+.hover-scroll-y:hover {
+  overflow-y: auto;
+}
+.hover-scroll-x:hover {
+  overflow-x: auto;
+}
+.fullscreen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}

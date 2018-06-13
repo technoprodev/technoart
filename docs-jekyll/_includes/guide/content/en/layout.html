@@ -1,0 +1,17 @@
+# Layout
+
+Description.
+
+{% capture option %}
+.wrapper - Pembungkus semua elemen.
+.wrapper-boxed - Pembungkus semua elemen dengan boxed layout.
+.container - Pembungkus semua elemen dengan boxed layout.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div>Example</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

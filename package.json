@@ -1,0 +1,160 @@
+{
+  "name": "technoart",
+  "description": "No more custom CSS - All in one CSS framework for developing clean, professional & responsive web app.",
+  "version": "0.0.9",
+  "keywords": [
+    "css",
+    "sass",
+    "js",
+    "all-in-one",
+    "framework",
+    "clean",
+    "professional",
+    "responsive",
+    "web",
+    "app",
+    "simple",
+    "reliable",
+    "no-dependencies"
+  ],
+  "homepage": "https://technoartcss.com",
+  "author": "Fandy Pradana (https://prafandy.com)",
+  "contributors": [
+    "Fandy Pradana (https://prafandy.com)"
+  ],
+  "scripts": {
+    "css": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
+    "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"src/scss/**/*.scss\"",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/technoart.scss dist/css/technoart.css",
+    "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/technoart.min.css dist/css/technoart.css",
+    "js": "npm-run-all --parallel js-lint js-compile* --sequential js-minify",
+    "js-lint": "eslint src/js test build/",
+    "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
+    "js-compile-components": "cross-env PLUGINS=true babel src/js/ --out-dir dist/js/components/ --source-maps",
+    "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/technoart.js.map,includeSources,url=technoart.min.js.map\" --output dist/js/technoart.min.js dist/js/technoart.js",
+    "docs": "npm-run-all docs-js docs-compile docs-lint",
+    "docs-js": "npm-run-all --parallel docs-js-lint docs-js-minify",
+    "docs-js-lint": "eslint docs-jekyll/_assets/js/ docs-jekyll/ sw.js",
+    "docs-js-minify": "uglifyjs --mangle --comments \"/^!/\" --output docs-jekyll/_assets/js/docs.min.js \"docs-jekyll/_assets/js/src/*.js\"",
+    "docs-compile": "bundle exec jekyll build",
+    "postdocs-compile": "node build/workbox.js",
+    "docs-lint": "htmllint --rc build/.htmllintrc \"docs/**/*.html\" \"test/**/*.html\"",
+    "watch": "npm-run-all --parallel watch-css watch-js",
+    "watch-css": "nodemon --ignore src/js/ --ignore dist/ -e scss -x \"npm run css-compile css-prefix\"",
+    "watch-js": "nodemon --ignore src/scss/ --ignore dist/ -e js -x \"npm run --parallel js-compile*\"",
+    "docs-serve": "bundle exec jekyll serve",
+    "test": "npm-run-all dist --parallel test-js docs bundlesize",
+    "test-js": "karma start test/karma.conf.js",
+    "bundlesize": "bundlesize",
+    "dist": "npm-run-all --parallel css js"
+  },
+  "style": "dist/css/technoart.css",
+  "sass": "src/scss/technoart.scss",
+  "main": "dist/js/technoart",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technoprodev/technoart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/technoprodev/technoart/issues"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "jquery": "1.9.1 - 3"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.44",
+    "@babel/core": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "autoprefixer": "^8.3.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "bundlesize": "^0.17.0",
+    "clean-css-cli": "^4.1.11",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-compat": "^2.2.0",
+    "glob": "^7.1.2",
+    "htmllint-cli": "^0.0.6",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-detect-browsers": "^2.3.2",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-qunit": "^1.2.1",
+    "node-sass": "^4.8.3",
+    "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
+    "postcss-cli": "^5.0.0",
+    "qunitjs": "^2.4.1",
+    "rollup": "^0.58.0",
+    "rollup-plugin-babel": "4.0.0-beta.4",
+    "shelljs": "^0.8.1",
+    "shx": "^0.2.2",
+    "stylelint": "^9.2.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-scss": "^3.0.0",
+    "uglify-js": "^3.3.21",
+    "workbox-build": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "dist/",
+    "js/{src,dist}/",
+    "scss/"
+  ],
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/css/technoart.css",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./dist/css/technoart.min.css",
+      "maxSize": "21 kB"
+    },
+    {
+      "path": "./dist/js/technoart.js",
+      "maxSize": "20 kB"
+    },
+    {
+      "path": "./dist/js/technoart.min.js",
+      "maxSize": "15 kB"
+    }
+  ],
+  "jspm": {
+    "registry": "npm",
+    "main": "js/technoart",
+    "directories": {
+      "lib": "dist"
+    },
+    "shim": {
+      "js/technoart": {
+        "deps": [
+          "jquery"
+        ],
+        "exports": "$"
+      }
+    },
+    "dependencies": {},
+    "peerDependencies": {
+      "jquery": "1.9.1 - 3"
+    }
+  }
+}

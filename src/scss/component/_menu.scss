@@ -1,0 +1,343 @@
+// stylelint-disable no-duplicate-selectors
+
+// menu x
+.menu-x {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 19px;
+  list-style: none;
+}
+.menu-x {
+  @include clearfix();
+}
+.menu-x > li {
+  float: left;
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+}
+.menu-x ul {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+.menu-x a {
+  display: block;
+  padding: 5px 20px;
+  color: inherit;
+  cursor: pointer;
+}
+.menu-x a:hover,
+.menu-x a:focus {
+  text-decoration: none;
+}
+.menu-x > li > a {
+  padding: 10px 15px;
+}
+
+//menu x show on hover
+.menu-x li:hover > ul,
+.menu-x li:hover > .megamenu-content {
+  display: block;
+}
+
+//menu x child position
+.menu-x li {
+  position: relative;
+}
+.megamenu-parent {
+  position: relative;
+}
+.menu-x .megamenu {
+  position: static;
+}
+.menu-x ul,
+.menu-x .megamenu-content {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .08);
+}
+.menu-x ul {
+  top: 0;
+  left: 100%;
+  min-width: 200px;
+}
+.menu-x > li > ul {
+  top: 100%;
+  left: 0;
+}
+.menu-x > .align-right ul {
+  right: 100%;
+  left: auto;
+}
+.menu-x > .align-right > ul {
+  right: 0;
+  left: auto;
+}
+.menu-x > .megamenu > .megamenu-content {
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+//menu x border
+.menu-x.menu-border > li + li > a {
+  border-left: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+.menu-x.submenu-border > li li + li > a {
+  border-top: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+
+
+// menu y
+.menu-y {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 19px;
+  list-style: none;
+}
+.menu-y ul {
+  display: none;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.menu-y a {
+  display: block;
+  padding: 5px 20px;
+  color: inherit;
+  cursor: pointer;
+}
+.menu-y a:hover,
+.menu-y a:focus {
+  text-decoration: none;
+}
+.menu-y > li > a {
+  padding: 5px 20px;
+}
+
+// menu y show on click
+.menu-y .open > ul {
+  display: block;
+}
+
+// menu y child position
+.menu-y > li > ul > li > a {
+  padding-left: 35px;
+}
+.menu-y > li > ul > li > ul > li > a {
+  padding-left: 50px;
+}
+.menu-y > li > ul > li > ul > li > ul > li > a {
+  padding-left: 65px;
+}
+.menu-y > li > ul > li > ul > li > ul > li > ul > li > a {
+  padding-left: 80px;
+}
+
+//menu y border
+.menu-y.menu-border > li + li > a {
+  border-top: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+.menu-y.submenu-border > li li > a {
+  border-top: 1px solid map-get(map-get($color-grayscale, "er"), "border-light");
+}
+
+
+// menu x & y has submenu
+.menu-x .has-submenu > a,
+.menu-y .has-submenu > a {
+  position: relative;
+}
+.menu-x > .has-submenu > a {
+  padding-right: 35px;
+}
+.menu-x .has-submenu > a::after,
+.menu-y .has-submenu > a::after {
+  position: absolute;
+  top: auto;
+  right: 10px;
+  bottom: auto;
+  left: 0;
+  line-height: inherit;
+  text-align: right;
+}
+.menu-x .has-submenu > a::after {
+  content: "►" !important;
+}
+.menu-x > .align-right .has-submenu > a::after {
+  content: "◄" !important;
+}
+.menu-x > .has-submenu > a::after,
+.menu-y .has-submenu > a::after {
+  content: "▼" !important;
+}
+
+// menu size
+.menu-space-y-5 > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.menu-space-y-10 > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.menu-space-y-15 > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.menu-space-y-20 > li > a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.menu-space-x-20 > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.menu-space-x-25 > li > a {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.menu-space-x-30 > li > a {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.menu-space-x-20.menu-x > .has-submenu > a {
+  padding-right: 40px;
+}
+.menu-space-x-25.menu-x > .has-submenu > a {
+  padding-right: 45px;
+}
+.menu-space-x-30.menu-x > .has-submenu > a {
+  padding-right: 50px;
+}
+.menu-space-x-20.menu-x > .has-submenu > a::after {
+  right: 15px;
+}
+.menu-space-x-25.menu-x > .has-submenu > a::after {
+  right: 20px;
+}
+.menu-space-x-30.menu-x > .has-submenu > a::after {
+  right: 25px;
+}
+.submenu-space-y-5 > li li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.submenu-space-y-10 > li li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.submenu-space-y-15 > li li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.submenu-space-x-20 > li li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.submenu-space-x-25 > li li > a {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.submenu-space-x-30 > li li > a {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+// submenu font size
+.submenu-fs-13 > li li > a {
+  font-size: 13px;
+  line-height: 19px;
+}
+.submenu-fs-14 > li li > a {
+  font-size: 14px;
+  line-height: 20px;
+}
+.submenu-fs-15 > li li > a {
+  font-size: 15px;
+  line-height: 21px;
+}
+.submenu-fs-17 > li li > a {
+  font-size: 17px;
+  line-height: 23px;
+}
+.submenu-fs-18 > li li > a {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+// menu active/hover with bold
+.menu-active-bold > .active > a,
+.submenu-active-bold > li .active > a {
+  font-weight: bold;
+}
+
+// menu active/hover with border
+.menu-x.menu-active-border > .active > a,
+.menu-x.menu-hover-border > li > a:hover {
+  border-bottom: 3px solid map-get(map-get($color-grayscale, ""), "border-light");
+}
+.menu-y.menu-active-border > .active > a,
+.menu-y.menu-hover-border > li > a:hover {
+  border-right: 3px solid map-get(map-get($color-grayscale, ""), "border-light");
+}
+@each $name, $values in $color-grayscale {
+  .menu-x.menu-active-border-light#{$name} > .active > a,
+  .menu-x.menu-hover-border-light#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border-light");
+  }
+  .menu-x.menu-active-border-gray#{$name} > .active > a,
+  .menu-x.menu-hover-border-gray#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border-gray");
+  }
+  .menu-x.menu-active-border-dark#{$name} > .active > a,
+  .menu-x.menu-hover-border-dark#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border-dark");
+  }
+
+  .menu-y.menu-active-border-light#{$name} > .active > a,
+  .menu-y.menu-hover-border-light#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border-light");
+  }
+  .menu-y.menu-active-border-gray#{$name} > .active > a,
+  .menu-y.menu-hover-border-gray#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border-gray");
+  }
+  .menu-y.menu-active-border-dark#{$name} > .active > a,
+  .menu-y.menu-hover-border-dark#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border-dark");
+  }
+}
+@each $name, $values in $color {
+  .menu-x.menu-active-border-light-#{$name} > .active > a,
+  .menu-x.menu-hover-border-light-#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border-light");
+  }
+  .menu-x.menu-active-border-#{$name} > .active > a,
+  .menu-x.menu-hover-border-#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border");
+  }
+  .menu-x.menu-active-border-dark-#{$name} > .active > a,
+  .menu-x.menu-hover-border-dark-#{$name} > li > a:hover {
+    border-bottom: 3px solid map-get($values, "border-dark");
+  }
+
+  .menu-y.menu-active-border-light-#{$name} > .active > a,
+  .menu-y.menu-hover-border-light-#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border-light");
+  }
+  .menu-y.menu-active-border-#{$name} > .active > a,
+  .menu-y.menu-hover-border-#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border");
+  }
+  .menu-y.menu-active-border-dark-#{$name} > .active > a,
+  .menu-y.menu-hover-border-dark-#{$name} > li > a:hover {
+    border-right: 3px solid map-get($values, "border-dark");
+  }
+}

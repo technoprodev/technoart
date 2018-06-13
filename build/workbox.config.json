@@ -1,0 +1,8 @@
+{
+  "globDirectory": "./",
+  "globPatterns": [
+    "docs/**/*.{html,css,js,json,png,jpg,svg}"
+  ],
+  "swSrc": "./sw.js",
+  "swDest": "./docs/sw.js"
+}

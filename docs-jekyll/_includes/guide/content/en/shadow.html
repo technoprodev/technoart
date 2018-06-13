@@ -1,0 +1,41 @@
+# Shadow
+
+Description.
+
+{% capture option %}
+.shadow - memberi elemen efek shadow.
+.shadow-top-right - memberi elemen efek shadow pada bagian atas ke arah kanan.
+.shadow-top-left - memberi elemen efek shadow pada bagian atas ke arah kiri.
+.shadow-bottom-right - memberi elemen efek shadow pada bagian bawah ke arah kanan.
+.shadow-bottom-left - memberi elemen efek shadow pada bagian bawah ke arah kiri.
+.shadow-none - menghilangkan efek shadow pada elemen.
+.m-shadow - memberi elemen efek shadow pada layar mobile.
+.shadow-top-right - memberi elemen efek shadow pada bagian atas ke arah kanan pada layar mobile.
+.shadow-top-left - memberi elemen efek shadow pada bagian atas ke arah kiri pada layar mobile.
+.shadow-bottom-right - memberi elemen efek shadow pada bagian bawah ke arah kanan pada layar mobile.
+.shadow-bottom-left - memberi elemen efek shadow pada bagian bawah ke arah kiri pada layar mobile.
+.m-shadow-none - menghilangkan efek shadow pada elemen pada layar mobile.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="shadow padding-30 margin-bottom-30 border">.shadow</div>
+<div class="shadow-top-right padding-30 margin-bottom-30 border">.shadow-top-right</div>
+<div class="shadow-top-left padding-30 margin-bottom-30 border">.shadow-top-left</div>
+<div class="shadow-bottom-right padding-30 margin-bottom-30 border">.shadow-bottom-right</div>
+<div class="shadow-bottom-left padding-30 margin-bottom-30 border">.shadow-bottom-left</div>
+<div class="shadow-none padding-30 margin-bottom-30 border">.shadow-none</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="m-shadow padding-30 margin-bottom-30 border">.m-shadow</div>
+<div class="m-shadow-top-right padding-30 margin-bottom-30 border">.m-shadow-top-right</div>
+<div class="m-shadow-top-left padding-30 margin-bottom-30 border">.m-shadow-top-left</div>
+<div class="m-shadow-bottom-right padding-30 margin-bottom-30 border">.m-shadow-bottom-right</div>
+<div class="m-shadow-bottom-left padding-30 margin-bottom-30 border">.m-shadow-bottom-left</div>
+<div class="m-shadow-none padding-30 margin-bottom-30 border">.m-shadow-none</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

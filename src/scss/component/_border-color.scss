@@ -1,0 +1,163 @@
+.hover-border-light,
+.hover-border-gray,
+.hover-border-dark,
+.hover-border-lighter,
+.hover-border-grayer,
+.hover-border-darker,
+.hover-border-lightest,
+.hover-border-grayest,
+.hover-border-darkest,
+.hover-border-light-red,
+.hover-border-red,
+.hover-border-dark-red,
+.hover-border-light-orange,
+.hover-border-orange,
+.hover-border-dark-orange,
+.hover-border-light-yellow,
+.hover-border-yellow,
+.hover-border-dark-yellow,
+.hover-border-light-chartreuse,
+.hover-border-chartreuse,
+.hover-border-dark-chartreuse,
+.hover-border-light-green,
+.hover-border-green,
+.hover-border-dark-green,
+.hover-border-light-spring,
+.hover-border-spring,
+.hover-border-dark-spring,
+.hover-border-light-cyan,
+.hover-border-cyan,
+.hover-border-dark-cyan,
+.hover-border-light-azure,
+.hover-border-azure,
+.hover-border-dark-azure,
+.hover-border-light-blue,
+.hover-border-blue,
+.hover-border-dark-blue,
+.hover-border-light-violet,
+.hover-border-violet,
+.hover-border-dark-violet,
+.hover-border-light-magenta,
+.hover-border-magenta,
+.hover-border-dark-magenta,
+.hover-border-light-rose,
+.hover-border-rose,
+.hover-border-dark-rose,
+.hover-border-transparent {
+  border: 1px solid transparent;
+}
+
+.border,
+.border-x,
+.border-y,
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
+  border-color: map-get(map-get($color-grayscale, ""), "border-light");
+  border-width: 1px;
+}
+
+@each $name, $values in $color-grayscale {
+  .border-light#{$name} {
+    border: 1px solid map-get($values, "border-light");
+  }
+  .border-gray#{$name} {
+    border: 1px solid map-get($values, "border-gray");
+  }
+  .border-dark#{$name} {
+    border: 1px solid map-get($values, "border-dark");
+  }
+}
+@each $name, $values in $color {
+  .border-light-#{$name} {
+    border: 1px solid map-get($values, "border-light");
+  }
+  .border-#{$name} {
+    border: 1px solid map-get($values, "border");
+  }
+  .border-dark-#{$name} {
+    border: 1px solid map-get($values, "border-dark");
+  }
+}
+.border-transparent {
+  border: 1px solid transparent;
+}
+
+@each $name, $values in $color-grayscale {
+  .hover-border-light#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border-light");
+  }
+  .hover-border-gray#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border-gray");
+  }
+  .hover-border-dark#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border-dark");
+  }
+}
+@each $name, $values in $color {
+  .hover-border-light-#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border-light");
+  }
+  .hover-border-#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border");
+  }
+  .hover-border-dark-#{$name}:hover {
+    // position: relative;
+    border: 1px solid map-get($values, "border-dark");
+  }
+}
+.hover-border-transparent:hover {
+  // position: relative;
+  border-color: transparent;
+}
+
+.border-none,
+.border-x,
+.border-y,
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
+  border-style: none !important;
+}
+.border {
+  border-style: solid !important;
+}
+.border-x {
+  border-top-style: solid !important;
+  border-bottom-style: solid !important;
+}
+.border-y {
+  border-right-style: solid !important;
+  border-left-style: solid !important;
+}
+.border-top {
+  border-top-style: solid !important;
+}
+.border-bottom {
+  border-bottom-style: solid !important;
+}
+.border-left {
+  border-left-style: solid !important;
+}
+.border-right {
+  border-right-style: solid !important;
+}
+
+.border-thin {
+  border-width: 2px !important;
+}
+.border-thick {
+  border-width: 5px !important;
+}
+@media (max-width: 767px) {
+  .m-border-none {
+    border-style: none !important;
+  }
+}

@@ -1,0 +1,356 @@
+p,
+pre,
+code {
+  max-width: 100%;
+  margin: 0 0 15px;
+  font-weight: inherit;
+  word-break: normal;
+  word-wrap: break-word;
+}
+a {
+  color: map-get(map-get($color, "azure"), "text");
+  text-decoration: none;
+}
+.a-nocolor {
+  color: inherit;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid map-get(map-get($color-grayscale, ""), "border-light");
+}
+
+// START @LIST
+ul,
+ol {
+  padding-left: 30px;
+  margin: 0 0 15px;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline > li {
+  display: inline-block;
+}
+// END @LIST
+
+// START @FONT FAMILY
+.ff-default {
+  font-family: Arial, sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Taviraj:300,400,700,800");
+.ff-taviraj {
+  font-family: Taviraj, serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800");
+.ff-open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+// END @FONT FAMILY
+
+// START @HEADING
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  max-width: 100%;
+  font-weight: bold;
+  word-break: normal;
+  word-wrap: break-word;
+}
+
+h1,
+.h1 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 32px;
+  line-height: 38px;
+}
+h2,
+.h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  line-height: 30px;
+}
+h3,
+.h3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  line-height: 26px;
+}
+h4,
+.h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 22px;
+}
+h5,
+.h5 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 20px;
+}
+h6,
+.h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+@media (max-width: 767px) {
+  .m-h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .m-h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .m-h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .m-h4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .m-h5 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .m-h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    line-height: 19px;
+  }
+}
+// END @HEADING
+
+// START @FONT SIZE
+@for $i from 8 through 30 {
+  .fs-#{$i} {
+    font-size: #{$i}px;
+    line-height: #{$i + 6}px;
+  }
+}
+
+@for $i from 4 through 10 {
+  .fs-#{$i * 10} {
+    font-size: #{$i * 10}px;
+    line-height: #{$i * 10 + 6}px;
+  }
+}
+
+@for $i from 3 through 6 {
+  .fs-#{$i * 50} {
+    font-size: #{$i * 50}px;
+    line-height: #{$i * 50 + 6}px;
+  }
+}
+
+@media (max-width: 767px) {
+  @for $i from 8 through 30 {
+    .m-fs-#{$i} {
+      font-size: #{$i}px;
+      line-height: #{$i + 6}px;
+    }
+  }
+
+  @for $i from 4 through 10 {
+    .m-fs-#{$i * 10} {
+      font-size: #{$i * 10}px;
+      line-height: #{$i * 10 + 6}px;
+    }
+  }
+
+  @for $i from 3 through 6 {
+    .m-fs-#{$i * 50} {
+      font-size: #{$i * 50}px;
+      line-height: #{$i * 50 + 6}px;
+    }
+  }
+}
+// END @FONT SIZE
+
+// START @TEXT
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+.text-top {
+  vertical-align: top;
+}
+.text-middle {
+  vertical-align: middle;
+}
+.text-bottom {
+  vertical-align: bottom;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+.fw-normal {
+  font-weight: normal;
+}
+.fw-bold {
+  font-weight: bold;
+}
+.fw-extra-bold {
+  font-weight: 800;
+}
+
+.fs-italic {
+  font-style: italic;
+}
+.fs-normal {
+  font-style: normal;
+}
+
+@media (max-width: 767px) {
+  .m-text-left {
+    text-align: left;
+  }
+  .m-text-center {
+    text-align: center;
+  }
+  .m-text-right {
+    text-align: right;
+  }
+  .m-text-justify {
+    text-align: justify;
+  }
+
+  .m-text-top {
+    vertical-align: top;
+  }
+  .m-text-middle {
+    vertical-align: middle;
+  }
+  .m-text-bottom {
+    vertical-align: bottom;
+  }
+
+  .m-text-uppercase {
+    text-transform: uppercase;
+  }
+
+  .m-text-lowercase {
+    text-transform: lowercase;
+  }
+
+  .m-text-capitalize {
+    text-transform: capitalize;
+  }
+
+  .m-fw-light {
+    font-weight: 300;
+  }
+  .m-fw-normal {
+    font-weight: normal;
+  }
+  .m-fw-bold {
+    font-weight: bold;
+  }
+  .m-fw-extra-bold {
+    font-weight: 800;
+  }
+
+  .m-fs-italic {
+    font-style: italic;
+  }
+  .m-fs-normal {
+    font-style: normal;
+  }
+}
+
+.text-wrap {
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+// END @TEXT
+
+small {
+  font-size: 85%;
+  font-weight: 400;
+}
+mark {
+  padding: 2px 5px;
+  color: map-get(map-get($color-grayscale, ""), "text-dark");
+  background-color: map-get(map-get($color, "yellow"), "text-light");
+}
+.hover-pointer {
+  cursor: pointer;
+}
+.lh-default {
+  line-height: 1;
+}

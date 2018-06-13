@@ -1,0 +1,59 @@
+# Button
+
+Description.
+
+{% capture option %}
+.button - kelas dasar dari komponen button.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<a class="button" href="#" role="button">Anchor</a>
+<button class="button" type="submit">Button</button>
+<input class="button" value="Input button" type="button">
+<input class="button" value="Input submit" type="submit">
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Button Size
+
+Description.
+
+{% capture option %}
+.button-xs - make extra small button.
+.button-sm - make small button.
+.button-md - make medium button.
+.button-lg - make large button.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<button class="button button-xs" type="submit">Button</button>
+<button class="button button-sm" type="submit">Button</button>
+<button class="button button-md" type="submit">Button</button>
+<button class="button button-lg" type="submit">Button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Button State
+
+Description.
+
+{% capture option %}
+[disabled] - make button disabled.
+.disabled - give button disabled look.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<button class="button bg-rose" disabled type="submit">[disabled] Button</button>
+<button class="button disabled" type="submit">.disabled Button</button>
+<button class="button" type="submit">Normal Button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

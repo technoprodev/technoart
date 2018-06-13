@@ -1,0 +1,12 @@
+.fixed-on-scroll {
+  transition: position 1s ease-out;
+}
+.fixed-attached {
+  position: fixed;
+  top: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+.fixed-attached:hover {
+  overflow-y: auto;
+}

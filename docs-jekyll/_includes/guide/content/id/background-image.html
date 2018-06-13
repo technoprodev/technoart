@@ -1,0 +1,42 @@
+# Background Image
+
+Sebenarnya, kita bisa menambahkan background image pada elemen dengan style. Namun, jika ingin menambah background image secara multiple, kita perlu menambah banyak img source pada satu style elemen. Contoh:
+
+<span class="text-rose">div[style="background-image: url('image.com/source1.png', 'image.com/source2.png', 'image.com/source3.png')"]</span>
+
+Jika karena suatu alasan, Anda ingin memisahkan masing-masing image source url, Anda dapat menggunakan komponen ini. Sehingga kode Anda sekarang menjadi:
+
+<span class="text-rose">div.bg-img[style="background-image: url('image.com/source1.png')"]</span>
+
+<span class="text-rose">div.bg-img[style="background-image: url('image.com/source2.png')"]</span>
+
+<span class="text-rose">div.bg-img[style="background-image: url('image.com/source3.png')"]</span>
+
+<span class="text-rose">.bg-img</span> juga membantu memposisikan background image Anda dengan tepat.
+
+{% capture option %}
+.has-bg-img - Tambahkan kelas ini pada elemen yang ingin diberi background image.
+.bg-img - Buat elemen baru dengan inline style background-img dan tambahkan kelas ini.
+--- - ---
+.bg-img-repeat - Tambahkan kelas ini pada .bg-img jika background image ingin ditampilkan secara berulang.
+.bg-img-fixed - Tambahkan kelas ini pada .bg-img jika background image ingin ditampilkan secara fixed.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="has-bg-img text-lightest fs-18 text-center padding-y-50">
+  <div class="bg-img" style="background-image: url('{{ site.baseurl }}/assets/img/tom-barrett-525188-unsplash.jpg')"></div>
+  Default .bg-img
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="has-bg-img fs-18 text-center padding-y-50">
+  <div class="bg-img bg-img-repeat bg-img-fixed" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAArlBMVEX////fmDiyei36+vqoflTlplTalDfdlzinciq/gjBcOBqGY0r29vbSkDfXkzd5ZFONa1Du7ezOx8KveDKCWiy5gDR/a1peORuMXSjJijbpnjmfbjEfHSCZi39VNBeniGapfURlSzSpmot9UCTTzspUNhyQgHShbit+UyNOLhWHWSd9XEOJdGVyUzltTTN2VDiZcU16X0qik4l0WENuRSAAAABbPiSec0fSnFnloUV+Uc8HAAABlklEQVQ4ja2T23aCMBBFSSlgAgQVuanEO4goiFrU//+xTsBQxPrS1fNCMmczmUwSSfpfybJhyPJbd70M926xD5frX5lhVBS63u/relFEwxd7cDqn3ObS9fR8GnT8/Y9fE/vBs39IUyCEYHJ4IsIsz9PjZ6NjmudZ2KqvzPLrTWnpds2zsqnUcLNsrtxRS3dlnmWu0SQoRwrqSBmVTYqQeHbXR8j2yKMK2SKXACHcw8KrhsGFWHVH5UUF9L56SFMpVbVqyIFFDRgluWCV/0bBBoTyDCq+kNIQgBebGtJMFaHxGCG1msSeAGAJsnJMCmFEHYcicKnprIhYQrYY8XwnAH88mU4nkEMLHN8j7FGkFAJAdiav34zj+ruDEBPNHm4YYVta7ZDXAKJbCG1EowxYg/lqu0uqDyFLtFoaJizxaRugPoRa1ypiySr+aCleJSxqXxgrITbfZi3NtEliPV8pK9liQWgm3nZ8IKKNjwM4CDiOAPubqOPzSt2R7eAgwI49cl+vvVQ9nNl8Es9nbx5OxRigt+4f9Q2qxCgyGmOsfwAAAABJRU5ErkJggg==')"></div>
+  <span class="bg-light-orange border-orange rounded padding-5">.bg-img with .bg-img-repeat and .bg-img-fixed</span>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

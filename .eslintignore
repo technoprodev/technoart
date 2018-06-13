@@ -1,0 +1,5 @@
+**/*.min.js
+**/dist/
+**/vendor/
+/docs/
+/package.js

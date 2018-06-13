@@ -1,0 +1,77 @@
+.has-stack-content {
+  position: relative;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.main-content {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1px 15px;
+  opacity: 1;
+  transition: all .3s ease-in-out 0s;
+}
+.extra-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1px 15px;
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+.has-stack-content.zoom-in > .extra-content {
+  transform: scale(1.5, 1.5);
+}
+.has-stack-content.zoom-out > .extra-content {
+  transform: scale(.5, .5);
+}
+.has-stack-content.from-top > .extra-content {
+  top: -100%;
+  bottom: 100%;
+}
+.has-stack-content.from-right > .extra-content {
+  right: -100%;
+  left: 100%;
+}
+.has-stack-content.from-bottom > .extra-content {
+  top: 100%;
+  bottom: -100%;
+}
+.has-stack-content.from-left > .extra-content {
+  right: 100%;
+  left: -100%;
+}
+.has-stack-content.main-gone:hover > .main-content {
+  opacity: 0;
+}
+.has-stack-content.main-gone.from-top:hover > .main-content {
+  top: 100%;
+  bottom: -100%;
+}
+.has-stack-content.main-gone.from-left:hover > .main-content {
+  right: -100%;
+  left: 100%;
+}
+.has-stack-content.main-gone.from-right:hover > .main-content {
+  right: 100%;
+  left: -100%;
+}
+.has-stack-content.main-gone.from-bottom:hover > .main-content {
+  top: -100%;
+  bottom: 100%;
+}
+.has-stack-content:hover > .extra-content {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1, 1);
+}

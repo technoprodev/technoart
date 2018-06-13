@@ -1,0 +1,22 @@
+{% assign options = include.content | split: "
+" | shift %}
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for string in options %}
+      {% assign option = string | split: " - " %}
+      {% assign name = option[0] %}
+      {% assign description = option[1] %}
+      <tr>
+        <td><span class="text-rose">{{ name }}</span></td>
+        <td>{{ description }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

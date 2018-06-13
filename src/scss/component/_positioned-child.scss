@@ -1,0 +1,168 @@
+.has-positioned-child {
+  position: relative;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top-left-upside {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+}
+.top-left-outside {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+.top-center {
+  position: absolute;
+  top: 0;
+  right: 40%;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+}
+.top-center-upside {
+  position: absolute;
+  right: 40%;
+  bottom: 100%;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+}
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.top-right-upside {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+}
+.top-right-outside {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.middle-left {
+  position: absolute;
+  top: 40%;
+  bottom: 40%;
+  left: 0;
+  height: 20%;
+  vertical-align: middle;
+}
+.middle-center {
+  position: absolute;
+  top: 40%;
+  right: 40%;
+  bottom: 40%;
+  left: 40%;
+  width: 20%;
+  height: 20%;
+  text-align: center;
+  vertical-align: middle;
+}
+.middle-right {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  bottom: 40%;
+  height: 20%;
+  vertical-align: middle;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.bottom-left-downside {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.bottom-left-outside {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+}
+.bottom-center {
+  position: absolute;
+  right: 40%;
+  bottom: 0;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+}
+.bottom-center-downside {
+  position: absolute;
+  top: 100%;
+  right: 40%;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+}
+.bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.bottom-right-downside {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+.bottom-right-outside {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+}
+
+.show-child-on-hover .top-left,
+.show-child-on-hover .top-left-upside,
+.show-child-on-hover .top-left-outside,
+.show-child-on-hover .top-center,
+.show-child-on-hover .top-center-upside,
+.show-child-on-hover .top-right,
+.show-child-on-hover .top-right-upside,
+.show-child-on-hover .top-right-outside,
+.show-child-on-hover .middle-left,
+.show-child-on-hover .middle-center,
+.show-child-on-hover .middle-right,
+.show-child-on-hover .bottom-left,
+.show-child-on-hover .bottom-left-downside,
+.show-child-on-hover .bottom-left-outside,
+.show-child-on-hover .bottom-center,
+.show-child-on-hover .bottom-center-downside,
+.show-child-on-hover .bottom-right,
+.show-child-on-hover .bottom-right-downside,
+.show-child-on-hover .bottom-right-outside {
+  visibility: hidden;
+}
+.show-child-on-hover:hover .top-left,
+.show-child-on-hover:hover .top-left-upside,
+.show-child-on-hover:hover .top-left-outside,
+.show-child-on-hover:hover .top-center,
+.show-child-on-hover:hover .top-center-upside,
+.show-child-on-hover:hover .top-right,
+.show-child-on-hover:hover .top-right-upside,
+.show-child-on-hover:hover .top-right-outside,
+.show-child-on-hover:hover .middle-left,
+.show-child-on-hover:hover .middle-center,
+.show-child-on-hover:hover .middle-right,
+.show-child-on-hover:hover .bottom-left,
+.show-child-on-hover:hover .bottom-left-downside,
+.show-child-on-hover:hover .bottom-left-outside,
+.show-child-on-hover:hover .bottom-center,
+.show-child-on-hover:hover .bottom-center-downside,
+.show-child-on-hover:hover .bottom-right,
+.show-child-on-hover:hover .bottom-right-downside,
+.show-child-on-hover:hover .bottom-right-outside {
+  visibility: visible;
+}

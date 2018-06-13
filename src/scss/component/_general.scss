@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 19px;
+  color: map-get(map-get($color-grayscale, "est"), "text-gray");
+  background-color: transparent;
+}
+
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+select,
+pre,
+code,
+ul,
+ol,
+li {
+  transition: background-color .1s ease-in-out, color .1s ease-in-out, border .1s ease-in-out, background-image .1s ease-in-out;
+}

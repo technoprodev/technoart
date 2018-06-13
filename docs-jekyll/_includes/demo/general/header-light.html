@@ -1,0 +1,30 @@
+<header class="header visible-sm-greater">
+  <div class="container clearfix">
+    <div class="pull-left padding-top-10">
+      <a href="{{ site.baseurl | alter_url }}/" class="a-nocolor">
+        <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" class="text-middle" style="width: auto; height: 38px;">
+        <span class="margin-left-5 fs-18 text-azure text-middle">Technoart</span>
+      </a>
+    </div>
+    <ul class="pull-right menu-x menu-space-y-20 fs-14
+      menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure
+      submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
+      {% include demo/general/menu-list.html %}
+    </ul>
+  </div>
+</header>
+
+<header class="header visible-sm-less shadow border-bottom">
+  <div class="padding-y-15 padding-x-20 fs-18 text-azure">
+    <a class="a-nocolor margin-right-5" data-toggle="sidebar-left">☰</a>
+    <span>Technoart
+      {% if page.group == 'guide' %}Technoart Definitive Guide{% endif %}
+      {% if page.group == 'demo' %}Technoart Demo{% endif %}
+      {% if page.group == 'gallery' %}Technoart Complete Gallery{% endif %}
+      {% if page.group == 'support' %}Support Technoart{% endif %}
+    </span>
+    <div class="pull-right">
+      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
+    </div>
+  </div>
+</header>

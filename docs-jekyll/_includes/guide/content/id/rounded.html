@@ -1,0 +1,46 @@
+# Rounded
+
+Description.
+
+{% capture option %}
+.rounded - membuat sudut element menjadi round sebesar 8px.
+.rounded-xs - membuat sudut element menjadi round sebesar 3px.
+.rounded-sm - membuat sudut element menjadi round sebesar 8px.
+.rounded-md - membuat sudut element menjadi round sebesar 13px.
+.rounded-lg - membuat sudut element menjadi round sebesar 18px.
+.circle - membuat sudut element menjadi bulatan.
+.square - membuat sudut element menjadi siku-siku.
+--- - ---
+.m-rounded - membuat sudut element menjadi round sebesar 8px pada layar mobile.
+.m-rounded-xs - membuat sudut element menjadi round sebesar 3px pada layar mobile.
+.m-rounded-sm - membuat sudut element menjadi round sebesar 8px pada layar mobile.
+.m-rounded-md - membuat sudut element menjadi round sebesar 13px pada layar mobile.
+.m-rounded-lg - membuat sudut element menjadi round sebesar 18px pada layar mobile.
+.m-circle - membuat sudut element menjadi bulatan pada layar mobile.
+.m-square - membuat sudut element menjadi siku-siku pada layar mobile.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="rounded border padding-20 margin-bottom-20">.rounded</div>
+<div class="rounded-xs border padding-20 margin-bottom-20">.rounded-xs</div>
+<div class="rounded-sm border padding-20 margin-bottom-20">.rounded-sm</div>
+<div class="rounded-md border padding-20 margin-bottom-20">.rounded-md</div>
+<div class="rounded-lg border padding-20 margin-bottom-20">.rounded-lg</div>
+<div class="circle border padding-20 margin-bottom-20">.circle</div>
+<div class="square border padding-20 margin-bottom-20">.square</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="m-rounded border padding-20 margin-bottom-20">.m-rounded</div>
+<div class="m-rounded-xs border padding-20 margin-bottom-20">.m-rounded-xs</div>
+<div class="m-rounded-sm border padding-20 margin-bottom-20">.m-rounded-sm</div>
+<div class="m-rounded-md border padding-20 margin-bottom-20">.m-rounded-md</div>
+<div class="m-rounded-lg border padding-20 margin-bottom-20">.m-rounded-lg</div>
+<div class="m-circle border padding-20 margin-bottom-20">.m-circle</div>
+<div class="m-square border padding-20 margin-bottom-20">.m-square</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

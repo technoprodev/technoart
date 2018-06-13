@@ -1,0 +1,29 @@
+{% assign options = include.content | split: "
+" | shift %}
+
+<div class="scroll-x margin-bottom-15">
+  <table class="table table-bordered table-nowrap margin-0">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for string in options %}
+        {% assign option = string | split: " - " %}
+        {% assign code = option[0] %}
+        {% assign td_class = option[1] %}
+        <tr>
+          <td class="{% if td_class %}{{ td_class }}{% endif %}"><div class="xxx">{{ code }}</div></td>
+          <td class="padding-0 has-positioned-child">
+            <div class="top-right fs-10 text-light-orange padding-x-10 padding-y-2 hover-pointer copy" title="Copy to clipboard">
+              Copy
+            </div>
+            <pre data-language="html" class="yyy margin-0 padding-10 scroll-x"></pre>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+.underline {
+  text-decoration: underline !important;
+}
+.hover-underline:hover {
+  text-decoration: underline !important;
+}
+.underline-none {
+  text-decoration: none !important;
+}
+.hover-underline-none:hover {
+  text-decoration: none !important;
+}
+
+@media (max-width: 767px) {
+  .m-underline {
+    text-decoration: underline !important;
+  }
+  .m-hover-underline:hover {
+    text-decoration: underline !important;
+  }
+  .m-underline-none {
+    text-decoration: none !important;
+  }
+  .m-hover-underline-none:hover {
+    text-decoration: none !important;
+  }
+}

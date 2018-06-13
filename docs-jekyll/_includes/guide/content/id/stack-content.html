@@ -1,0 +1,49 @@
+# Stack Content
+
+Description.
+
+{% capture option %}
+.has-stack-content - tambahkan kelas ini pada parent element.
+.main-content - tambahkan kelas ini pada elemen utama.
+.extra-content - tambahkan kelas ini pada elemen yang akan muncul ketika di hover.
+---
+.zoom-in - Extra element akan muncul ketika dihover dengan efek zoom in. Tambahkan kelas ini di parent
+.zoom-out - Extra element akan muncul ketika dihover dengan efek zoom out. Tambahkan kelas ini di parent
+.from-top - Extra element akan muncul dari atas ketika dihover. Tambahkan kelas ini di parent
+.from-right - Extra element akan muncul dari kanan ketika dihover. Tambahkan kelas ini di parent
+.from-bottom - Extra element akan muncul dari bawah ketika dihover. Tambahkan kelas ini di parent
+.from-left - Extra element akan muncul dari kiri ketika dihover. Tambahkan kelas ini di parent
+---
+.main-gone - Ketika elemen di hover, kelas ini membuat main-content akan menghilang seiring munculnya extra-content. Tambahkan kelas ini di parent. Kelas ini sifatnya opsional
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="has-stack-content zoom-in main-gone text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.zoom-in & .main-gone</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+<div class="has-stack-content zoom-out text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.zoom-out</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+<div class="has-stack-content from-top text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.from-top</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+<div class="has-stack-content from-right text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.from-right</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+<div class="has-stack-content from-bottom text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.from-bottom</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+<div class="has-stack-content from-left text-center margin-bottom-30">
+  <div class="main-content bg-azure padding-30">.from-left</div>
+  <div class="extra-content bg-red padding-30">Your smile makes me happy.</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

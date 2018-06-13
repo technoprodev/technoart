@@ -1,0 +1,26 @@
+# Fancy Corner
+
+Description.
+
+{% capture option %}
+.has-fancy-corner - Basic class of fancy corner.
+div.corner-light - Add it as a new child element. It will give lighter effect on corner element.
+div.corner-dark - Add it as a new child element. It will give darker effect on corner element.
+---
+.top-left - Kelas tambahan agar .corner-light atau .corner-darker muncul di pojok kiri atas.
+.top-right - Kelas tambahan agar .corner-light atau .corner-darker muncul di pojok kanan atas.
+.bottom-left - Kelas tambahan agar .corner-light atau .corner-darker muncul di pojok kiri bawah.
+.bottom-right - Kelas tambahan agar .corner-light atau .corner-darker muncul di pojok kanan bawah.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="has-fancy-corner bg-azure padding-30">
+  <div class="corner-light top-right"></div>
+  <div class="corner-dark bottom-left"></div>
+  Your smile makes me happy.
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

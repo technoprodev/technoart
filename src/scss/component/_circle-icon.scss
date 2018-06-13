@@ -1,0 +1,120 @@
+.circle-icon {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 33px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid map-get(map-get($color-grayscale, "est"), "border-gray");
+  border-radius: 50%;
+}
+.circle-icon::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  margin: auto;
+  line-height: inherit;
+}
+
+h1 .circle-icon,
+.h1 .circle-icon,
+.circle-icon.h1 {
+  width: 64px;
+  height: 64px;
+  line-height: 62px;
+}
+h2 .circle-icon,
+.h2 .circle-icon,
+.circle-icon.h2 {
+  width: 56px;
+  height: 56px;
+  line-height: 54px;
+}
+h3 .circle-icon,
+.h3 .circle-icon,
+.circle-icon.h3 {
+  width: 52px;
+  height: 52px;
+  line-height: 50px;
+}
+h4 .circle-icon,
+.h4 .circle-icon,
+.circle-icon.h4 {
+  width: 48px;
+  height: 48px;
+  line-height: 46px;
+}
+h5 .circle-icon,
+.h5 .circle-icon,
+.circle-icon.h5 {
+  width: 46px;
+  height: 46px;
+  line-height: 44px;
+}
+h6 .circle-icon,
+.h6 .circle-icon,
+.circle-icon.h6 {
+  width: 45px;
+  height: 45px;
+  line-height: 43px;
+}
+
+@for $i from 8 through 30 {
+  .fs-#{$i} .circle-icon,
+  .fs-#{$i}.circle-icon {
+    width: #{$i + 32}px;
+    height: #{$i + 32}px;
+    line-height: #{$i + 30}px;
+  }
+}
+
+@for $i from 4 through 10 {
+  .fs-#{$i * 10} .circle-icon,
+  .fs-#{$i * 10}.circle-icon {
+    width: #{$i * 10 + 42}px;
+    height: #{$i * 10 + 42}px;
+    line-height: #{$i * 10 + 40}px;
+  }
+}
+
+@for $i from 3 through 6 {
+  .fs-#{$i * 50} .circle-icon,
+  .fs-#{$i * 50}.circle-icon {
+    width: #{$i * 50 + 42}px;
+    height: #{$i * 50 + 42}px;
+    line-height: #{$i * 50 + 40}px;
+  }
+}
+
+@media (max-width: 767px) {
+  @for $i from 8 through 30 {
+    .m-fs-#{$i} .circle-icon,
+    .m-fs-#{$i}.circle-icon {
+      width: #{$i + 32}px;
+      height: #{$i + 32}px;
+      line-height: #{$i + 30}px;
+    }
+  }
+
+  @for $i from 4 through 10 {
+    .m-fs-#{$i * 10} .circle-icon,
+    .m-fs-#{$i * 10}.circle-icon {
+      width: #{$i * 10 + 42}px;
+      height: #{$i * 10 + 42}px;
+      line-height: #{$i * 10 + 40}px;
+    }
+  }
+
+  @for $i from 3 through 6 {
+    .m-fs-#{$i * 50} .circle-icon,
+    .m-fs-#{$i * 50}.circle-icon {
+      width: #{$i * 50 + 42}px;
+      height: #{$i * 50 + 42}px;
+      line-height: #{$i * 50 + 40}px;
+    }
+  }
+}

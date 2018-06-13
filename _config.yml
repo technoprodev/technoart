@@ -1,0 +1,79 @@
+source:          .
+destination:     ./docs
+collections_dir: ./docs-jekyll
+plugins_dir:     ./docs-jekyll/_plugins
+layouts_dir:     ./docs-jekyll/_layouts
+data_dir:        ./docs-jekyll/_data
+includes_dir:    ./docs-jekyll/_includes
+collections:
+  assets:
+    output:             true
+    permalink:          :collection/:path/
+  en:
+    output:             true
+    permalink:          :path/
+    relative_directory: _pages
+  id:
+    output:             true
+    permalink:          /:collection/:path/
+    relative_directory: _pages
+
+# Serving
+port: 4000
+host: 127.0.0.1
+url:  "https://technoartcss.com"
+
+# Handling Reading
+exclude:
+  - .git/
+  - .github/
+  - build/
+  - node_modules/
+  - nuget/
+  - src/
+  - test/
+  - vendor/
+  - CODE_OF_CONDUCT.md
+  - composer.json
+  - Gemfile
+  - Gemfile.lock
+  - package.js
+  - package.json
+  - package-lock.json
+  - README.md
+  - sache.json
+  - technoprodevconfig.yml
+
+# Plugins
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+# Outputting
+permalink: pretty
+
+# Custom variables
+title:       Technoart
+description: No more custom CSS - All in one CSS framework for developing clean, professional & responsive web app.
+authors:     Fandy Pradana
+keywords:    css, sass, js, all-in-one, framework, clean, professional, responsive, web, app, simple, reliable, no-dependencies
+version:     0.0.9
+
+languages:
+  en: English
+  id: Indonesia
+
+repo:      https://github.com/technoprodev/technoart
+instagram: technoart
+twitter:   technoart
+
+download:
+  source: https://github.com/technoprodev/technoart/archive/v0.0.9.zip"
+  dist:   https://github.com/technoprodev/technoart/releases/download/v0.0.9/technoart-0.0.9-dist.zip"
+
+cdn:
+  # See https://www.srihash.org for info on how to generate the hashes
+  css:      https://maxcdn.technoartcdn.com/technoart/0.0.9/css/technoart.min.css
+  css_hash: sha384-notyet
+  js:       https://maxcdn.technoartcdn.com/technoart/0.0.9/js/technoart.min.js
+  js_hash:  sha384-notyet

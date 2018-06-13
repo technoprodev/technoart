@@ -1,0 +1,50 @@
+# Underline
+
+<span class="text-rose">code</span> **bold** *italic* ***bold & italic*** [link](#link) ~~del~~
+<span class="text-rose">code</span> **bold** *italic* ***bold & italic*** [link](#link) ~~del~~
+<span class="text-rose">code</span> **bold** *italic* ***bold & italic*** [link](#link) ~~del~~
+<span class="text-rose">code</span> **bold** *italic* ***bold & italic*** [link](#link) ~~del~~
+<span class="text-rose">code</span> **bold** *italic* ***bold & italic*** [link](#link) ~~del~~
+
+{% capture option %}
+.box-1 - memiliki panjang 1/12 dari lebar containernya.
+.box-2 - memiliki panjang 2/12 dari lebar containernya.
+.box-3 - memiliki panjang 3/12 dari lebar containernya.
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture option_code %}
+<div class="text-light-red">.text-light-red</div> - bg-dark
+<div class="text-light-orange">.text-light-orange</div> - bg-dark
+<div class="text-light-yellow">.text-light-yellow</div> - bg-dark
+<div class="hover-text-red">.hover-text-red</div>
+<div class="hover-text-orange">.hover-text-orange</div>
+<div class="hover-text-yellow">.hover-text-yellow</div>
+{% endcapture %}
+{% include option-code.html content=option_code %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Sub Title
+
+- Item 1
+- Item 2
+  - Item 2a
+  - Item 2b
+
+1. Item 1
+2. Item 2
+  - Item 3a
+  - Item 3b
+
+{% capture example %}
+<div class="box">
+  <div class="box-3 bg-light-cyan border-light-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 bg-light-cyan border-light-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 bg-light-cyan border-light-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 bg-light-cyan border-light-cyan padding-30">Your smile makes me happy.</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

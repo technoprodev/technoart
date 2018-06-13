@@ -1,0 +1,81 @@
+# Space
+
+Untuk memberi jarak gunakan padding dan margin.
+
+Gunakan <span class="text-rose">.margin-[val]</span> untuk memberi jarak antar komponen atau jarak antara komponen dengan parentnya.
+
+Gunakan <span class="text-rose">.padding-[val]</span> untuk memberi jarak antara border komponen dengan konten komponen.
+
+<img alt="Technoart guide" src="{{ site.baseurl }}/assets/img/space.png" style="width: 100%;">
+
+<span class="text-rose">.margin-[val]</span> memiliki 7 kelompok pilihan, yaitu:
+
+{% capture option %}
+.margin-[number] - memberi margin top, right, bottom dan left sepanjang [number] pixel.
+.margin-y-[number] - memberi margin top dan bottom sepanjang [number] pixel.
+.margin-x-[number] - memberi margin right dan left sepanjang [number] pixel.
+.margin-top-[number] - memberi margin top sepanjang [number] pixel.
+.margin-right-[number] - memberi margin right sepanjang [number] pixel.
+.margin-bottom-[number] - memberi margin bottom sepanjang [number] pixel.
+.margin-left-[number] - memberi margin left sepanjang [number] pixel.
+{% endcapture %}
+{% include option.html content=option %}
+
+Sama seperti margin, <span class="text-rose">.padding-[val]</span> memiliki 7 kelompok pilihan, yaitu:
+
+{% capture option %}
+.padding-[number] - memberi padding top, right, bottom dan left sepanjang [number] pixel.
+.padding-y-[number] - memberi padding top dan bottom sepanjang [number] pixel.
+.padding-x-[number] - memberi padding right dan left sepanjang [number] pixel.
+.padding-top-[number] - memberi padding top sepanjang [number] pixel.
+.padding-right-[number] - memberi padding right sepanjang [number] pixel.
+.padding-bottom-[number] - memberi padding bottom sepanjang [number] pixel.
+.padding-left-[number] - memberi padding left sepanjang [number] pixel.
+{% endcapture %}
+{% include option.html content=option %}
+
+Dimana <span class="text-rose">[number]</span> memiliki banyak pilihan value, yaitu:
+
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 15
+- 10
+- 20
+- 30
+- 40
+- 50
+- 60
+- 70
+- 80
+- 90
+- 100
+- 150
+- 200
+- 250
+- 300
+
+Contoh: <span class="text-rose">.padding-y-30</span> memberi jarak padding top dan bottom 30 pixel.
+
+Berbeda dengan margin dan padding, border tidak memiliki banyak pilihan space, yang tersedia hanya 2 pilihan, yaitu:
+
+{% capture option %}
+.border-thin - memberi thin border (2 px).
+.border-thick - memberi thick border (5 px).
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="padding-30 margin-70 border border-thin">
+  From the border until this text has 30px distance (padding) and this component has 70px distance with below component and its parent (margin). This component also has thin border.
+</div>
+<div class="padding-100 border border-thick">
+  From the border until this text has 100px distance (padding). This component also has thick border.
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

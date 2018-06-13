@@ -1,0 +1,22 @@
+# Embed
+
+Description
+
+{% capture option %}
+.has-embed - description
+.embed-21by9 - description
+.embed-16by9 - description
+.embed-4by3 - description
+.embed-1by1 - description
+.embed - description
+{% endcapture %}
+{% include option.html content=option %}
+
+{% capture example %}
+<div class="has-embed embed-21by9">
+  <iframe class="embed" src="https://www.youtube.com/embed/3xny-xwQ9-k" allowfullscreen></iframe>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

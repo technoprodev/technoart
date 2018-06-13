@@ -1,0 +1,208 @@
+# Grid or Box
+
+Tanpa adanya grid, secara default komponen <span class="text-rose">div</span> hanya dapat disusun secara menumpuk dari atas kebawah (vertikal). Agar komponen <span class="text-rose">div</span> dapat disusun secara menumpuk dari kiri ke kanan (horizontal) maka gunakan grid. Masing-masing tumpukan grid dapat diatur lebarnya, yakni sepanjang x/12 dari lebar containernya. Grid pada Technoart disebut juga sebagai box.
+
+Cara menggunakan box sederhana, tambahkan <span class="text-rose">.box-[val]</span> pada masing-masing komponen dan bungkus didalam container <span class="text-rose">.box</span>, contoh:
+
+{% capture example %}
+<div class="box">
+  <div class="box-1">.box-1</div>
+  <div class="box-2">.box-2</div>
+  <div class="box-3">.box-3</div>
+  <div class="box-6">.box-6</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<span class="text-rose">.box-[val]</span> memiliki 12 pilihan value, yaitu:
+
+{% capture option %}
+.box-1 - memiliki panjang 1/12 dari lebar containernya.
+.box-2 - memiliki panjang 2/12 dari lebar containernya.
+.box-3 - memiliki panjang 3/12 dari lebar containernya.
+.box-4 - memiliki panjang 4/12 dari lebar containernya.
+.box-5 - memiliki panjang 5/12 dari lebar containernya.
+.box-6 - memiliki panjang 6/12 dari lebar containernya.
+.box-7 - memiliki panjang 7/12 dari lebar containernya.
+.box-8 - memiliki panjang 8/12 dari lebar containernya.
+.box-9 - memiliki panjang 9/12 dari lebar containernya.
+.box-10 - memiliki panjang 10/12 dari lebar containernya.
+.box-11 - memiliki panjang 11/12 dari lebar containernya.
+.box-12 - memiliki panjang 12/12 dari lebar containernya.
+{% endcapture %}
+{% include option.html content=option %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Adjust Box Size on Multiple Device Size
+
+Komponen box dengan ukuran 4/12 terlihat bagus di layar desktop, namun bisa saja terlihat kecil dan tidak cocok jika dilihat di layar mobile. Agar komponen box terlihat bagus dan sesuai di layar mobile, tambahkan <span class="text-rose">.box-break-[val]</span> pada container <span class="text-rose">.box</span>. Contoh: <span class="text-rose">.box.box-break-sm</span> yang artinya akan mengubah komponen <span class="text-rose">.box-4</span> yang awalnya memiliki ukuran 4/12 di setiap layar akan berubah menjadi 12/12 di layar small 768px kebawah. Contoh:
+
+{% capture example %}
+<div class="box box-break-lg">
+  <div class="box-4 border">.box-4</div>
+  <div class="box-4 border">.box-4</div>
+  <div class="box-4 border">.box-4</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<span class="text-rose">.box-break-[val]</span> memiliki 20 pilihan value, yaitu:
+
+{% capture option %}
+.box-break-xs - mengubah setiap ukuran komponen box menjadi 12/12 pada layar xs 576px kebawah.
+.box-break-xs-6 - mengubah setiap ukuran komponen box menjadi 6/12 pada layar xs 576px kebawah.
+.box-break-xs-4 - mengubah setiap ukuran komponen box menjadi 4/12 pada layar xs 576px kebawah.
+.box-break-xs-3 - mengubah setiap ukuran komponen box menjadi 3/12 pada layar xs 576px kebawah.
+.box-break-xs-2 - mengubah setiap ukuran komponen box menjadi 2/12 pada layar xs 576px kebawah.
+--- - ---
+.box-break-sm - mengubah setiap ukuran komponen box menjadi 12/12 pada layar sm 768px kebawah.
+.box-break-sm-6 - mengubah setiap ukuran komponen box menjadi 6/12 pada layar sm 768px kebawah.
+.box-break-sm-4 - mengubah setiap ukuran komponen box menjadi 4/12 pada layar sm 768px kebawah.
+.box-break-sm-3 - mengubah setiap ukuran komponen box menjadi 3/12 pada layar sm 768px kebawah.
+.box-break-sm-2 - mengubah setiap ukuran komponen box menjadi 2/12 pada layar sm 768px kebawah.
+--- - ---
+.box-break-md - mengubah setiap ukuran komponen box menjadi 12/12 pada layar md 992px kebawah.
+.box-break-md-6 - mengubah setiap ukuran komponen box menjadi 6/12 pada layar md 992px kebawah.
+.box-break-md-4 - mengubah setiap ukuran komponen box menjadi 4/12 pada layar md 992px kebawah.
+.box-break-md-3 - mengubah setiap ukuran komponen box menjadi 3/12 pada layar md 992px kebawah.
+.box-break-md-2 - mengubah setiap ukuran komponen box menjadi 2/12 pada layar md 992px kebawah.
+--- - ---
+.box-break-lg - mengubah setiap ukuran komponen box menjadi 12/12 pada layar lg 1200px kebawah.
+.box-break-lg-6 - mengubah setiap ukuran komponen box menjadi 6/12 pada layar lg 1200px kebawah.
+.box-break-lg-4 - mengubah setiap ukuran komponen box menjadi 4/12 pada layar lg 1200px kebawah.
+.box-break-lg-3 - mengubah setiap ukuran komponen box menjadi 3/12 pada layar lg 1200px kebawah.
+.box-break-lg-2 - mengubah setiap ukuran komponen box menjadi 2/12 pada layar lg 1200px kebawah.
+{% endcapture %}
+{% include option.html content=option %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Adjust Box Space
+
+Secara default, box yang ditumpuk akan berhimpitan satu dengan yang lainnya. Namun ada beberapa komponen yang membutuhkan jarak dengan komponen disebelahnya seperti card. Untuk memberi jarak antar box, tambahkan <span class="text-rose">.box-space-[val]</span> pada container <span class="text-rose">.box</span>.
+
+{% capture example %}
+<div class="box box-space-md">
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<span class="text-rose">.box-space-[val]</span> memiliki 4 pilihan value, yaitu:
+
+{% capture option %}
+.box-space-xs - memberi jakar 0.25% antar box.
+.box-space-sm - memberi jakar 0.5% antar box.
+.box-space-md - memberi jakar 1% antar box.
+.box-space-lg - memberi jakar 2% antar box.
+{% endcapture %}
+{% include option.html content=option %}
+
+Dengan kreatifitas Anda, Box Space yang dikombinasikan dengan helper lain dapat digunakan untuk membuat card, galery, post items, news items, dll.
+
+{% capture example %}
+<div class="box box-space-md box-equal box-break-sm">
+  <div class="box-4 padding-0 shadow">
+    <img alt="Technoart guide" src="{{ site.baseurl }}/assets/img/matese-fields-233175-unsplash.jpg" width="100%">
+    <div class="padding-15 m-padding-0">
+      <div class="fs-12 text-gray">
+        By Admin
+      </div>
+      <h5 class="margin-y-5">
+        The Disadvantage of OCD
+      </h5>
+      <div class="fs-13">
+        These days, it's easy to get caught up in the pursuit of unhealthy perfectionism.
+      </div>
+    </div>
+  </div>
+  <div class="box-4 padding-0 shadow">
+    <img alt="Technoart guide" src="{{ site.baseurl }}/assets/img/tom-barrett-525188-unsplash.jpg" width="100%">
+    <div class="padding-15 m-padding-0">
+      <div class="fs-12 text-gray">
+        By Admin
+      </div>
+      <h5 class="margin-y-5">
+        How Reading Affects The Brain Works
+      </h5>
+      <div class="fs-13">
+        Here's how reading can affect your brain in the most remarkable ways.
+      </div>
+    </div>
+  </div>
+  <div class="box-4 padding-0 shadow">
+    <img alt="Technoart guide" src="{{ site.baseurl }}/assets/img/brandon-holmes-199535-unsplash.jpg" width="100%">
+    <div class="padding-15 m-padding-0">
+      <div class="fs-12 text-gray">
+        By Admin
+      </div>
+      <h5 class="margin-y-5">
+        How Video Games Boost Your Creativity
+      </h5>
+      <div class="fs-13">
+        Video games can unleash your creative side if you get immersed in them long enough.
+      </div>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Sliced Box
+
+{% capture example %}
+<div class="box">
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+  <div class="box-3 text-dark-cyan border-cyan padding-30">Your smile makes me happy.</div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-50"></div><!-- separator -->
+
+## Make Every Box Component Has Equal Height
+
+Secara default, tinggi masing-masing komponen box berbeda-beda tergantung kontennya.
+
+<div class="box box-space-lg">
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The Pygmy Rabbit (Brachylagus idahoensis) is the smallest rabbit in the world. It is found in North America. The adult pygmy rabbit weighs about 400g (14oz) and has a typical body length of 24cm to 29cm (9.4″ – 11.4″).
+  </div>
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The Pygmy Marmoset or Dwarf Monkey (Cebuella pygmaea) is the world’s smallest monkey. It is native to the rainforest canopies of Brazil, Columbia, Ecuador, Peru and Bolivia.
+  </div>
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The smallest known primate is the Madame Berthe’s Mouse Lemur (Microcebus berthae), found in Madagascar, with an average body length of 92 mm (3.6″) and weight of around 30g (1oz).
+  </div>
+</div>
+
+Dengan <span class="text-rose">.box-equal</span> yang ditambah pada container <span class="text-rose">.box</span>, membuat komponen-komponen box memiliki tinggi yang sama. Terlihat lebih rapi.
+
+{% capture example %}
+<div class="box box-space-lg box-equal">
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The Pygmy Rabbit (Brachylagus idahoensis) is the smallest rabbit in the world. It is found in North America. The adult pygmy rabbit weighs about 400g (14oz) and has a typical body length of 24cm to 29cm (9.4″ – 11.4″).
+  </div>
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The Pygmy Marmoset or Dwarf Monkey (Cebuella pygmaea) is the world’s smallest monkey. It is native to the rainforest canopies of Brazil, Columbia, Ecuador, Peru and Bolivia.
+  </div>
+  <div class="box-4 padding-15 text-dark-blue border-light-blue">
+    The smallest known primate is the Madame Berthe’s Mouse Lemur (Microcebus berthae), found in Madagascar, with an average body length of 92 mm (3.6″) and weight of around 30g (1oz).
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->

@@ -1,0 +1,9 @@
+.has-hover-zoom {
+  overflow: hidden;
+}
+.hover-zoom {
+  transition: transform .3s ease-in-out;
+}
+.has-hover-zoom:hover .hover-zoom {
+  transform: scale(1.1, 1.1);
+}

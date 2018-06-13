@@ -1,0 +1,95 @@
+# Percentage Background Color
+
+Komponen ini memberi tambahan warna background sekian persen pada elemen. Contoh: <span class="text-rose">.blue-30</span> yang artinya memberi tambahan warna blue 30% pada background element.
+
+{% capture option_code %}
+<div class="lighter-10">.lighter-10</div> - bg-darker
+<div class="lighter-20">.lighter-20</div> - bg-darker
+<div class="lighter-30">.lighter-30</div> - bg-darker
+<div class="lighter-40">.lighter-40</div> - bg-darker
+<div class="lighter-50">.lighter-50</div> - bg-darker
+<div class="darker-10">.darker-10</div>
+<div class="darker-20">.darker-20</div>
+<div class="darker-30">.darker-30</div>
+<div class="darker-40">.darker-40</div>
+<div class="darker-50">.darker-50</div>
+<div class="red-10">.red-10</div>
+<div class="red-20">.red-20</div>
+<div class="red-30">.red-30</div>
+<div class="red-40">.red-40</div>
+<div class="red-50">.red-50</div>
+<div class="orange-10">.orange-10</div>
+<div class="orange-20">.orange-20</div>
+<div class="orange-30">.orange-30</div>
+<div class="orange-40">.orange-40</div>
+<div class="orange-50">.orange-50</div>
+<div class="yellow-10">.yellow-10</div>
+<div class="yellow-20">.yellow-20</div>
+<div class="yellow-30">.yellow-30</div>
+<div class="yellow-40">.yellow-40</div>
+<div class="yellow-50">.yellow-50</div>
+<div class="chartreuse-10">.chartreuse-10</div>
+<div class="chartreuse-20">.chartreuse-20</div>
+<div class="chartreuse-30">.chartreuse-30</div>
+<div class="chartreuse-40">.chartreuse-40</div>
+<div class="chartreuse-50">.chartreuse-50</div>
+<div class="green-10">.green-10</div>
+<div class="green-20">.green-20</div>
+<div class="green-30">.green-30</div>
+<div class="green-40">.green-40</div>
+<div class="green-50">.green-50</div>
+<div class="spring-10">.spring-10</div>
+<div class="spring-20">.spring-20</div>
+<div class="spring-30">.spring-30</div>
+<div class="spring-40">.spring-40</div>
+<div class="spring-50">.spring-50</div>
+<div class="cyan-10">.cyan-10</div>
+<div class="cyan-20">.cyan-20</div>
+<div class="cyan-30">.cyan-30</div>
+<div class="cyan-40">.cyan-40</div>
+<div class="cyan-50">.cyan-50</div>
+<div class="azure-10">.azure-10</div>
+<div class="azure-20">.azure-20</div>
+<div class="azure-30">.azure-30</div>
+<div class="azure-40">.azure-40</div>
+<div class="azure-50">.azure-50</div>
+<div class="blue-10">.blue-10</div>
+<div class="blue-20">.blue-20</div>
+<div class="blue-30">.blue-30</div>
+<div class="blue-40">.blue-40</div>
+<div class="blue-50">.blue-50</div>
+<div class="violet-10">.violet-10</div>
+<div class="violet-20">.violet-20</div>
+<div class="violet-30">.violet-30</div>
+<div class="violet-40">.violet-40</div>
+<div class="violet-50">.violet-50</div>
+<div class="magenta-10">.magenta-10</div>
+<div class="magenta-20">.magenta-20</div>
+<div class="magenta-30">.magenta-30</div>
+<div class="magenta-40">.magenta-40</div>
+<div class="magenta-50">.magenta-50</div>
+<div class="rose-10">.rose-10</div>
+<div class="rose-20">.rose-20</div>
+<div class="rose-30">.rose-30</div>
+<div class="rose-40">.rose-40</div>
+<div class="rose-50">.rose-50</div>
+{% endcapture %}
+{% include option-code.html content=option_code %}
+
+Berikut adalah contoh penggunaan Percentage Background Color yang dikombinasikan dengan [Background Image](#background-image).
+
+{% capture example %}
+<div class="has-bg-img text-lightest fs-18 text-center padding-y-50">
+  <div class="bg-img" style="background-image: url('{{ site.baseurl }}/assets/img/tom-barrett-525188-unsplash.jpg');"></div>
+  <div class="bg-img azure-30"></div>
+  Your smile makes me happy.
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<button class="button bg-azure darker-20">Button with bg azure and darker 20%</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<div class="margin-top-100"></div><!-- last separator -->
