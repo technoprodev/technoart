@@ -78,7 +78,7 @@ h2 {
             <div>Download Now</div>
           </div>
           <div class="fs-12 margin-top-2">
-            Current Version
+            Current version: 0.9.9
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ h2 {
             <div>Definitive Guide</div>
           </div>
           <div class="fs-12 margin-top-2">
-            HCM Bugs, Inc.
+            Learning Technoart is <b>easy</b>.
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ h2 {
             <div>Demo Pages</div>
           </div>
           <div class="fs-12 margin-top-2">
-            HCM Bugs, Inc.
+            50<sup>+</sup> choices of starter template.
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@ h2 {
             <div>Support Us</div>
           </div>
           <div class="fs-12 margin-top-2">
-            HCM Bugs, Inc.
+            Kindly support Technoart.
           </div>
         </div>
       </div>
