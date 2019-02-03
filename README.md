@@ -24,7 +24,7 @@ There are several methods to install Technoart:
 - Include it via [CDN](#)
 - Download it via this [link](https://github.com/technoprodev/technoart/archive/v0.0.9.zip/)
 - Clone the [repo](https://www.github.com/technoprodev/technoart/): `git clone https://github.com/technoprodev/technoart.git`
-- Via package manager [npm](https://www.npmjs.com/): `npm install technoart@0.0.9`
+- Via package manager [npm](https://www.npmjs.com/): `npm install technoart`
 - Via other package manager: In development process.
 
 ## Minimum Setup
@@ -72,7 +72,7 @@ technoart/
 
 ## Definitive Guide
 
-Learning Technoart is **easy**. Click [Definitive Guide](https://technoartcss.com/guide) for comprehensive guidance of using Technoart.
+Learning Technoart is **easy**. Visit [Definitive Guide](https://technoartcss.com/guide) for comprehensive guidance of using Technoart.
 
 ## Demo Pages
 
@@ -84,7 +84,7 @@ We are happy to make Technoart completely free to use. However, the amount of ef
 
 ## Contributing
 
-Please read [Contributing Guideline](#) before making a pull request.
+Please read [Contributing Guideline](https://github.com/technoprodev/technoart/blob/master/CONTRIBUTING.md) before making a pull request.
 
 ## Community
 

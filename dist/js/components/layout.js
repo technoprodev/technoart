@@ -11,38 +11,60 @@ var fixedOnScroll = function () {
   var Constructor =
   /*#__PURE__*/
   function () {
-    function Constructor(element, action) {
-      Constructor.init(element, action);
+    function Constructor(selector, addedClass) {
+      if (addedClass === void 0) {
+        addedClass = '';
+      }
+
+      var elements = document.querySelectorAll(selector);
+      var elementsLength = elements.length;
+
+      var _loop = function _loop(i) {
+        var element = elements[i]; // const position = element.offsetTop
+
+        var position = function (element) {
+          element = element.getBoundingClientRect();
+          return element.top + window.scrollY;
+        }(element);
+
+        var width = element.offsetWidth; // console.log(width) // eslint-disable-line no-console
+
+        window.addEventListener('resize', function () {
+          self.toggle(element, position, element.offsetWidth, addedClass);
+        });
+
+        if (element.getAttribute('data-technoart-fixedonscroll') !== 'active') {
+          element.setAttribute('data-technoart-fixedonscroll', 'active');
+          window.addEventListener('scroll', function () {
+            self.toggle(element, position, width, addedClass);
+          });
+          self.toggle(element, position, width, addedClass);
+        }
+      };
+
+      for (var i = 0; i < elementsLength; i++) {
+        _loop(i);
+      }
     }
 
-    Constructor.init = function init(element, action) {
-      // const fixed = element.offsetTop
-      var fixed = function (el) {
-        el = el.getBoundingClientRect();
-        return el.top + window.scrollY;
-      }(element);
+    Constructor._toggle = function _toggle(element, position, width, addedClass) {
+      var addition = addedClass ? addedClass.split(' ') : [];
 
-      var width = element.offsetWidth;
+      if (window.pageYOffset > position) {
+        var _element$classList;
 
-      if (element.getAttribute('data-technoart-fixedonscroll') !== 'active') {
-        element.setAttribute('data-technoart-fixedonscroll', 'active');
-        window.addEventListener('scroll', function () {
-          Constructor.toggle(element, fixed, width);
-        });
-        Constructor.toggle(element, fixed, width);
-      }
-
-      if (action === 'toggle') {
-        Constructor.toggle(element, fixed, width);
-      }
-    };
-
-    Constructor.toggle = function toggle(element, fixed, width) {
-      if (window.pageYOffset >= fixed) {
         element.classList.add('fixed-attached');
+
+        (_element$classList = element.classList).add.apply(_element$classList, addition);
+
         element.style.width = width + "px";
       } else {
+        var _element$classList2;
+
         element.classList.remove('fixed-attached');
+
+        (_element$classList2 = element.classList).remove.apply(_element$classList2, addition);
+
         element.style.width = null;
       }
     };
@@ -50,43 +72,23 @@ var fixedOnScroll = function () {
     return Constructor;
   }();
 
-  var elements = document.querySelectorAll('.fixed-on-scroll');
-  var elementsLength = elements.length;
-
-  for (var i = 0; i < elementsLength; i++) {
-    if (elements[i]) {
-      Constructor(elements[i]);
-    }
-  }
-
   return Constructor;
 }();
 
 var footerFixed = function () {
-  var Constructor =
-  /*#__PURE__*/
-  function () {
-    function Constructor() {
-      // Let's go
-      Constructor.init();
+  var Constructor = function Constructor() {
+    jQuery('.body').outerHeight('auto');
+    jQuery('.page-wrapper .footer').removeClass('footer-fixed');
+    var wrapperHeight = jQuery('.wrapper').outerHeight() || jQuery('.wrapper-boxed').outerHeight();
+
+    if (wrapperHeight <= jQuery(window).outerHeight()) {
+      jQuery('.page-wrapper .footer').addClass('footer-fixed');
+      var headerHeight = jQuery('.header').outerHeight() || 0;
+      var footerHeight = jQuery('.wrapper > .footer').outerHeight() || jQuery('.wrapper-boxed > .footer').outerHeight() || 0;
+      var bodyHeightFix = jQuery(window).outerHeight() - (headerHeight + footerHeight);
+      jQuery('.body').outerHeight(bodyHeightFix);
     }
-
-    Constructor.init = function init() {
-      jQuery('.body').outerHeight('auto');
-      jQuery('.page-wrapper .footer').removeClass('footer-fixed');
-      var wrapperHeight = jQuery('.wrapper').outerHeight() || jQuery('.wrapper-boxed').outerHeight();
-
-      if (wrapperHeight <= jQuery(window).outerHeight()) {
-        jQuery('.page-wrapper .footer').addClass('footer-fixed');
-        var headerHeight = jQuery('.header').outerHeight() || 0;
-        var footerHeight = jQuery('.wrapper > .footer').outerHeight() || jQuery('.wrapper-boxed > .footer').outerHeight() || 0;
-        var bodyHeightFix = jQuery(window).outerHeight() - (headerHeight + footerHeight);
-        jQuery('.body').outerHeight(bodyHeightFix);
-      }
-    };
-
-    return Constructor;
-  }();
+  };
 
   Constructor();
   jQuery(window).bind('resize', Constructor);

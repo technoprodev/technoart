@@ -1,9 +1,10 @@
-.fixed-on-scroll {
+[technoart-fixedonscroll] {
   transition: position 1s ease-out;
 }
 .fixed-attached {
   position: fixed;
   top: 0;
+  z-index: 6;
   max-height: 100%;
   overflow: hidden;
 }

@@ -5,6 +5,7 @@
 .form-label {
   display: block;
   margin-bottom: 5px;
+  font-weight: normal;
   vertical-align: top;
 }
 
@@ -15,6 +16,7 @@
   width: 100%;
   padding: 5px 15px;
   font-size: 13px;
+  line-height: inherit;
   color: inherit;
   vertical-align: top;
   background-color: map-get(map-get($color-grayscale, "est"), "border-light");
@@ -92,8 +94,7 @@
 
 .form-checkbox [type="checkbox"],
 .form-radio [type="radio"] {
-  margin-right: 3px;
-  vertical-align: middle;
+  margin-right: 5px;
 }
 
 .form-checkbox label,
@@ -244,6 +245,42 @@
 }
 
 // validation
+.has-success {
+  & .form-label,
+  & .form-info {
+    color: darken(map-get(map-get($color, "green"), "text"), 20%);
+  }
+
+  & .form-text,
+  & .form-textarea,
+  & .form-dropdown {
+    border-color: darken(map-get(map-get($color, "green"), "border"), 20%);
+  }
+}
+.has-warning {
+  & .form-label,
+  & .form-info {
+    color: map-get(map-get($color, "orange"), "text");
+  }
+
+  & .form-text,
+  & .form-textarea,
+  & .form-dropdown {
+    border-color: darken(map-get(map-get($color, "orange"), "border"), 20%);
+  }
+}
+.has-error {
+  & .form-label,
+  & .form-info {
+    color: map-get(map-get($color, "red"), "text");
+  }
+
+  & .form-text,
+  & .form-textarea,
+  & .form-dropdown {
+    border-color: darken(map-get(map-get($color, "red"), "border"), 20%);
+  }
+}
 
 // form size
 .form-xs:not(.form-icon),

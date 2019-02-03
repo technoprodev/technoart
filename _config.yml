@@ -1,10 +1,10 @@
 source:          .
-destination:     ./docs
-collections_dir: ./docs-jekyll
-plugins_dir:     ./docs-jekyll/_plugins
-layouts_dir:     ./docs-jekyll/_layouts
-data_dir:        ./docs-jekyll/_data
-includes_dir:    ./docs-jekyll/_includes
+destination:     ./_site
+collections_dir: ./docs
+plugins_dir:     ./docs/_plugins
+layouts_dir:     ./docs/_layouts
+data_dir:        ./docs/_data
+includes_dir:    ./docs/_includes
 collections:
   assets:
     output:             true

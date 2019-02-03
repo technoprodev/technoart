@@ -1,0 +1,30 @@
+{
+  "name": "technoprodev/technoart",
+  "description": "No more custom CSS - All in one CSS framework for developing clean, professional & responsive web app.",
+  "keywords": [
+    "css",
+    "sass",
+    "js",
+    "all-in-one",
+    "framework",
+    "clean",
+    "professional",
+    "responsive",
+    "web",
+    "app",
+    "simple",
+    "reliable",
+    "no-dependencies"
+  ],
+  "homepage": "https://technoartcss.com",
+  "authors": [
+    {
+      "name": "Fandy Pradana",
+      "email": "pradana.fandy@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/technoprodev/technoart/issues"
+  },
+  "license": "MIT"
+}

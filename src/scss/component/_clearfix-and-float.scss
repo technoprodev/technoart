@@ -4,9 +4,7 @@
 .pull-left,
 .pull-right,
 .pull-none, {
-  max-width: 100%;
-  word-break: normal;
-  word-wrap: break-word;
+  @include text-wrap();
 }
 .pull-right {
   float: right !important;
@@ -21,9 +19,7 @@
   .m-pull-left,
   .m-pull-right,
   .m-pull-none, {
-    max-width: 100%;
-    word-break: normal;
-    word-wrap: break-word;
+    @include text-wrap();
   }
   .m-pull-right {
     float: right !important;

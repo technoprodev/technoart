@@ -1,6 +1,7 @@
 .has-bg-img {
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 .bg-img {
   position: absolute;

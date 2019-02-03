@@ -1,0 +1,52 @@
+<header class="header visible-sm-greater shadow" technoart-fixedonscroll="bg-lightest">
+  <div class="header-left padding-top-10 text-center border-bottom border-azure border-thin">
+    <a href="{{ site.baseurl | alter_url }}/" class="a-nocolor">
+      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" class="text-middle" style="width: auto; height: 38px;">
+      <span class="margin-left-5 fs-18 text-azure text-middle">Technoart</span>
+    </a>
+  </div>
+  <div class="header-right padding-x-30 bg-azure clearfix">
+    <div class="pull-left padding-top-15 fs-20">
+      {% if page.group == false %}
+        <a class="text-lightest margin-right-5" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left">☰</a>
+      {% endif %}
+      <span>No More Custom CSS</span>
+    </div>
+    <ul class="pull-right menu-x menu-space-y-20 fs-14
+      menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure
+      submenu-text-azure submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
+      <li class="{% if page.group == 'home' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/">{{ 'home' | translate }}</a></li>
+      <li class="{% if page.group == 'guide' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/">{{ 'guide' | translate }}</a></li>
+      <li class="{% if page.group == 'demo' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/">{{ 'demo' | translate }}</a></li>
+      <!-- <li class="{% if page.group == 'gallery' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/gallery/">{{ 'gallery' | translate }}</a></li> -->
+      <li class="{% if page.group == 'support' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/">{{ 'support' | translate }}</a></li>
+      <li class="has-submenu align-right"><a href="">{{ page.collection | capitalize }}</a>
+        <ul class="border-top border-azure border-thin">
+          {% for language in site.languages %}
+            {% if language[0] == 'en' %}
+              <li><a href="{{ site.baseurl }}{{ page.url | sanitize_url }}/">{{ language[1] }}</a></li>
+            {% else %}
+              <li><a href="{{ site.baseurl }}/{{ language[0] }}{{ page.url | sanitize_url }}/">{{ language[1] }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<header class="header visible-sm-less shadow" technoart-fixedonscroll="">
+  <div class="padding-y-15 padding-x-20 bg-azure fs-18">
+    <a class="text-lightest margin-right-5" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left">☰</a>
+    <span>
+      {% if page.group == 'home' %}{{ 'home-mobile' | translate }}{% endif %}
+      {% if page.group == 'guide' %}{{ 'guide-mobile' | translate }}{% endif %}
+      {% if page.group == 'demo' %}{{ 'demo-mobile' | translate }}{% endif %}
+      {% if page.group == 'gallery' %}{{ 'gallery-mobile' | translate }}{% endif %}
+      {% if page.group == 'support' %}{{ 'support-mobile' | translate }}{% endif %}
+    </span>
+    <div class="pull-right">
+      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
+    </div>
+  </div>
+</header>

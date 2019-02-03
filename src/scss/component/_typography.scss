@@ -1,11 +1,14 @@
-p,
-pre,
-code {
-  max-width: 100%;
+p {
+  @include text-wrap();
   margin: 0 0 15px;
   font-weight: inherit;
-  word-break: normal;
-  word-wrap: break-word;
+}
+pre,
+code {
+  @include text-wrap();
+  margin: 0 0 15px;
+  font-weight: inherit;
+  white-space: pre;
 }
 a {
   color: map-get(map-get($color, "azure"), "text");
@@ -81,10 +84,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  max-width: 100%;
+  @include text-wrap();
   font-weight: bold;
-  word-break: normal;
-  word-wrap: break-word;
 }
 
 h1,
@@ -330,9 +331,7 @@ h6,
 }
 
 .text-wrap {
-  max-width: 100%;
-  word-break: normal;
-  word-wrap: break-word;
+  @include text-wrap();
 }
 .text-nowrap {
   white-space: nowrap;

@@ -228,3 +228,10 @@ $color: map-merge(
     content: "";
   }
 }
+
+@mixin text-wrap() {
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+  white-space: normal;
+}

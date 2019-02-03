@@ -1,0 +1,47 @@
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.fixed {
+  position: fixed;
+}
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+}
+.scroll-y {
+  overflow-y: auto;
+}
+.scroll-x {
+  overflow-x: auto;
+}
+.hover-scroll-y,
+.hover-scroll-x {
+  overflow-y: hidden;
+}
+.hover-scroll-y:hover {
+  overflow-y: auto;
+}
+.hover-scroll-x:hover {
+  overflow-x: auto;
+}
+.fullscreen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}

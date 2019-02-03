@@ -1,5 +1,5 @@
 **/*.min.js
 **/dist/
 **/vendor/
-/docs/
+/_site/
 /package.js

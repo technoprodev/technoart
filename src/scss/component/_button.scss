@@ -2,9 +2,10 @@
   display: inline-block;
   padding: 5px 15px;
   font-size: 13px;
+  line-height: inherit;
   color: inherit;
   text-align: center;
-  white-space: nowrap;
+  // white-space: nowrap;
   user-select: none;
   background-color: transparent;
   border: 1px solid map-get(map-get($color-grayscale, ""), "border-light");
@@ -50,4 +51,16 @@
 .button-lg {
   padding: 15px 25px;
   font-size: 18px;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .m-button-block {
+    display: block;
+    width: 100%;
+  }
 }

@@ -1,10 +1,12 @@
-import {
-  fixedOnScroll,
-  footerFixed,
-  menuY,
-  toggleSidebarLeft
-} from './layout'
 import backToTop from './back-to-top'
+import fixedOnScroll from './fixed-on-scroll'
+import {
+  footerFixed
+} from './layout'
+import {
+  menuY
+} from './menu'
+import toggle from './toggle'
 
 /**
  * Technoart v0.0.9 (https://technoartcss.com)
@@ -14,10 +16,10 @@ import backToTop from './back-to-top'
 
 const technoart = {
   backToTop,
-  fixedOnScroll,
   footerFixed,
+  fixedOnScroll,
   menuY,
-  toggleSidebarLeft
+  toggle
 }
 
 export default technoart

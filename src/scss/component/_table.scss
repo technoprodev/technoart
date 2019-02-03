@@ -1,18 +1,19 @@
+// stylelint-disable selector-no-qualifying-type
+
 .table {
   width: 100%;
   margin-bottom: 15px;
+  border-collapse: collapse;
 }
 
 .table th,
 .table td {
-  padding-top: 10px;
-  padding-right: 15px;
-  padding-bottom: 10px;
-  padding-left: 15px;
+  padding: 10px 15px;
   vertical-align: top;
 }
 .table thead th {
   font-weight: inherit;
+  text-align: left;
   vertical-align: bottom;
 }
 
@@ -48,6 +49,16 @@
 .table-nowrap th,
 .table-nowrap td {
   white-space: nowrap;
+}
+
+th.th-nowrap,
+td.td-nowrap {
+  white-space: nowrap;
+}
+
+th.th-wrap,
+td.td-wrap {
+  white-space: normal;
 }
 
 .table-text-middle tbody td {

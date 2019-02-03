@@ -2,7 +2,7 @@
 /* eslint no-process-env: 0 */
 
 module.exports = (config) => {
-  const jqueryFile = process.env.USE_OLD_JQUERY ? 'docs-jekyll/_assets/vendor/jquery/jquery-1.9.1.min.js' : 'docs-jekyll/_assets/vendor/jquery/jquery-1.9.1.min.js'
+  const jqueryFile = process.env.USE_OLD_JQUERY ? 'docs/_assets/vendor/jquery/jquery-1.9.1.min.js' : 'docs/_assets/vendor/jquery/jquery-1.9.1.min.js'
 
   config.set({
     basePath: '..',

@@ -2,20 +2,16 @@
 
 // menu x
 .menu-x {
+  @include clearfix();
   padding: 0;
   margin: 0;
   font-size: 13px;
   line-height: 19px;
   list-style: none;
 }
-.menu-x {
-  @include clearfix();
-}
 .menu-x > li {
+  @include text-wrap();
   float: left;
-  max-width: 100%;
-  word-break: normal;
-  word-wrap: break-word;
 }
 .menu-x ul {
   padding: 10px 0;

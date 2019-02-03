@@ -50,240 +50,6 @@
    * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
    * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
    */
-
-  var fixedOnScroll = function () {
-    var Constructor =
-    /*#__PURE__*/
-    function () {
-      function Constructor(element, action) {
-        Constructor.init(element, action);
-      }
-
-      Constructor.init = function init(element, action) {
-        // const fixed = element.offsetTop
-        var fixed = function (el) {
-          el = el.getBoundingClientRect();
-          return el.top + window.scrollY;
-        }(element);
-
-        var width = element.offsetWidth;
-
-        if (element.getAttribute('data-technoart-fixedonscroll') !== 'active') {
-          element.setAttribute('data-technoart-fixedonscroll', 'active');
-          window.addEventListener('scroll', function () {
-            Constructor.toggle(element, fixed, width);
-          });
-          Constructor.toggle(element, fixed, width);
-        }
-
-        if (action === 'toggle') {
-          Constructor.toggle(element, fixed, width);
-        }
-      };
-
-      Constructor.toggle = function toggle(element, fixed, width) {
-        if (window.pageYOffset >= fixed) {
-          element.classList.add('fixed-attached');
-          element.style.width = width + "px";
-        } else {
-          element.classList.remove('fixed-attached');
-          element.style.width = null;
-        }
-      };
-
-      return Constructor;
-    }();
-
-    var elements = document.querySelectorAll('.fixed-on-scroll');
-    var elementsLength = elements.length;
-
-    for (var i = 0; i < elementsLength; i++) {
-      if (elements[i]) {
-        Constructor(elements[i]);
-      }
-    }
-
-    return Constructor;
-  }();
-
-  var footerFixed = function () {
-    var Constructor =
-    /*#__PURE__*/
-    function () {
-      function Constructor() {
-        // Let's go
-        Constructor.init();
-      }
-
-      Constructor.init = function init() {
-        jQuery('.body').outerHeight('auto');
-        jQuery('.page-wrapper .footer').removeClass('footer-fixed');
-        var wrapperHeight = jQuery('.wrapper').outerHeight() || jQuery('.wrapper-boxed').outerHeight();
-
-        if (wrapperHeight <= jQuery(window).outerHeight()) {
-          jQuery('.page-wrapper .footer').addClass('footer-fixed');
-          var headerHeight = jQuery('.header').outerHeight() || 0;
-          var footerHeight = jQuery('.wrapper > .footer').outerHeight() || jQuery('.wrapper-boxed > .footer').outerHeight() || 0;
-          var bodyHeightFix = jQuery(window).outerHeight() - (headerHeight + footerHeight);
-          jQuery('.body').outerHeight(bodyHeightFix);
-        }
-      };
-
-      return Constructor;
-    }();
-
-    Constructor();
-    jQuery(window).bind('resize', Constructor);
-    return Constructor;
-  }();
-
-  var menuY = function () {
-    var Constructor =
-    /*#__PURE__*/
-    function () {
-      function Constructor(element, action, config) {
-        if (config === void 0) {
-          config = {};
-        }
-
-        var defaultConfig = {
-          multiple: false
-        };
-        config = _objectSpread({}, defaultConfig, config);
-
-        if (element.getAttribute('data-technoart-menuy') === 'active') {
-          if (action === 'toggle') {
-            Constructor.toggle(config);
-          }
-
-          return;
-        } // Let's go
-
-
-        Constructor.init(element, action, config);
-      }
-
-      Constructor.init = function init(element, action, config) {
-        Constructor.addEventForChild(element, 'click', 'a', function (childElement, e) {
-          var $menuY = jQuery(element);
-          var $active = $menuY.find('.active > ul');
-          var $activeParents = $menuY.find('.active').parentsUntil($menuY, 'ul');
-          var $links = jQuery(childElement);
-          var $next = $links.next();
-          var $isActive = $links.parent().hasClass('active') || $next.find('.active').length > 0;
-          var $parents = $links.parentsUntil($menuY, 'ul');
-          var tigaratus = 300;
-          $next.slideToggle(tigaratus, function () {
-            $links.parent().toggleClass('open');
-          });
-
-          if (config.multiple && !$isActive && $next.length > 0) {
-            $menuY.find('ul').not($next).not($active).not($activeParents).not($parents).slideUp(tigaratus).parent().removeClass('open');
-          }
-
-          if ($next.length > 0) {
-            e.preventDefault();
-          }
-        });
-        element.setAttribute('data-technoart-menuy', 'active');
-
-        if (action === 'noName') {
-          Constructor.noName(config);
-        }
-      };
-
-      Constructor.noName = function noName() {
-        var element = document.querySelector('.has-sidebar-left');
-
-        if (element) {
-          element.classList.toggle('sidebar-left-hide-default');
-        }
-      };
-
-      Constructor.addEventForChild = function addEventForChild(parent, eventName, childSelector, callback) {
-        parent.addEventListener(eventName, function (event) {
-          var clickedElement = event.target;
-          var matchingChild = clickedElement.closest(childSelector);
-          callback(matchingChild, event);
-        });
-      };
-
-      return Constructor;
-    }();
-
-    var element = document.querySelector('.menu-y');
-
-    if (element) {
-      Constructor(element);
-    }
-
-    return Constructor;
-  }();
-
-  var toggleSidebarLeft = function () {
-    var Constructor =
-    /*#__PURE__*/
-    function () {
-      function Constructor(element, action, config) {
-        if (config === void 0) {
-          config = {};
-        }
-
-        var defaultConfig = {};
-        config = _objectSpread({}, defaultConfig, config);
-
-        if (element.getAttribute('data-technoart-togglesidebarleft') === 'active') {
-          if (action === 'toggle') {
-            Constructor.toggle(config);
-          }
-
-          return;
-        } // Let's go
-
-
-        Constructor.init(element, action, config);
-      }
-
-      Constructor.init = function init(element, action, config) {
-        element.addEventListener('click', function (e) {
-          Constructor.toggle(config);
-          e.preventDefault();
-        });
-        element.setAttribute('data-technoart-togglesidebarleft', 'active');
-
-        if (action === 'toggle') {
-          Constructor.toggle(config);
-        }
-      };
-
-      Constructor.toggle = function toggle() {
-        var element = document.querySelector('.has-sidebar-left');
-
-        if (element) {
-          element.classList.toggle('sidebar-left-hide-default');
-        }
-      };
-
-      return Constructor;
-    }();
-
-    var elements = document.querySelectorAll('[data-toggle="sidebar-left"]');
-    var elementsLength = elements.length;
-
-    for (var i = 0; i < elementsLength; i++) {
-      if (elements[i]) {
-        Constructor(elements[i]);
-      }
-    }
-
-    return Constructor;
-  }();
-
-  /**
-   * Technoart v0.0.9 (https://technoartcss.com)
-   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
-   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
-   */
   var backToTop = function () {
     var Constructor =
     /*#__PURE__*/
@@ -357,13 +123,287 @@
    * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
    * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
    */
+  var fixedOnScroll = function () {
+    var Constructor =
+    /*#__PURE__*/
+    function () {
+      function Constructor(element, addedClasses) {
+        if (addedClasses === void 0) {
+          addedClasses = '';
+        }
+
+        // const position = element.offsetTop
+        var position = function (element) {
+          element = element.getBoundingClientRect();
+          return element.top + window.scrollY;
+        }(element);
+
+        var width = element.offsetWidth; // console.log(width) // eslint-disable-line no-console
+
+        window.addEventListener('resize', function () {
+          var _element$classList;
+
+          var addition = addedClasses ? addedClasses.split(' ') : [];
+          element.classList.remove('fixed-attached');
+
+          (_element$classList = element.classList).remove.apply(_element$classList, addition);
+
+          element.style.width = null;
+
+          Constructor._toggle(element, addedClasses, position, element.offsetWidth);
+        });
+        window.addEventListener('scroll', function () {
+          Constructor._toggle(element, addedClasses, position, width);
+        });
+
+        Constructor._toggle(element, addedClasses, position, width);
+      }
+
+      Constructor._toggle = function _toggle(element, addedClasses, position, width) {
+        var addition = addedClasses ? addedClasses.split(' ') : [];
+
+        if (window.pageYOffset > position) {
+          var _element$classList2;
+
+          element.classList.add('fixed-attached');
+
+          (_element$classList2 = element.classList).add.apply(_element$classList2, addition);
+
+          element.style.width = width + "px";
+        } else {
+          var _element$classList3;
+
+          element.classList.remove('fixed-attached');
+
+          (_element$classList3 = element.classList).remove.apply(_element$classList3, addition);
+
+          element.style.width = null;
+        }
+      };
+
+      return Constructor;
+    }();
+
+    var elements = document.querySelectorAll('[technoart-fixedonscroll]');
+    var elementsLength = elements.length;
+
+    for (var i = 0; i < elementsLength; i++) {
+      Constructor(elements[i], elements[i].getAttribute('technoart-fixedonscroll'));
+    }
+
+    return Constructor;
+  }();
+
+  /**
+   * Technoart v0.0.9 (https://technoartcss.com)
+   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
+   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
+   */
+  var footerFixed = function () {
+    var Constructor = function Constructor() {
+      /* jQuery('.body').outerHeight('auto')
+      jQuery('.page-wrapper .footer').removeClass('footer-fixed')
+      const wrapperHeighori = jQuery('.wrapper').outerHeight() || jQuery('.wrapper-boxed').outerHeight()
+      if (wrapperHeighori <= jQuery(window).outerHeight()) {
+        jQuery('.page-wrapper .footer').addClass('footer-fixed')
+        const headerHeight = jQuery('.header').outerHeight() || 0
+        const footerHeight = jQuery('.wrapper > .footer').outerHeight() || jQuery('.wrapper-boxed > .footer').outerHeight() || 0
+        const bodyHeightFix = jQuery(window).outerHeight() - (headerHeight + footerHeight)
+        jQuery('.body').outerHeight(bodyHeightFix)
+      }*/
+      var wrapper = document.getElementsByClassName('wrapper') || document.getElementsByClassName('wrapper-boxed');
+      wrapper = wrapper ? wrapper[0] : false;
+      var body = document.getElementsByClassName('body');
+      body = body ? body[0] : false;
+      var header = document.getElementsByClassName('header');
+      header = header ? header[0] : false;
+      var footerInPageWrapper = document.querySelectorAll('.page-wrapper > .footer');
+      footerInPageWrapper = footerInPageWrapper ? footerInPageWrapper[0] : false;
+      var footerInWrapper = document.querySelectorAll('.wrapper > .footer') || document.querySelectorAll('.wrapper-boxed > .footer');
+      footerInWrapper = footerInWrapper ? footerInWrapper[0] : false;
+
+      if (!wrapper || !body) {
+        return;
+      }
+
+      body.style.height = 'auto';
+      var footerFixedClass = 'footer-fixed';
+
+      if (footerInPageWrapper && footerInPageWrapper.classList) {
+        footerInPageWrapper.classList.remove(footerFixedClass);
+      } else if (footerInPageWrapper) {
+        footerInPageWrapper.className = footerInPageWrapper.className.replace(new RegExp('(^|\\b)' + footerFixedClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' '); // eslint-disable-line prefer-template
+      }
+
+      var wrapperHeight = wrapper.offsetHeight;
+      var windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
+
+      if (wrapperHeight <= windowHeight) {
+        if (footerInPageWrapper && footerInPageWrapper.classList) {
+          footerInPageWrapper.classList.add(footerFixedClass);
+        } else if (footerInPageWrapper) {
+          footerInPageWrapper.className += " " + footerFixedClass;
+        }
+
+        var headerHeight = header.offsetHeight || 0;
+        var footerHeight = footerInWrapper ? footerInWrapper.offsetHeight : 0;
+        var bodyHeightFix = windowHeight - (headerHeight + footerHeight);
+        body.style.height = bodyHeightFix + "px";
+      }
+    };
+
+    Constructor(); // jQuery(window).bind('resize', Constructor)
+
+    window.addEventListener('resize', function () {
+      Constructor();
+    });
+    return Constructor;
+  }();
+
+  /**
+   * Technoart v0.0.9 (https://technoartcss.com)
+   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
+   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
+   */
+
+  var menuY = function () {
+    var Constructor =
+    /*#__PURE__*/
+    function () {
+      function Constructor(element, action, config) {
+        if (config === void 0) {
+          config = {};
+        }
+
+        var defaultConfig = {
+          multiple: false
+        };
+        config = _objectSpread({}, defaultConfig, config);
+
+        if (element.getAttribute('data-technoart-menuy') === 'active') {
+          if (action === 'toggle') {
+            Constructor.toggle(config);
+          }
+
+          return;
+        } // Let's go
+
+
+        Constructor.init(element, action, config);
+      }
+
+      Constructor.init = function init(element, action, config) {
+        Constructor.addEventForChild(element, 'click', 'a', function (childElement, e) {
+          var $menuY = jQuery(element);
+          var $active = $menuY.find('.active > ul');
+          var $activeParents = $menuY.find('.active').parentsUntil($menuY, 'ul');
+          var $links = jQuery(childElement);
+          var $next = $links.next();
+          var $isActive = $links.parent().hasClass('active') || $next.find('.active').length > 0;
+          var $parents = $links.parentsUntil($menuY, 'ul');
+          var tigaratus = 300;
+          $next.slideToggle(tigaratus, function () {
+            $links.parent().toggleClass('open');
+          });
+
+          if (config.multiple && !$isActive && $next.length > 0) {
+            $menuY.find('ul').not($next).not($active).not($activeParents).not($parents).slideUp(tigaratus).parent().removeClass('open');
+          }
+
+          if ($next.length > 0) {
+            e.preventDefault();
+          }
+        });
+        element.setAttribute('data-technoart-menuy', 'active');
+
+        if (action === 'noName') {
+          Constructor.noName(config);
+        }
+      };
+
+      Constructor.noName = function noName() {
+        var element = document.querySelector('.has-sidebar-left');
+
+        if (element) {
+          element.classList.toggle('sidebar-hide-left-default');
+        }
+      };
+
+      Constructor.addEventForChild = function addEventForChild(parent, eventName, childSelector, callback) {
+        parent.addEventListener(eventName, function (event) {
+          var clickedElement = event.target;
+          var matchingChild = clickedElement.closest(childSelector);
+          callback(matchingChild, event);
+        });
+      };
+
+      return Constructor;
+    }();
+
+    var element = document.querySelector('.menu-y');
+
+    if (element) {
+      Constructor(element);
+    }
+
+    return Constructor;
+  }();
+
+  /**
+   * Technoart v0.0.9 (https://technoartcss.com)
+   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
+   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
+   */
+  var toggle = function () {
+    var Constructor =
+    /*#__PURE__*/
+    function () {
+      function Constructor(element, targetSelector, addedClasses) {
+        if (addedClasses === void 0) {
+          addedClasses = '';
+        }
+
+        element.addEventListener('click', function (e) {
+          Constructor._toggle(targetSelector, addedClasses);
+
+          e.preventDefault();
+        });
+      }
+
+      Constructor._toggle = function _toggle(targetSelector, addedClasses) {
+        var targets = document.querySelectorAll(targetSelector);
+        var targetsLength = targets.length;
+
+        for (var i = 0; i < targetsLength; i++) {
+          targets[i].classList.toggle(addedClasses);
+        }
+      };
+
+      return Constructor;
+    }();
+
+    var elements = document.querySelectorAll('[technoart-toggle]');
+    var elementsLength = elements.length;
+
+    for (var i = 0; i < elementsLength; i++) {
+      Constructor(elements[i], elements[i].getAttribute('technoart-toggle'), elements[i].getAttribute('technoart-toggleclasses'));
+    }
+
+    return Constructor;
+  }();
+
+  /**
+   * Technoart v0.0.9 (https://technoartcss.com)
+   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
+   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
+   */
 
   var technoart = {
     backToTop: backToTop,
-    fixedOnScroll: fixedOnScroll,
     footerFixed: footerFixed,
+    fixedOnScroll: fixedOnScroll,
     menuY: menuY,
-    toggleSidebarLeft: toggleSidebarLeft
+    toggle: toggle
   };
 
   return technoart;

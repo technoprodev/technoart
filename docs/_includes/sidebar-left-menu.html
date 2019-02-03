@@ -1,0 +1,138 @@
+{% capture basicurl %}{{ page.url | sanitize_url }}/{% endcapture %}
+
+<div class="margin-top-20"></div>
+
+<ul class="menu-y visible-sm-less fs-14 menu-space-y-10
+  menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-light menu-active-text-dark
+  submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
+  <li class="{% if basicurl == '/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'home' | translate }}</a></li>
+  <li class="{% if basicurl == '/guide/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'guide' | translate }}</a></li>
+  <li class="{% if basicurl == '/demo/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'demo' | translate }}</a></li>
+  <li class="{% if basicurl == '/gallery/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/gallery/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'gallery' | translate }}</a></li>
+  <li class="{% if basicurl == '/support/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'support' | translate }}</a></li>
+</ul>
+
+{%- if page.group == "guide" -%}
+
+<hr class="visible-sm-less">
+
+<div class="h5 text-azure padding-x-20">Definitive Guide</div>
+
+<ul class="menu-y
+  menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure
+  submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
+  <li class="has-submenu"><a href="#introduction">Introduction</a>
+    <ul>
+      <li><a href="#what-is-technoart">What is Technoart</a></li>
+      <li><a href="#minimum-setup">Minimum Setup</a></li>
+      <li class="has-submenu"><a href="#other-installation-methods">Other Installation Methods</a>
+        <ul>
+          <li><a href="#cdn">CDN</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#npm">npm</a></li>
+          <li><a href="#rubygems">RubyGems</a></li>
+          <li><a href="#composer">Composer</a></li>
+          <li><a href="#nuget">NuGet</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#grid-or-box">Grid or Box</a>
+    <ul>
+      <li><a href="#grid-or-box">Description</a></li>
+      <li><a href="#adjust-box-size-on-multiple-device-size">Adjust Box Size on Multiple Device Size</a></li>
+      <li><a href="#adjust-box-space">Adjust Box Space</a></li>
+      <li><a href="#sliced-box">Sliced Box</a></li>
+      <li><a href="#make-every-box-component-has-equal-height">Equal Height</a></li>
+      <li><a href="#box-gutter">Box Gutter</a></li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#space">Space</a>
+    <ul>
+      <li><a href="#space">Description</a></li>
+      <li><a href="#space-in-mobile-device">Space in Mobile Device</a></li>
+      <li><a href="#border-width">Border Width</a></li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#text-color">Text Color</a>
+    <ul>
+      <li><a href="#text-color">Description</a></li>
+      <li><a href="#grayscale-text">Grayscale Text</a></li>
+      <li><a href="#hover-grayscale-text">Hover Grayscale Text</a></li>
+      <li><a href="#full-color-text">Full Color Text</a></li>
+      <li><a href="#hover-full-color-text">Hover Full Color Text</a></li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#background-color">Background Color</a>
+    <ul>
+      <li><a href="#background-color">Description</a></li>
+      <li><a href="#grayscale-background">Grayscale Background</a></li>
+      <li><a href="#hover-grayscale-background">Hover Grayscale Background</a></li>
+      <li><a href="#full-color-background">Full Color Background</a></li>
+      <li><a href="#hover-full-color-background">Hover Full Color Background</a></li>
+    </ul>
+  </li>
+  <li><a href="#percentage-background-color">Percentage Background Color</a></li>
+  <li><a href="#background-image">Background Image</a></li>
+  <li class="has-submenu"><a href="#border-color">Border Color</a>
+    <ul>
+      <li><a href="#border-color">Description</a></li>
+      <li><a href="#grayscale-border">Grayscale Border</a></li>
+      <li><a href="#hover-grayscale-border">Hover Grayscale Border</a></li>
+      <li><a href="#full-color-border">Full Color Border</a></li>
+      <li><a href="#hover-full-color-border">Hover Full Color Border</a></li>
+    </ul>
+  </li>
+  <li><a href="#typography">Typography</a></li>
+  <li class="has-submenu"><a href="#button">Button</a>
+    <ul>
+      <li><a href="#button">Description</a></li>
+      <li><a href="#button-size">Button Size</a></li>
+      <li><a href="#button-state">Button State</a></li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#form">Form</a>
+    <ul>
+      <li><a href="#form">Description</a></li>
+      <li><a href="#form-icon">Form Icon</a></li>
+      <li><a href="#form-size">Form Size</a></li>
+      <li><a href="#form-icon-with-size">Form Icon with Size</a></li>
+      <li><a href="#disabled-and-readonly">Disabled and Readonly</a></li>
+      <li><a href="#inline-form">Inline Form</a></li>
+    </ul>
+  </li>
+  <li class="has-submenu"><a href="#table">Table</a>
+    <ul>
+      <li><a href="#table">Description</a></li>
+      <li><a href="#bordered-table">Bordered Table</a></li>
+      <li><a href="#no-line-table">No Line Table</a></li>
+      <li><a href="#striped-table">Striped Table</a></li>
+      <li><a href="#nowrap-table">Nowrap Table</a></li>
+      <li><a href="#hover-table">Hover Table</a></li>
+    </ul>
+  </li>
+  <li><a href="#image">Image</a></li>
+  <li><a href="#embed">Embed</a></li>
+  <li><a href="#menu">Menu</a></li>
+  <li><a href="#layout">Layout</a></li>
+  <li><a href="#pagination">Pagination</a></li>
+  <li><a href="#breadcrumb">Breadcrumb</a></li>
+  <li><a href="#circle-icon">Circle Icon</a></li>
+  <li><a href="#positioned-child">Positioned Child</a></li>
+  <li><a href="#stack-content">Stack Content</a></li>
+  <li><a href="#hover-zoom">Hover Zoom</a></li>
+  <li><a href="#fixed-on-scroll">Fixed on Scroll</a></li>
+  <li><a href="#back-to-top">Back to Top</a></li>
+  <li><a href="#toggle">Toggle</a></li>
+
+  <li><a href="#clearfix-and-float">Clearfix and Float</a></li>
+  <li><a href="#visibility">Visibility</a></li>
+  <li><a href="#shadow">Shadow</a></li>
+  <li><a href="#rounded">Rounded</a></li>
+  <li><a href="#underline">Underline</a></li>
+  <li><a href="#stretch">Stretch</a></li>
+</ul>
+
+{%- endif -%}
+
+<div class="margin-top-30"></div>
