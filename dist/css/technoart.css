@@ -2863,7 +2863,7 @@ td.td-wrap {
   transform: scale(1, 1);
 }
 
-.back-to-top {
+[technoart-backtotop] {
   position: fixed;
   right: 20px;
   bottom: 20px;

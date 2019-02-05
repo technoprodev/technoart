@@ -16,7 +16,7 @@ module.exports = (config) => {
     // list of files / patterns to load in the browser
     files: [
       jqueryFile,
-      'dist/js/components/!(index).js', // include all of our dist/js/components files except index.js
+      'dist-components/js/!(index).js', // include all of our dist-components/js files except index.js
       'test/unit/*.js'
     ],
     reporters: ['dots'],

@@ -28,6 +28,7 @@ exclude:
   - .git/
   - .github/
   - build/
+  - dist-components/
   - node_modules/
   - nuget/
   - src/
@@ -40,7 +41,6 @@ exclude:
   - package.js
   - package.json
   - package-lock.json
-  - README.md
   - sache.json
   - technoprodevconfig.yml
 

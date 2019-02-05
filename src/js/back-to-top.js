@@ -6,29 +6,10 @@
 
 const backToTop = (() => {
   class Constructor {
-    constructor(element, action, config = {}) {
-      const defaultConfig = {
-        minToScroll: 20 // in px
-      }
-      config = {
-        ...defaultConfig,
-        ...config
-      }
-
-      if (element.getAttribute('data-technoart-backtotop') === 'active') {
-        if (action === 'scrollTop') {
-          Constructor.scrollTop()
-        }
-        return
-      }
-
-      // Let's go
-      Constructor.init(element, action, config)
-    }
-
-    static init(element, action, config) {
+    constructor(element) {
+      const minToScroll = 20
       function hideOrShow() {
-        if (document.body.scrollTop > config.minToScroll || document.documentElement.scrollTop > config.minToScroll) {
+        if (document.body.scrollTop > minToScroll || document.documentElement.scrollTop > minToScroll) {
           element.style.display = 'block'
         } else {
           element.style.display = 'none'
@@ -38,22 +19,17 @@ const backToTop = (() => {
       window.addEventListener('scroll', hideOrShow)
 
       element.addEventListener('click', () => {
-        Constructor.scrollTop()
+        Constructor._scrollTop()
       })
-
-      element.setAttribute('data-technoart-backtotop', 'active')
-      if (action === 'scrollTop') {
-        Constructor.scrollTop()
-      }
     }
 
-    static scrollTop() {
+    static _scrollTop() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     }
   }
 
-  const elements = document.querySelectorAll('.back-to-top')
+  const elements = document.querySelectorAll('[technoart-backtotop]')
   const elementsLength = elements.length
   if (elementsLength > 0) {
     for (let i = 0; i < elementsLength; i++) {

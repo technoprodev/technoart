@@ -5,9 +5,8 @@
  */
 var technoart = {
   backToTop: backToTop,
-  fixedOnScroll: fixedOnScroll,
   footerFixed: footerFixed,
-  menuY: menuY,
-  toggleSidebarLeft: toggleSidebarLeft
+  fixedOnScroll: fixedOnScroll,
+  toggle: toggle
 };
 //# sourceMappingURL=index.js.map

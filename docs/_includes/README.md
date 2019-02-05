@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <img src="http://technoartcss.com/assets/img/technoart.png" alt="Technoart logo" width="90">
+  <img src="https://technoartcss.com/assets/img/technoart.png" alt="Technoart logo" width="90">
 </div>
 
 # Technoart
@@ -14,7 +14,7 @@
 
 ## What is Technoart
 
-Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Obviously, not all web mockup can be sliced with Technoart, but if you take a look at [Demo Pages]({{ site.baseurl | alter_url }}/demo/) you will understand what Technoart can do.
+Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Obviously, not all web mockup can be sliced with Technoart, but if you take a look at [Demo Pages](https://technoartcss.com/demo) you will understand what Technoart can do.
 
 Finally, Technoart is **simple**, **reliable**, and has **no dependencies**.
 
@@ -22,10 +22,11 @@ Finally, Technoart is **simple**, **reliable**, and has **no dependencies**.
 
 There are several methods to install Technoart:
 - Include it via [CDN](#)
-- Download it via this [link](https://github.com/technoprodev/technoart/archive/v0.0.9.zip/)
+- Download it via this [link](https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip)
 - Clone the [repo](https://www.github.com/technoprodev/technoart/): `git clone https://github.com/technoprodev/technoart.git`
-- Via package manager [npm](https://www.npmjs.com/): `npm install technoart@0.0.9`
-- Via other package manager: In development process.
+- Via package manager [npm](https://www.npmjs.com/): `npm install technoart`
+- Via package manager [yarn](https://yarnpkg.com): `yarn add technoart`
+- Via package manager [composer](https://getcomposer.org/): `composer require technoprodev/technoart`
 
 ## Minimum Setup
 
@@ -72,7 +73,7 @@ technoart/
 
 ## Definitive Guide
 
-Learning Technoart is **easy**. Click [Definitive Guide](https://technoartcss.com/guide) for comprehensive guidance of using Technoart.
+Learning Technoart is **easy**. Visit [Definitive Guide](https://technoartcss.com/guide) for comprehensive guidance of using Technoart.
 
 ## Demo Pages
 
@@ -84,7 +85,7 @@ We are happy to make Technoart completely free to use. However, the amount of ef
 
 ## Contributing
 
-Please read [Contributing Guideline](#) before making a pull request.
+Please read [Contributing Guideline](https://github.com/technoprodev/technoart/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## Community
 
@@ -94,7 +95,7 @@ Get updates on Technoart's development and interact with community members.
 - Follow us on [Instagram](https://instagram.com/technoart) for beautiful gallery.
 - Follow us on [Twitter](https://twitter.com/technoart) for Technoart updates.
 - Get help on [Stack Overflow](https://stackoverflow.com/questions/tagged/technoart) with `technoart` tag.
-- When you modify/add Technoart functionality and want it to be distributed through [npm](https://www.npmjs.com/browse/keyword/technoart) or similar delivery mechanisms, use keyword `technoart` on packages name for maximum discoverability.
+- When you modify/add Technoart functionality and want it to be distributed through [npm](https://www.npmjs.com/browse/keyword/technoart) or similar delivery mechanism, use keyword `technoart` on packages name for maximum discoverability.
 
 ## License
 

@@ -4,46 +4,10 @@
  * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
-  typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (global.technoart = factory(global.jQuery));
-}(this, (function (jQuery) { 'use strict';
-
-  jQuery = jQuery && jQuery.hasOwnProperty('default') ? jQuery['default'] : jQuery;
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
-
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
-      }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    }
-
-    return target;
-  }
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.technoart = factory());
+}(this, (function () { 'use strict';
 
   /**
    * Technoart v0.0.9 (https://technoartcss.com)
@@ -54,32 +18,11 @@
     var Constructor =
     /*#__PURE__*/
     function () {
-      function Constructor(element, action, config) {
-        if (config === void 0) {
-          config = {};
-        }
+      function Constructor(element) {
+        var minToScroll = 20;
 
-        var defaultConfig = {
-          minToScroll: 20 // in px
-
-        };
-        config = _objectSpread({}, defaultConfig, config);
-
-        if (element.getAttribute('data-technoart-backtotop') === 'active') {
-          if (action === 'scrollTop') {
-            Constructor.scrollTop();
-          }
-
-          return;
-        } // Let's go
-
-
-        Constructor.init(element, action, config);
-      }
-
-      Constructor.init = function init(element, action, config) {
         function hideOrShow() {
-          if (document.body.scrollTop > config.minToScroll || document.documentElement.scrollTop > config.minToScroll) {
+          if (document.body.scrollTop > minToScroll || document.documentElement.scrollTop > minToScroll) {
             element.style.display = 'block';
           } else {
             element.style.display = 'none';
@@ -89,16 +32,11 @@
         hideOrShow();
         window.addEventListener('scroll', hideOrShow);
         element.addEventListener('click', function () {
-          Constructor.scrollTop();
+          Constructor._scrollTop();
         });
-        element.setAttribute('data-technoart-backtotop', 'active');
+      }
 
-        if (action === 'scrollTop') {
-          Constructor.scrollTop();
-        }
-      };
-
-      Constructor.scrollTop = function scrollTop() {
+      Constructor._scrollTop = function _scrollTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       };
@@ -106,7 +44,7 @@
       return Constructor;
     }();
 
-    var elements = document.querySelectorAll('.back-to-top');
+    var elements = document.querySelectorAll('[technoart-backtotop]');
     var elementsLength = elements.length;
 
     if (elementsLength > 0) {
@@ -265,95 +203,6 @@
    * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
    * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
    */
-
-  var menuY = function () {
-    var Constructor =
-    /*#__PURE__*/
-    function () {
-      function Constructor(element, action, config) {
-        if (config === void 0) {
-          config = {};
-        }
-
-        var defaultConfig = {
-          multiple: false
-        };
-        config = _objectSpread({}, defaultConfig, config);
-
-        if (element.getAttribute('data-technoart-menuy') === 'active') {
-          if (action === 'toggle') {
-            Constructor.toggle(config);
-          }
-
-          return;
-        } // Let's go
-
-
-        Constructor.init(element, action, config);
-      }
-
-      Constructor.init = function init(element, action, config) {
-        Constructor.addEventForChild(element, 'click', 'a', function (childElement, e) {
-          var $menuY = jQuery(element);
-          var $active = $menuY.find('.active > ul');
-          var $activeParents = $menuY.find('.active').parentsUntil($menuY, 'ul');
-          var $links = jQuery(childElement);
-          var $next = $links.next();
-          var $isActive = $links.parent().hasClass('active') || $next.find('.active').length > 0;
-          var $parents = $links.parentsUntil($menuY, 'ul');
-          var tigaratus = 300;
-          $next.slideToggle(tigaratus, function () {
-            $links.parent().toggleClass('open');
-          });
-
-          if (config.multiple && !$isActive && $next.length > 0) {
-            $menuY.find('ul').not($next).not($active).not($activeParents).not($parents).slideUp(tigaratus).parent().removeClass('open');
-          }
-
-          if ($next.length > 0) {
-            e.preventDefault();
-          }
-        });
-        element.setAttribute('data-technoart-menuy', 'active');
-
-        if (action === 'noName') {
-          Constructor.noName(config);
-        }
-      };
-
-      Constructor.noName = function noName() {
-        var element = document.querySelector('.has-sidebar-left');
-
-        if (element) {
-          element.classList.toggle('sidebar-hide-left-default');
-        }
-      };
-
-      Constructor.addEventForChild = function addEventForChild(parent, eventName, childSelector, callback) {
-        parent.addEventListener(eventName, function (event) {
-          var clickedElement = event.target;
-          var matchingChild = clickedElement.closest(childSelector);
-          callback(matchingChild, event);
-        });
-      };
-
-      return Constructor;
-    }();
-
-    var element = document.querySelector('.menu-y');
-
-    if (element) {
-      Constructor(element);
-    }
-
-    return Constructor;
-  }();
-
-  /**
-   * Technoart v0.0.9 (https://technoartcss.com)
-   * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
-   * Licensed under MIT (https://github.com/technoprodev/technoart/blob/master/LICENSE)
-   */
   var toggle = function () {
     var Constructor =
     /*#__PURE__*/
@@ -402,7 +251,6 @@
     backToTop: backToTop,
     footerFixed: footerFixed,
     fixedOnScroll: fixedOnScroll,
-    menuY: menuY,
     toggle: toggle
   };
 
