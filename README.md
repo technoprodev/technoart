@@ -21,7 +21,7 @@ Finally, Technoart is **simple**, **reliable**, and has **no dependencies**.
 ## Installation
 
 There are several methods to install Technoart:
-- Include it via [CDN](#)
+- Include it via jsDelivr CDN [Technoart CSS](https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css) & [Technoart JS](https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js)
 - Download it via this [link](https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip)
 - Clone the [repo](https://www.github.com/technoprodev/technoart/): `git clone https://github.com/technoprodev/technoart.git`
 - Via package manager [npm](https://www.npmjs.com/): `npm install technoart`
@@ -40,7 +40,7 @@ Although there are several methods to install Technoart, the easiest way to try 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- technoart css -->
-    <link rel="stylesheet" href="https://technoartcdn.com/technoart/0.9.9/css/technoart.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css">
 
     <title>Title</title>
   </head>
@@ -48,7 +48,7 @@ Although there are several methods to install Technoart, the easiest way to try 
     <h1>Your smile makes me happy.</h1>
 
     <!-- technoart js -->
-    <script src="https://technoartcdn.com/technoart/0.9.9/js/technoart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js"></script>
   </body>
 </html>
 ```

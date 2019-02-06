@@ -6,7 +6,7 @@ const babel   = require('rollup-plugin-babel')
 const pkg     = require(path.resolve(__dirname, '../package.json'))
 
 const fileDest  = 'technoart.js'
-const external = ['jquery']
+// const external = ['jquery']
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
@@ -19,9 +19,9 @@ const plugins = [
     ]
   })
 ]
-const globals = {
-  jquery: 'jQuery' // Ensure we use jQuery which is always available even in noConflict mode
-}
+// const globals = {
+//   jquery: 'jQuery' // Ensure we use jQuery which is always available even in noConflict mode
+// }
 
 module.exports = {
   input: path.resolve(__dirname, '../src/js/index.js'),
@@ -33,9 +33,9 @@ module.exports = {
  */`,
     file: path.resolve(__dirname, `../dist/js/${fileDest}`),
     format: 'umd',
-    globals,
+    // globals,
     name: 'technoart'
   },
-  external,
+  // external,
   plugins
 }

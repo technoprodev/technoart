@@ -64,16 +64,16 @@ languages:
   id: Indonesia
 
 repo:      https://github.com/technoprodev/technoart
-instagram: technoart
-twitter:   technoart
+instagram: https://instagram.com/technoart
+twitter:   https://twitter.com/technoart
 
 download:
-  source: https://github.com/technoprodev/technoart/archive/v0.0.9.zip"
-  dist:   https://github.com/technoprodev/technoart/releases/download/v0.0.9/technoart-0.0.9-dist.zip"
+  source: https://github.com/technoprodev/technoart/archive/v0.0.9.zip
+  dist:   https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-  css:      https://maxcdn.technoartcdn.com/technoart/0.0.9/css/technoart.min.css
+  css:      https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css
   css_hash: sha384-notyet
-  js:       https://maxcdn.technoartcdn.com/technoart/0.0.9/js/technoart.min.js
+  js:       https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js
   js_hash:  sha384-notyet
