@@ -72,8 +72,5 @@ download:
   dist:   https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip
 
 cdn:
-  # See https://www.srihash.org for info on how to generate the hashes
   css:      https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css
-  css_hash: sha384-notyet
   js:       https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js
-  js_hash:  sha384-notyet

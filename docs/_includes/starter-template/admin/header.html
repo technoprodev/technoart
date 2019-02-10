@@ -1,0 +1,52 @@
+<header class="header visible-sm-greater border-bottom border-lighter">
+  <div class="header-left padding-x-20 padding-top-10 clearfix">
+    <a href="{{ site.baseurl | alter_url }}" class="a-nocolor">
+      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" class="text-middle" style="width: auto; height: 38px;">
+      <span class="margin-left-5 fs-18 text-azure text-middle">Technoart</span>
+    </a>
+    <div class="pull-right fs-20 text-azure padding-top-5" data-toggle="sidebar-left"><div class="padding-top-2">&#9776;</div></div>
+  </div>
+  <div class="header-right padding-x-30 clearfix">
+    <div class="pull-left padding-top-15">
+      <div class="form-icon text-azure" style="width: 400px;">
+        <i class="icon-append fa fa-search"></i>
+        <input class="form-text rounded-md border-transparent" name="text" placeholder="Search" type="text">
+      </div>
+    </div>
+    <ul class="pull-right menu-x menu-space-y-20 fs-14
+        menu-hover-bg-lighter">
+        <!-- <li class="has-submenu align-right"><a href="">Menu 1</a>
+          <ul class="border-top border-azure border-thin">
+            <li><a href="">Menu 1</a></li>
+            <li class="has-submenu"><a href="">Menu 2</a>
+              <ul class="border-top border-azure border-thin">
+                <li class="activ3"><a href="">Menu 1</a></li>
+                <li><a href="">Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li> -->
+        <li class="{% if page.group == 'home' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/">Home</a></li>
+        <li class="{% if page.group == 'guide' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/">Guide</a></li>
+        <li class="{% if page.group == 'starter-template' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/starter-template/">Starter Template</a></li>
+        <li class="{% if page.group == 'gallery' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/gallery/">Gallery</a></li>
+        <li class="{% if page.group == 'support' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/">Support</a></li>
+    </ul>
+  </div>
+</header>
+
+<header class="header visible-sm-less shadow">
+  <div class="padding-y-20 padding-x-20 bg-azure fs-18">
+    <a class="text-lightest margin-right-5" data-toggle="sidebar-left">☰</a>
+    <span class="fw-bold">
+      {% if page.group == 'home' %}Technoart Home{% endif %}
+      {% if page.group == 'guide' %}Technoart Definitive Guide{% endif %}
+      {% if page.group == 'starter-template' %}Technoart Starter Template{% endif %}
+      {% if page.group == 'gallery' %}Technoart Complete Gallery{% endif %}
+      {% if page.group == 'support' %}Support Technoart{% endif %}
+    </span>
+    <div class="pull-right">
+      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
+    </div>
+  </div>
+</header>

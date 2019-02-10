@@ -8,7 +8,7 @@ code {
   @include text-wrap();
   margin: 0 0 15px;
   font-weight: inherit;
-  white-space: pre;
+  white-space: pre-wrap;
 }
 a {
   color: map-get(map-get($color, "azure"), "text");

@@ -10,11 +10,11 @@
 
 **Current Version**: 0.9.9
 
-**TOC**: [What is Technoart](#what-is-technoart) • [Installation](#installation) • [Minimum Setup](#minimum-setup) • [Assets Structure](#assets-structure) • [Definitive Guide](#definitive-guide) • [Demo Pages](#demo-pages) • [Support Us](#support-us) • [Contributing](#contributing) • [Community](#community) • [License](#license)
+**TOC**: [What is Technoart](#what-is-technoart) • [Installation](#installation) • [Minimum Setup](#minimum-setup) • [Assets Structure](#assets-structure) • [Definitive Guide](#definitive-guide) • [Starter Template](#starter-template) • [Contributing](#contributing) • [Community](#community) • [License](#license)
 
 ## What is Technoart
 
-Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Obviously, not all web mockup can be sliced with Technoart, but if you take a look at [Demo Pages](https://technoartcss.com/demo) you will understand what Technoart can do.
+Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Obviously, not all web mockup can be sliced with Technoart, but if you take a look at [Starter Template](https://technoartcss.com/starter-template) you will understand what Technoart can do.
 
 Finally, Technoart is **simple**, **reliable**, and has **no dependencies**.
 
@@ -75,13 +75,9 @@ technoart/
 
 Learning Technoart is **easy**. Visit [Definitive Guide](https://technoartcss.com/guide) for comprehensive guidance of using Technoart.
 
-## Demo Pages
+## Starter Template
 
-Start a new project with 50<sup>+</sup> choices of clean and professional [Demo Pages](https://technoartcss.com/demo).
-
-## Support Us
-
-We are happy to make Technoart completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. Kindly support Technoart development by clicking [Support Us](https://technoartcss.com/support).
+Start a new project with 50<sup>+</sup> choices of clean and professional [Starter Template](https://technoartcss.com/starter-template).
 
 ## Contributing
 
@@ -92,8 +88,8 @@ Please read [Contributing Guideline](https://github.com/technoprodev/technoart/b
 Get updates on Technoart's development and interact with community members.
 
 - Watch our [repo](https://github.com/technoprodev/technoart) on github.
-- Follow us on [Instagram](https://instagram.com/technoart) for beautiful gallery.
-- Follow us on [Twitter](https://twitter.com/technoart) for Technoart updates.
+- Follow us on [Instagram](https://instagram.com/technoartcss) for beautiful gallery.
+- Follow us on [Twitter](https://twitter.com/technoartcss) for Technoart updates.
 - Get help on [Stack Overflow](https://stackoverflow.com/questions/tagged/technoart) with `technoart` tag.
 - When you modify/add Technoart functionality and want it to be distributed through [npm](https://www.npmjs.com/browse/keyword/technoart) or similar delivery mechanism, use keyword `technoart` on packages name for maximum discoverability.
 

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <link href="{{ site.baseurl }}/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body class="ff-open-san">
+    <div class="wrapper">
+      {% include starter-template/admin/header.html %}
+
+      <div class="body has-sidebar-left">
+        <aside class="sidebar-left border-right border-lighter" technoart-fixedonscroll="bg-lightest">
+          {% include starter-template/admin/sidebar-left-menu.html %}
+        </aside>
+
+        <div class="page-wrapper">
+          <div class="padding-x-30 m-padding-x-10">
+            {{ content }}
+          </div>
+
+          <footer class="footer border-top padding-y-15 text-center border-lighter">
+            <span class="fs-18 text-azure fs-italic">Technoart</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    {% include back-to-top.html %}
+
+    {% include scripts.html %}
+    <script src="{{ site.baseurl }}/assets/vendor/chart.js/Chart.bundle.min.js"></script>
+  </body>
+</html>

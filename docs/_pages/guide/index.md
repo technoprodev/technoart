@@ -1,6 +1,8 @@
 ---
 group: guide
 layout: home
+title: Definitive Guide
+description: Technoart's definitive guide is usage & learning resource designed to help you using technoart comfortably
 ---
 
 <div markdown="1" class="padding-x-80 m-padding-x-20 padding-y-30" style="width: 900px; max-width: 100%;">

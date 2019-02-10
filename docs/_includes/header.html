@@ -17,9 +17,9 @@
       submenu-text-azure submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
       <li class="{% if page.group == 'home' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/">{{ 'home' | translate }}</a></li>
       <li class="{% if page.group == 'guide' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/">{{ 'guide' | translate }}</a></li>
-      <li class="{% if page.group == 'demo' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/demo/">{{ 'demo' | translate }}</a></li>
+      <li class="{% if page.group == 'starter-template' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/starter-template/">{{ 'starter-template' | translate }}</a></li>
       <!-- <li class="{% if page.group == 'gallery' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/gallery/">{{ 'gallery' | translate }}</a></li> -->
-      <li class="{% if page.group == 'support' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/">{{ 'support' | translate }}</a></li>
+      <!-- <li class="{% if page.group == 'support' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/">{{ 'support' | translate }}</a></li> -->
       <li class="has-submenu align-right"><a href="">{{ page.collection | capitalize }}</a>
         <ul class="border-top border-azure border-thin">
           {% for language in site.languages %}
@@ -41,9 +41,9 @@
     <span>
       {% if page.group == 'home' %}{{ 'home-mobile' | translate }}{% endif %}
       {% if page.group == 'guide' %}{{ 'guide-mobile' | translate }}{% endif %}
-      {% if page.group == 'demo' %}{{ 'demo-mobile' | translate }}{% endif %}
+      {% if page.group == 'starter-template' %}{{ 'starter-template-mobile' | translate }}{% endif %}
       {% if page.group == 'gallery' %}{{ 'gallery-mobile' | translate }}{% endif %}
-      {% if page.group == 'support' %}{{ 'support-mobile' | translate }}{% endif %}
+      <!-- {% if page.group == 'support' %}{{ 'support-mobile' | translate }}{% endif %} -->
     </span>
     <div class="pull-right">
       <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
