@@ -59,18 +59,23 @@ authors:     Fandy Pradana
 keywords:    css, sass, js, all-in-one, framework, clean, professional, responsive, web, app, simple, reliable, no-dependencies
 version:     0.0.9
 
+tagline:
+  home: No More Custom CSS
+  guide: Learning Technoart is Easy
+  starter-template: Clean and Professional Starter Template
+
 languages:
   en: English
   id: Indonesia
 
 repo:      https://github.com/technoprodev/technoart
-instagram: https://instagram.com/technoart
-twitter:   https://twitter.com/technoart
+instagram: https://instagram.com/technoartcss
+twitter:   https://twitter.com/technoartcss
 
 download:
   source: https://github.com/technoprodev/technoart/archive/v0.0.9.zip
   dist:   https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip
 
 cdn:
-  css:      https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css
-  js:       https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js
+  css: https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css
+  js:  https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/js/technoart.min.js

@@ -85,7 +85,7 @@ h2 {
         </div>
       </div>
     </a>
-    <a href="https://technoartcss.com/starter-template" class="box-6 padding-20 shadow-bottom-right bg-azure hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
+    <a href="https://technoartcss.com/guide" class="box-6 padding-20 shadow-bottom-right bg-azure hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
       <div class="clearfix text-left">
         <div class="pull-left circle-icon border-none bg-light-azure margin-right-20 fs-22"><i class="fa fa-book"></i></div>
         <div class="pull-left">

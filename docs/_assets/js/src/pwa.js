@@ -1,6 +1,6 @@
-// Javascript code for technoart documentation
-
 /* eslint no-console:off */
+
+/* Javascript code for technoart documentation */
 
 (function setupSW() {
   'use strict'

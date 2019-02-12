@@ -9,8 +9,10 @@
       {% include starter-template/admin/header.html %}
 
       <div class="body has-sidebar-left">
+        <div class="sidebar-overlay" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left"></div>
+
         <aside class="sidebar-left border-right border-lighter" technoart-fixedonscroll="bg-lightest">
-          {% include starter-template/admin/sidebar-left-menu.html %}
+          {% include sidebar-left-menu.html %}
         </aside>
 
         <div class="page-wrapper">

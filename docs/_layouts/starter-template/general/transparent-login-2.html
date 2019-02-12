@@ -9,8 +9,16 @@
       {% include starter-template/general/header-transparent-about-2.html %}
 
       <div class="body has-sidebar-left hide-left-always">
-        <aside class="sidebar-left border-right border-lighter">
-          {% include sidebar-left-menu.html %}
+        <div class="sidebar-overlay" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left"></div>
+
+        <aside class="sidebar-left border-right border-lighter" technoart-fixedonscroll="bg-lightest">
+          <div class="margin-top-20"></div>
+
+          <ul class="menu-y visible-sm-less fs-14 menu-space-y-10
+            menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-light menu-active-text-azure
+            submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
+            {% include starter-template/general/menu-list.html %}
+          </ul>
         </aside>
 
         <div class="page-wrapper">

@@ -37,7 +37,7 @@ Although there are several methods to install Technoart, the easiest way to try 
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
 
     <!-- technoart css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/technoart@0.0.9/dist/css/technoart.min.css">
@@ -68,7 +68,9 @@ technoart/
 │   └── technoart.min.css.map
 └── js/
     ├── technoart.js
-    └── technoart.min.js
+    ├── technoart.js.map
+    ├── technoart.min.js
+    └── technoart.min.js.map
 ```
 
 ## Definitive Guide
@@ -87,7 +89,7 @@ Please read [Contributing Guideline](https://github.com/technoprodev/technoart/b
 
 Get updates on Technoart's development and interact with community members.
 
-- Watch our [repo](https://github.com/technoprodev/technoart) on github.
+- Watch our repo hosted on [Github](https://github.com/technoprodev/technoart).
 - Follow us on [Instagram](https://instagram.com/technoartcss) for beautiful gallery.
 - Follow us on [Twitter](https://twitter.com/technoartcss) for Technoart updates.
 - Get help on [Stack Overflow](https://stackoverflow.com/questions/tagged/technoart) with `technoart` tag.

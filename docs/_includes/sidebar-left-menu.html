@@ -3,13 +3,11 @@
 <div class="margin-top-20"></div>
 
 <ul class="menu-y visible-sm-less fs-14 menu-space-y-10
-  menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-light menu-active-text-dark
+  menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-light menu-active-text-azure
   submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
   <li class="{% if basicurl == '/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'home' | translate }}</a></li>
   <li class="{% if basicurl == '/guide/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'guide' | translate }}</a></li>
   <li class="{% if basicurl == '/starter-template/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/starter-template/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'starter-template' | translate }}</a></li>
-  <li class="{% if basicurl == '/gallery/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/gallery/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'gallery' | translate }}</a></li>
-  <li class="{% if basicurl == '/support/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/support/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'support' | translate }}</a></li>
 </ul>
 
 {%- if page.group == "guide" -%}
@@ -18,23 +16,15 @@
 
 <div class="h5 text-azure padding-x-20">Definitive Guide</div>
 
-<ul class="menu-y
+<ul id="guide" class="menu-y
   menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure
   submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
   <li class="has-submenu"><a href="#introduction">Introduction</a>
     <ul>
       <li><a href="#what-is-technoart">What is Technoart</a></li>
+      <li><a href="#installation">Installation</a></li>
       <li><a href="#minimum-setup">Minimum Setup</a></li>
-      <li class="has-submenu"><a href="#other-installation-methods">Other Installation Methods</a>
-        <ul>
-          <li><a href="#cdn">CDN</a></li>
-          <li><a href="#download">Download</a></li>
-          <li><a href="#npm">npm</a></li>
-          <li><a href="#rubygems">RubyGems</a></li>
-          <li><a href="#composer">Composer</a></li>
-          <li><a href="#nuget">NuGet</a></li>
-        </ul>
-      </li>
+      <li><a href="#assets-structure">Assets Structure</a></li>
     </ul>
   </li>
   <li class="has-submenu"><a href="#grid-or-box">Grid or Box</a>

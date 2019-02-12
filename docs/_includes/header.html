@@ -10,7 +10,13 @@
       {% if page.group == false %}
         <a class="text-lightest margin-right-5" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left">☰</a>
       {% endif %}
-      <span>No More Custom CSS</span>
+      <span>
+        {% if page.group == 'home' %}{{ site.tagline.home }}{% endif %}
+        {% if page.group == 'guide' %}{{ site.tagline.guide }}{% endif %}
+        {% if page.group == 'starter-template' %}{{ site.tagline.starter-template }}{% endif %}
+        {% if page.group == 'gallery' %}{{ site.tagline.gallery }}{% endif %}
+        {% if page.group == 'support' %}{{ site.tagline.support }}{% endif %}
+      </span>
     </div>
     <ul class="pull-right menu-x menu-space-y-20 fs-14
       menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure
@@ -43,7 +49,7 @@
       {% if page.group == 'guide' %}{{ 'guide-mobile' | translate }}{% endif %}
       {% if page.group == 'starter-template' %}{{ 'starter-template-mobile' | translate }}{% endif %}
       {% if page.group == 'gallery' %}{{ 'gallery-mobile' | translate }}{% endif %}
-      <!-- {% if page.group == 'support' %}{{ 'support-mobile' | translate }}{% endif %} -->
+      {% if page.group == 'support' %}{{ 'support-mobile' | translate }}{% endif %}
     </span>
     <div class="pull-right">
       <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">

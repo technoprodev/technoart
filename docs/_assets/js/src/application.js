@@ -1,5 +1,3 @@
-// Javascript code for technoart documentation
-
 /**
  * Technoart v0.0.9 (https://technoartcss.com)
  * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
@@ -8,6 +6,8 @@
 
 /* global anchors: false, ClipboardJS: false */
 /* eslint no-new:off */
+
+/* Javascript code for technoart documentation */
 
 (function () {
   'use strict'
@@ -33,7 +33,6 @@
       return trigger.nextElementSibling
     }
   })
-
   clipboard.on('success', function (e) {
     e.trigger.textContent = 'Copied!'
     setTimeout(function () {
@@ -41,4 +40,32 @@
       e.trigger.textContent = 'Copy'
     }, 1200)
   })
+
+  var section = document.querySelectorAll('h1')
+  var sections = {}
+  Array.prototype.forEach.call(section, function (e) {
+    sections[e.id] = e.offsetTop
+  })
+  function scrollSpy() {
+    var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
+    var x
+    for (var i in sections) {
+      if (sections[i] <= scrollPosition) {
+        var active = document.querySelector('#guide .active')
+        if (active) {
+          active.classList.remove('active', 'open')
+        }
+        var toBeActive = document.querySelector('#guide a[href="#' + i + '"]')
+        if (toBeActive) {
+          toBeActive.parentElement.classList.add('active')
+          x = i
+        }
+      }
+    }
+    if (x) {
+      document.querySelector('#guide a[href="#' + x + '"]').parentElement.classList.add('open')
+    }
+  }
+  scrollSpy()
+  window.addEventListener('scroll', scrollSpy)
 }())

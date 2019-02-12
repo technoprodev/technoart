@@ -84,15 +84,12 @@
 
 <header class="header visible-sm-less shadow border-bottom">
   <div class="padding-y-15 padding-x-20 fs-18 text-azure">
-    <a class="a-nocolor margin-right-5" data-toggle="sidebar-left">☰</a>
-    <span class="fw-bold">Technoart
-      {% if page.group == 'guide' %}Technoart Definitive Guide{% endif %}
-      {% if page.group == 'starter-template' %}Technoart Starter Template{% endif %}
-      {% if page.group == 'gallery' %}Technoart Complete Gallery{% endif %}
-      {% if page.group == 'support' %}Support Technoart{% endif %}
-    </span>
+    <a class="a-nocolor margin-right-5" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left">☰</a>
+    <span>General - {{page.title}}</span>
     <div class="pull-right">
-      <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
+      <a href="{{ site.baseurl | alter_url }}/" class="a-nocolor">
+        <img alt="Technoart logo" src="{{ site.baseurl }}/assets/img/technoart.png" style="width: 32px; height: auto; margin-top: -5px;">
+      </a>
     </div>
   </div>
 </header>
