@@ -3,6 +3,9 @@ import fixedOnScroll from './fixed-on-scroll'
 import {
   footerFixed
 } from './layout'
+/* import {
+  menuY
+} from './menu'*/
 import toggle from './toggle'
 
 /**
@@ -15,6 +18,7 @@ const technoart = {
   backToTop,
   footerFixed,
   fixedOnScroll,
+  // menuY,
   toggle
 }
 

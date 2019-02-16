@@ -4,7 +4,7 @@
     {% include head.html %}
     <link href="{{ site.baseurl }}/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
-  <body class="ff-open-san">
+  <body>
     <div class="wrapper">
       {% include starter-template/admin/header.html %}
 
@@ -12,11 +12,11 @@
         <div class="sidebar-overlay" technoart-toggle=".has-sidebar-left" technoart-toggleclasses="hide-left"></div>
 
         <aside class="sidebar-left border-right border-lighter" technoart-fixedonscroll="bg-lightest">
-          {% include sidebar-left-menu.html %}
+          {% include starter-template/admin/sidebar-left-menu.html %}
         </aside>
 
         <div class="page-wrapper">
-          <div class="padding-x-30 m-padding-x-10">
+          <div class="padding-x-30 m-padding-x-15">
             {{ content }}
           </div>
 

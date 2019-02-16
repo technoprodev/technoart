@@ -2,12 +2,14 @@
 
 <div class="margin-top-20"></div>
 
+<hr class="visible-sm-less">
+
 <ul class="menu-y visible-sm-less fs-14 menu-space-y-10
-  menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-light menu-active-text-azure
-  submenu-hover-bg-lighter submenu-hover-text-azure submenu-active-bg-lightest submenu-active-text-azure">
-  <li class="{% if basicurl == '/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'home' | translate }}</a></li>
-  <li class="{% if basicurl == '/guide/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/guide/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'guide' | translate }}</a></li>
-  <li class="{% if basicurl == '/starter-template/' %}active{% endif %}"><a href="{{ site.baseurl | alter_url }}/starter-template/"><i class="fa fa-caret-right margin-right-30"></i>{{ 'starter-template' | translate }}</a></li>
+  menu-hover-bg-light menu-hover-text-azure menu-active-bg-lighter menu-active-text-azure
+  submenu-hover-bg-light submenu-hover-text-azure submenu-active-bg-lighter submenu-active-text-azure">
+  <li class="{% if page.group == 'home' %}active{% endif %}"><a href="{{ site.baseurl }}/"><i class="fa fa-caret-right margin-right-30"></i>Home</a></li>
+  <li class="{% if page.group == 'guide' %}active{% endif %}"><a href="{{ site.baseurl }}/guide/"><i class="fa fa-caret-right margin-right-30"></i>Guide</a></li>
+  <li class="{% if page.group == 'starter-template' %}active{% endif %}"><a href="{{ site.baseurl }}/starter-template/"><i class="fa fa-caret-right margin-right-30"></i>Starter Template</a></li>
 </ul>
 
 {%- if page.group == "guide" -%}
@@ -15,6 +17,13 @@
 <hr class="visible-sm-less">
 
 <div class="h5 text-azure padding-x-20">Definitive Guide</div>
+
+<div class="form-wrapper margin-left-20 margin-right-10">
+  <select class="form-dropdown padding-x-0" id="language-version">
+    <option value="{{ site.baseurl }}/guide/" {% if basicurl == '/guide/' %}selected{% endif %}>English Version</option>
+    <option value="{{ site.baseurl }}/guide/id/" {% if basicurl == '/guide/id/' %}selected{% endif %}>Bahasa Indonesia Version</option>
+  </select>
+</div>
 
 <ul id="guide" class="menu-y
   menu-hover-bg-lighter menu-hover-text-azure menu-active-bg-lightest menu-active-text-azure

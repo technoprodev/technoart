@@ -13,10 +13,6 @@ collections:
     output:             true
     permalink:          :path/
     relative_directory: _pages
-  id:
-    output:             true
-    permalink:          /:collection/:path/
-    relative_directory: _pages
 
 # Serving
 port: 4000
@@ -58,15 +54,6 @@ description: No more custom CSS - All in one CSS framework for developing clean,
 authors:     Fandy Pradana
 keywords:    css, sass, js, all-in-one, framework, clean, professional, responsive, web, app, simple, reliable, no-dependencies
 version:     0.0.9
-
-tagline:
-  home: No More Custom CSS
-  guide: Learning Technoart is Easy
-  starter-template: Clean and Professional Starter Template
-
-languages:
-  en: English
-  id: Indonesia
 
 repo:      https://github.com/technoprodev/technoart
 instagram: https://instagram.com/technoartcss

@@ -49,13 +49,14 @@
   function scrollSpy() {
     var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
     var x
+    var toBeActive
     for (var i in sections) {
       if (sections[i] <= scrollPosition) {
         var active = document.querySelector('#guide .active')
         if (active) {
           active.classList.remove('active', 'open')
         }
-        var toBeActive = document.querySelector('#guide a[href="#' + i + '"]')
+        toBeActive = document.querySelector('#guide a[href="#' + i + '"]')
         if (toBeActive) {
           toBeActive.parentElement.classList.add('active')
           x = i
@@ -63,9 +64,16 @@
       }
     }
     if (x) {
-      document.querySelector('#guide a[href="#' + x + '"]').parentElement.classList.add('open')
+      toBeActive.parentElement.classList.add('open')
     }
   }
   scrollSpy()
   window.addEventListener('scroll', scrollSpy)
+
+  var languageVersion = document.getElementById('language-version')
+  if (languageVersion) {
+    languageVersion.addEventListener('change', function () {
+      window.location = languageVersion.value
+    })
+  }
 }())
