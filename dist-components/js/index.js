@@ -1,7 +1,3 @@
-/* import {
-  menuY
-} from './menu'*/
-
 /**
  * Technoart v0.0.9 (https://technoartcss.com)
  * Copyright (c) 2018-present Fandy Pradana (https://prafandy.com)
@@ -11,7 +7,7 @@ var technoart = {
   backToTop: backToTop,
   footerFixed: footerFixed,
   fixedOnScroll: fixedOnScroll,
-  // menuY,
+  menuY: menuY,
   toggle: toggle
 };
 //# sourceMappingURL=index.js.map

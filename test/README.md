@@ -26,36 +26,3 @@ To run the unit test suite via a real web browser, open `index.html` in the brow
 * Each test should test only one unit per test, although one test can include several assertions. Create multiple tests for multiple units of functionality.
 * Each test should begin with [`assert.expect`](https://api.qunitjs.com/assert/expect/) to ensure that the expected assertions are run.
 * Each test should follow the project's [JavaScript Code Guidelines](https://github.com/technoprodev/technoart/blob/master/CONTRIBUTING.md#js)
-
-<!-- ### Example tests
-
-```javascript
-// Synchronous test
-QUnit.test('should describe the unit being tested', function (assert) {
-  assert.expect(1)
-  var templateHTML = '<div class="alert alert-danger fade show">'
-      + '<a class="close" href="#" data-dismiss="alert">×</a>'
-      + '<p><strong>Template necessary for the test.</p>'
-      + '</div>'
-  var $alert = $(templateHTML).appendTo('#qunit-fixture').technoartAlert()
-
-  $alert.find('.close').trigger('click')
-
-  // Make assertion
-  assert.strictEqual($alert.hasClass('show'), false, 'remove .show class on .close click')
-})
-
-// Asynchronous test
-QUnit.test('should describe the unit being tested', function (assert) {
-  assert.expect(1)
-  var done = assert.async()
-
-  $('<div title="tooltip title"></div>')
-    .appendTo('#qunit-fixture')
-    .on('shown.bs.tooltip', function () {
-      assert.ok(true, '"shown" event was fired after calling "show"')
-      done()
-    })
-    .technoartTooltip('show')
-})
-``` -->

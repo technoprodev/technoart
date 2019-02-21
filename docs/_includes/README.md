@@ -98,3 +98,118 @@ Get updates on Technoart's development and interact with community members.
 ## License
 
 Copyright (c) 2018-present [Fandy Pradana](https://prafandy.com). Licensed under [MIT](https://github.com/technoprodev/technoart/blob/master/LICENSE).
+
+## Specifications, Done List & Possible Contribution List
+- Components
+    - box
+    - space
+    - text-color
+    - background-color
+    - percentage-background-color
+    - background-image
+    - border-color
+    - typography
+    - button
+    - form
+    - table
+    - image
+    - embed
+    - menu
+    - layout
+    - pagination
+    - breadcrumb
+    - circle-icon
+    - positioned-child
+    - stack-content
+    - hover-zoom
+    - fixed-on-scroll
+    - back-to-top
+    - toggle
+    - clearfix-and-float
+    - visibility
+    - shadow
+    - rounded
+    - underline
+    - stretch
+- Javascript component specifications
+    - No depedency
+    - Triggering event (soon)
+    - Custom setting (soon)
+    - Unit test (soon)
+    - Continuous Integration (soon)
+- Distribution
+    - Via cdn
+    - Via npm
+    - Via yarn
+    - Via composer
+    - dist & dist-components
+    - Using source maps
+- Community
+    - Bug reports, features requests & submitting pull requests: https://github.com/technoprodev/technoart/issues
+    - Asking question: https://stackoverflow.com/questions/tagged/technoart
+    - Twitter page: https://instagram.com/technoartcss
+    - Instagram page: https://twitter.com/technoartcss
+    - Medium (soon)
+    - Reddit (soon)
+- Website technoartcss.com
+    - Using jekyll & github pages
+    - Https
+    - Analytic (soon)
+- Website Pages
+    - Home
+    - Guide
+    - Starter Template
+    - Gallery (soon)
+    - Support (soon)
+    - License (soon)
+    - Contribute (soon)
+    - Brand (soon)
+    - Team (soon)
+    - Curated List (later)
+    - Live Chat (later)
+- Guide Specification
+    - Example preview
+    - Example code & copy to clipboard
+    - Header with anchor
+    - Scrollspy
+- Guide Translation
+    - English
+    - Indonesia
+- Starter Template
+    - General
+        - Homepage
+        - Service
+        - Portfolio
+        - Pricing
+        - FAQ
+        - Our Team
+        - Our Client (soon)
+        - About Us
+        - Contact Us (soon)
+        - My Profile (soon)
+            - View Profile (soon)
+            - Edit Profile (soon)
+            - Change Password (soon)
+        - Authentication (soon)
+        - Error 404 (soon)
+        - Coming Soon (soon)
+        - Legal (soon)
+            - Privacy Policy (soon)
+            - Term of Service (soon)
+        - Search Result (soon)
+    - Minimum Layout (soon)
+    - Admin (soon)
+    - Blog (soon)
+    - Magazine (soon)
+    - News (soon)
+    - One Page (soon)
+    - Email (soon)
+    - Curriculum Vitae (soon)
+    - Ecommerce (soon)
+    - Job (soon)
+    - University (soon)
+    - Wedding (soon)
+    - Real Estate (soon)
+    - Social Media (soon)
+        - News Feed (soon)
+        - My Profile (soon)
