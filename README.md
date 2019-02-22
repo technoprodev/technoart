@@ -14,9 +14,11 @@
 
 ## What is Technoart
 
-Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Obviously, not all web mockup can be sliced with Technoart, but if you take a look at [Starter Template](https://technoartcss.com/starter-template) you will understand what Technoart can do.
+Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Ofcourse, there will be some cases that still need custom CSS.
 
-Finally, Technoart is **simple**, **reliable**, and has **no dependencies**.
+Our goals are not only making Technoart **simple**, **reliable**, and has **no dependencies**. We also eager to help you to be able using Technoart easily with [Definitive Guide](https://technoartcss.com/guide). What is the point of great tool without no one being able to use it.
+
+And with [Starter Template](https://technoartcss.com/starter-template), we hope you are inspired and can use Technoart for real web development.
 
 ## Installation
 
