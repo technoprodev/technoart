@@ -10,7 +10,7 @@
 
 **Current Version**: 0.9.9
 
-**TOC**: [What is Technoart](#what-is-technoart) • [Installation](#installation) • [Minimum Setup](#minimum-setup) • [Assets Structure](#assets-structure) • [Definitive Guide](#definitive-guide) • [Starter Template](#starter-template) • [Contributing](#contributing) • [Community](#community) • [License](#license)
+**TOC**: [What is Technoart](#what-is-technoart) • [Installation](#installation) • [Minimum Setup](#minimum-setup) • [Assets Structure](#assets-structure) • [Definitive Guide](#definitive-guide) • [Starter Template](#starter-template) • [Contributing](#contributing) • [Community](#community) • [License](#license) • [Done List and Possible Contribution List](#done-list-and-possible-contribution-list)
 
 ## What is Technoart
 
@@ -81,17 +81,13 @@ Learning Technoart is **easy**. Visit [Definitive Guide](https://technoartcss.co
 
 Start a new project with 50<sup>+</sup> choices of clean and professional [Starter Template](https://technoartcss.com/starter-template).
 
-## Contributing
-
-Please read [Contributing Guideline](https://github.com/technoprodev/technoart/blob/master/.github/CONTRIBUTING.md) before making a pull request.
-
 ## Community
 
 Get updates on Technoart's development and interact with community members.
 
 - Watch our repo hosted on [Github](https://github.com/technoprodev/technoart).
-- Follow us on [Instagram](https://instagram.com/technoartcss) for beautiful gallery.
 - Follow us on [Twitter](https://twitter.com/technoartcss) for Technoart updates.
+- Follow us on [Instagram](https://instagram.com/technoartcss) for beautiful gallery.
 - Get help on [Stack Overflow](https://stackoverflow.com/questions/tagged/technoart) with `technoart` tag.
 - When you modify/add Technoart functionality and want it to be distributed through [npm](https://www.npmjs.com/browse/keyword/technoart) or similar delivery mechanism, use keyword `technoart` on packages name for maximum discoverability.
 
@@ -99,66 +95,94 @@ Get updates on Technoart's development and interact with community members.
 
 Copyright (c) 2018-present [Fandy Pradana](https://prafandy.com). Licensed under [MIT](https://github.com/technoprodev/technoart/blob/master/LICENSE).
 
-## Specifications, Done List & Possible Contribution List
+## Done List and Possible Contribution List
+
+The following is a complete list of Technoart components, how the javascript component specifications are built, how Technoart assets are distributed, how users can interact with Technoart, the technology used to build the website [https://technoartcss.com](https: // technoartcss. com), all pages that are exist on [https://technoartcss.com](https://technoartcss.com), the plugin used in the [Definitive Guide](https://technoartcss.com/guide) page, [Definitive Guide](https://technoartcss.com/guide) available translations and a list of pages that are exist on [Starter Tempalate](https://technoartcss.com/starter-template)
+
+This full list is not commonly published on other opensource projects. But there is a lot of hope why this list is published. Among them:
+- By knowing what has been done, Technoart contributors can have extraordinary feeling about their achievements developing Technoart
+- By knowing the Technoart development roadmap, Technoart users can faithfully waiting for any development that will be useful to them later
+- Opening opportunities for community, not only as users but also become contributors. You may contribute to:
+    - developing CSS & javascript components
+    - write a unit test
+    - setup Continuous Integration that is currently not done
+    - bug reporting
+    - features requesting
+    - asking & answering questions
+    - writing content of twitter page, instagram page & medium
+    - setup an analytic that is currently not done
+    - developing website pages that are currently only Home, Guide & Starter Templates that exist
+    - helping [Definitive Guide](https://technoartcss.com/guide) page to be easier for users to learn
+    - translating [Definitive Guide](https://technoartcss.com/guide) page to languages ​​other than English to help developers who want to learn Technoart but don't have good English skill
+    - give an idea or mockup UI that can be displayed on [Starter Tempalate](https://technoartcss.com/starter-template) page
+    - developing [Starter Tempalate](https://technoartcss.com/starter-template) page
+    - finding typos
+
+For now, the list below has 3 additional information, which are:
+- done: it has been completed but it is possible to develop it further
+- soon: not finished yet and requires contributions from the community
+- later: not developed in the near future
+
+And finally, here are the contents of the list:
 - Components
-    - box
-    - space
-    - text-color
-    - background-color
-    - percentage-background-color
-    - background-image
-    - border-color
-    - typography
-    - button
-    - form
-    - table
-    - image
-    - embed
-    - menu
-    - layout
-    - pagination
-    - breadcrumb
-    - circle-icon
-    - positioned-child
-    - stack-content
-    - hover-zoom
-    - fixed-on-scroll
-    - back-to-top
-    - toggle
-    - clearfix-and-float
-    - visibility
-    - shadow
-    - rounded
-    - underline
-    - stretch
+    - box (done)
+    - space (done)
+    - text-color (done)
+    - background-color (done)
+    - percentage-background-color (done)
+    - background-image (done)
+    - border-color (done)
+    - typography (done)
+    - button (done)
+    - form (done)
+    - table (done)
+    - image (done)
+    - embed (done)
+    - menu (done)
+    - layout (done)
+    - pagination (done)
+    - breadcrumb (done)
+    - circle-icon (done)
+    - positioned-child (done)
+    - stack-content (done)
+    - hover-zoom (done)
+    - fixed-on-scroll (done)
+    - back-to-top (done)
+    - toggle (done)
+    - clearfix-and-float (done)
+    - visibility (done)
+    - shadow (done)
+    - rounded (done)
+    - underline (done)
+    - stretch (done)
 - Javascript component specifications
-    - No depedency
+    - No depedency (done)
     - Triggering event (soon)
     - Custom setting (soon)
     - Unit test (soon)
     - Continuous Integration (soon)
 - Distribution
-    - Via cdn
-    - Via npm
-    - Via yarn
-    - Via composer
-    - dist & dist-components
-    - Using source maps
+    - Via cdn (done)
+    - Via npm (done)
+    - Via yarn (done)
+    - Via composer (done)
+    - dist folder for general usage (done)
+    - dist-components folder for custom usage (done)
+    - Using source maps (done)
 - Community
-    - Bug reports, features requests & submitting pull requests: https://github.com/technoprodev/technoart/issues
-    - Asking question: https://stackoverflow.com/questions/tagged/technoart
-    - Twitter page: https://instagram.com/technoartcss
-    - Instagram page: https://twitter.com/technoartcss
+    - [Bug reports, features requests & submitting pull requests](https://github.com/technoprodev/technoart/issues)
+    - Asking question via [stackoverflow](https://stackoverflow.com/questions/tagged/technoart)
+    - [Twitter page](https://instagram.com/technoartcss)
+    - [Instagram page](https://twitter.com/technoartcss)
     - Medium (soon)
-    - Reddit (soon)
 - Website technoartcss.com
-    - Using jekyll & github pages
-    - Https
+    - Using jekyll & github pages (done)
+    - Https (done)
     - Analytic (soon)
 - Website Pages
-    - Home
-    - Guide
-    - Starter Template
+    - Home (done)
+    - Guide (done)
+    - Starter Template (done)
     - Gallery (soon)
     - Support (soon)
     - License (soon)
@@ -168,23 +192,23 @@ Copyright (c) 2018-present [Fandy Pradana](https://prafandy.com). Licensed under
     - Curated List (later)
     - Live Chat (later)
 - Guide Specification
-    - Example preview
-    - Example code & copy to clipboard
-    - Header with anchor
-    - Scrollspy
+    - Example preview (done)
+    - Example code & copy to clipboard (done)
+    - Header with anchor (done)
+    - Scrollspy (done)
 - Guide Translation
-    - English
-    - Indonesia
+    - English (done)
+    - Indonesia (soon)
 - Starter Template
     - General
-        - Homepage
-        - Service
-        - Portfolio
-        - Pricing
-        - FAQ
-        - Our Team
+        - Homepage (done)
+        - Service (done)
+        - Portfolio (done)
+        - Pricing (done)
+        - FAQ (done)
+        - Our Team (done)
         - Our Client (soon)
-        - About Us
+        - About Us (done)
         - Contact Us (soon)
         - My Profile (soon)
             - View Profile (soon)
