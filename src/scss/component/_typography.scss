@@ -29,6 +29,7 @@ hr {
 // START @LIST
 ul,
 ol {
+  @include text-wrap();
   padding-left: 30px;
   margin: 0 0 15px;
 }

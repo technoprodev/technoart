@@ -4253,6 +4253,10 @@ hr {
 
 ul,
 ol {
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+  white-space: normal;
   padding-left: 30px;
   margin: 0 0 15px;
 }
