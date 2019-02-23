@@ -79,7 +79,7 @@ h2 {
           <div class="fs-24 fw-bold">
             <div>Download Now</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px;">
+          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
             Current version: 0.9.9
           </div>
         </div>
@@ -92,7 +92,7 @@ h2 {
           <div class="fs-24 fw-bold">
             <div>Definitive Guide</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px;">
+          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
             Learning Technoart is <b>easy</b>.
           </div>
         </div>
@@ -107,7 +107,7 @@ h2 {
           <div class="fs-24 fw-bold">
             <div>Starter Template</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px;">
+          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
             50<sup>+</sup> choices of clean and professional starter templates.
           </div>
         </div>
@@ -120,7 +120,7 @@ h2 {
           <div class="fs-24 fw-bold">
             <div>Our Repo</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px;">
+          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
             Visit our repo hosted on github.
           </div>
         </div>
