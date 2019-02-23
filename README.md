@@ -120,8 +120,9 @@ This full list is not commonly published on other opensource projects. But there
     - developing [Starter Tempalate](https://technoartcss.com/starter-template) page
     - finding typos
 
-For now, the list below has 3 additional information, which are:
+For now, the list below has 4 additional information, which are:
 - done: it has been completed but it is possible to develop it further
+- continue: always continue
 - soon: not finished yet and contributions from the community would be extremely helpful
 - later: not developed in the near future
 
@@ -172,10 +173,10 @@ And finally, here are the contents of the list:
     - dist-components folder for custom usage (done)
     - Using source maps (done)
 - Community
-    - [Bug reports, features requests & submitting pull requests](https://github.com/technoprodev/technoart/issues)
-    - Asking question via [stackoverflow](https://stackoverflow.com/questions/tagged/technoart)
-    - [Twitter page](https://instagram.com/technoartcss)
-    - [Instagram page](https://twitter.com/technoartcss)
+    - [Bug reports, features requests & submitting pull requests](https://github.com/technoprodev/technoart/issues) (continue)
+    - Asking and answering question via [stackoverflow](https://stackoverflow.com/questions/tagged/technoart) (continue)
+    - [Twitter page](https://instagram.com/technoartcss) (continue)
+    - [Instagram page](https://twitter.com/technoartcss) (continue)
     - Medium (soon)
 - Website technoartcss.com
     - Using jekyll & github pages (done)
