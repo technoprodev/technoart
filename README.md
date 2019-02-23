@@ -16,7 +16,7 @@
 
 Technoart is **all in one** CSS framework for developing **clean**, **professional** & **responsive** web app. Technoart helps you slice any web mockup without any custom CSS. Ofcourse, there will be some cases that still need custom CSS.
 
-Our goals are not only making Technoart **simple**, **reliable**, and has **no dependencies**. We also eager to help you to be able using Technoart easily with [Definitive Guide](https://technoartcss.com/guide). What is the point of great tool without no one being able to use it.
+Our goals are not only making Technoart **simple**, **reliable**, and has **no dependencies**. We also eager to help you using Technoart easily with [Definitive Guide](https://technoartcss.com/guide). What is the point of great tool without no one being able to use it.
 
 And with [Starter Template](https://technoartcss.com/starter-template), we hope you are inspired and can use Technoart for real web development.
 
@@ -102,17 +102,17 @@ Copyright (c) 2018-present [Fandy Pradana](https://prafandy.com). Licensed under
 The following is a complete list of Technoart components, how the javascript component specifications are built, how Technoart assets are distributed, how users can interact with Technoart, the technology used to build the website [https://technoartcss.com](https: // technoartcss. com), all pages that are exist on [https://technoartcss.com](https://technoartcss.com), the plugin used in the [Definitive Guide](https://technoartcss.com/guide) page, [Definitive Guide](https://technoartcss.com/guide) available translations and a list of pages that are exist on [Starter Tempalate](https://technoartcss.com/starter-template)
 
 This full list is not commonly published on other opensource projects. But there is a lot of hope why this list is published. Among them:
-- By knowing what has been done, Technoart contributors can have extraordinary feeling about their achievements developing Technoart
-- By knowing the Technoart development roadmap, Technoart users can faithfully waiting for any development that will be useful to them later
-- Opening opportunities for community, not only as users but also become contributors. You may contribute to:
+- By knowing what has been done, Technoart contributors can have awesome feeling about their achievements developing Technoart
+- By knowing Technoart development roadmap, Technoart users can faithfully waiting for any updates that will be useful for them
+- Opening opportunities for community to contribute to:
     - developing CSS & javascript components
     - write a unit test
-    - setup Continuous Integration that is currently not done
+    - setup Continuous Integration that is currently not done yet
     - bug reporting
     - features requesting
     - asking & answering questions
     - writing content of twitter page, instagram page & medium
-    - setup an analytic that is currently not done
+    - setup an analytic that is currently not done yet
     - developing website pages that are currently only Home, Guide & Starter Templates that exist
     - helping [Definitive Guide](https://technoartcss.com/guide) page to be easier for users to learn
     - translating [Definitive Guide](https://technoartcss.com/guide) page to languages ​​other than English to help developers who want to learn Technoart but don't have good English skill
@@ -122,7 +122,7 @@ This full list is not commonly published on other opensource projects. But there
 
 For now, the list below has 3 additional information, which are:
 - done: it has been completed but it is possible to develop it further
-- soon: not finished yet and requires contributions from the community
+- soon: not finished yet and contributions from the community would be extremely helpful
 - later: not developed in the near future
 
 And finally, here are the contents of the list:
