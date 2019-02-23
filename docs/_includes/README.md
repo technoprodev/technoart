@@ -99,7 +99,7 @@ Copyright (c) 2018-present [Fandy Pradana](https://prafandy.com). Licensed under
 
 ## Done List and Possible Contribution List
 
-The following is a complete list of Technoart components, how the javascript component specifications are built, how Technoart assets are distributed, how users can interact with Technoart, the technology used to build the website [https://technoartcss.com](https: // technoartcss. com), all pages that are exist on [https://technoartcss.com](https://technoartcss.com), the plugin used in the [Definitive Guide](https://technoartcss.com/guide) page, [Definitive Guide](https://technoartcss.com/guide) available translations and a list of pages that are exist on [Starter Tempalate](https://technoartcss.com/starter-template)
+The following is a complete list of Technoart components, how the javascript component specifications are built, how Technoart assets are distributed, how users can interact with Technoart, the technology used to build the website [https://technoartcss.com](https://technoartcss.com), all pages that are exist on [https://technoartcss.com](https://technoartcss.com), the plugin used in the [Definitive Guide](https://technoartcss.com/guide) page, [Definitive Guide](https://technoartcss.com/guide) available translations and a list of pages that are exist on [Starter Tempalate](https://technoartcss.com/starter-template)
 
 This full list is not commonly published on other opensource projects. But there is a lot of hope why this list is published. Among them:
 - By knowing what has been done, Technoart contributors can have awesome feeling about their achievements developing Technoart
