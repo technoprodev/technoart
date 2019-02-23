@@ -74,12 +74,12 @@ h2 {
   <div class="box box-space-lg box-gutter box-break-sm box-equal">
     <a href="https://github.com/technoprodev/technoart/releases/download/v0.0.9/bootstrap-0.9.9-dist.zip" class="box-6 padding-20 shadow-bottom-right bg-azure hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
       <div class="clearfix text-left">
-        <div class="pull-left circle-icon border-none bg-light-azure margin-right-20 fs-22"><i class="fa fa-download"></i></div>
-        <div class="pull-left">
+        <div class="pull-left m-pull-none m-text-center margin-right-20 m-margin-right-0 m-margin-bottom-15 fs-22"><i class="fa fa-download circle-icon border-none bg-light-azure"></i></div>
+        <div class="pull-left m-pull-none m-text-center">
           <div class="fs-24 fw-bold">
             <div>Download Now</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
+          <div class="fs-12 margin-top-2 text-wrap">
             Current version: 0.9.9
           </div>
         </div>
@@ -87,12 +87,12 @@ h2 {
     </a>
     <a href="https://technoartcss.com/guide" class="box-6 padding-20 shadow-bottom-right bg-azure hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
       <div class="clearfix text-left">
-        <div class="pull-left circle-icon border-none bg-light-azure margin-right-20 fs-22"><i class="fa fa-book"></i></div>
-        <div class="pull-left">
+        <div class="pull-left m-pull-none m-text-center margin-right-20 m-margin-right-0 m-margin-bottom-15 fs-22"><i class="fa fa-book circle-icon border-none bg-light-azure"></i></div>
+        <div class="pull-left m-pull-none m-text-center">
           <div class="fs-24 fw-bold">
             <div>Definitive Guide</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
+          <div class="fs-12 margin-top-2 text-wrap">
             Learning Technoart is <b>easy</b>.
           </div>
         </div>
@@ -102,12 +102,12 @@ h2 {
   <div class="box box-space-lg box-gutter box-break-sm box-equal">
     <a href="https://technoartcss.com/starter-template" class="box-6 padding-20 shadow-bottom-right bg-darker hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
       <div class="clearfix text-left">
-        <div class="pull-left circle-icon border-none bg-gray margin-right-20 fs-22"><i class="fa fa-diamond"></i></div>
-        <div class="pull-left">
+        <div class="pull-left m-pull-none m-text-center margin-right-20 m-margin-right-0 m-margin-bottom-15 fs-22"><i class="fa fa-diamond circle-icon border-none bg-gray"></i></div>
+        <div class="pull-left m-pull-none m-text-center">
           <div class="fs-24 fw-bold">
             <div>Starter Template</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
+          <div class="fs-12 margin-top-2 text-wrap">
             50<sup>+</sup> choices of clean and professional starter templates.
           </div>
         </div>
@@ -115,12 +115,12 @@ h2 {
     </a>
     <a href="https://www.github.com/technoprodev/technoart/" class="box-6 padding-20 shadow-bottom-right bg-darker hover-bg-lightest hover-text-azure hover-border-azure rounded-xs">
       <div class="clearfix text-left">
-        <div class="pull-left circle-icon border-none bg-gray margin-right-20 fs-22"><i class="fa fa-github "></i></div>
-        <div class="pull-left">
+        <div class="pull-left m-pull-none m-text-center margin-right-20 m-margin-right-0 m-margin-bottom-15 fs-22"><i class="fa fa-github circle-icon border-none bg-gray"></i></div>
+        <div class="pull-left m-pull-none m-text-center">
           <div class="fs-24 fw-bold">
             <div>Our Repo</div>
           </div>
-          <div class="fs-12 margin-top-2 text-wrap" style="width:280px">
+          <div class="fs-12 margin-top-2 text-wrap">
             Visit our repo hosted on github.
           </div>
         </div>
