@@ -1,45 +1,27 @@
-# Ignore docs files
-_site
+# Dependencies
+node_modules
 
-# Ignore ruby files
-.ruby-version
-.bundle
-vendor/cache
-vendor/bundle
+# Build outputs
+dist
 
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.log
-*.orig
-*.rej
-*.swo
-*.swp
-*.vi
-*.zip
-*~
+# Environment files
+.env
+.env.*
+!.env.example
 
-# OS or Editor folders
-._*
-.cache
-.DS_Store
+# Logs
+logs/
+*.log*
+
+# Editor/IDE
+.vscode/*
+!.vscode/extensions.json
 .idea
-.project
-.settings
-.tmproj
-*.esproj
-*.sublime-project
-*.sublime-workspace
-nbproject
+*.sw?
+
+# OS
+.DS_Store
 Thumbs.db
 
-# Komodo
-.komodotools
-*.komodoproject
-
-# Jekyll metadata and extra config file for `github` script
-docs/.jekyll-metadata
-technoprodevconfig.yml
-
-# Folders to ignore
-node_modules
+# Misc
+*.local

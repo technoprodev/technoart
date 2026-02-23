@@ -1,0 +1,23 @@
+// _group-show.scss (Not responsive)
+// Group-based hover, focus, and active states
+
+// Utility to show child elements when the parent (.group) is hovered
+.group:not(:hover) {
+    .group-hover-show {
+        display: none;
+    }
+}
+
+// Utility to show child elements when the parent (.group) is focused
+.group:not(:focus) {
+    .group-focus-show {
+        display: none;
+    }
+}
+
+// Utility to show child elements when the parent (.group) is hovered or focused (combination of hover and focus utilities)
+.group:not(:hover):not(:focus) {
+    .group-show {
+        display: none;
+    }
+}

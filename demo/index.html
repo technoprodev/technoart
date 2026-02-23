@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technoart — Demo</title>
+  <link rel="stylesheet" href="../dist/technoart.css" />
+  <style>
+    /* Demo-only styles — not part of Technoart */
+    :root {
+      --color-primary: hsl(182, 70%, 40%);
+      --color-tint:    hsl(182, 70%, 92%);
+      --color-text: hsl(235, 12%, 20%);
+      --color-bg: hsl(210, 30%, 98%);
+      --color-surface: #fff;
+      --color-border: hsl(210, 17%, 88%);
+      --color-muted: hsl(208, 17%, 55%);
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+    /* Color utilities — in a source setup these come from your $colors map */
+    .text-primary         { color: var(--color-primary); }
+    .text-muted           { color: var(--color-muted); }
+    .bg-surface           { background-color: var(--color-surface); }
+    .bg-primary           { background-color: var(--color-primary); }
+    .bg-tint              { background-color: var(--color-tint); }
+    .border-color-border  { border-color: var(--color-border); }
+    .border-color-primary { border-color: var(--color-primary); }
+    /* font-family cannot be expressed as a utility */
+    code {
+      font-family: 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 12px;
+      background: hsl(210, 17%, 94%);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="bg-surface border-bottom border-color-border sticky top-0 z-9">
+  <div class="container-1320 padding-x-24 padding-y-12">
+    <div class="flex flex-items-center flex-justify-between flex-gutter-x-24">
+      <span class="h5 font-weight-bold shrink-0 text-primary">Technoart</span>
+      <div class="flex flex-wrap flex-gutter-x-16 flex-gutter-y-4">
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#typography">Typography</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#spacing">Spacing</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#size">Size</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#flex">Flex</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#positioning">Positioning</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#border">Border</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#shadow">Shadow</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#opacity">Opacity</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#overflow">Overflow</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#text-color">Text Color</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#bg-color">Bg Color</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#animate">Animate</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#group-show">Group-show</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#hidden">Hidden</a>
+        <span style="color: var(--color-border);">|</span>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#button">Button</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#form">Form</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#table">Table</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#skeleton">Skeleton</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#bg-image">Bg Image</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#container">Container</a>
+        <a class="text-primary text-body-3 text-line-none text-nowrap hover-text-underline" href="#scroll-locked">Scroll-locked</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="padding-y-60 padding-y-32-sm bg-surface">
+  <div class="container-960 padding-x-24 text-center">
+    <p class="text-body-2 font-weight-bold text-uppercase text-primary letter-spacing-2">Technoart Demo</p>
+    <h1 class="h2 h3-sm margin-top-8 margin-bottom-16">Every utility. One page.</h1>
+    <p class="text-body-1 text-body-2-sm text-muted">
+      This page demonstrates every utility class in Technoart. Resize the window to see responsive behavior.
+      Colors and surfaces here are demo-only — Technoart ships no color utilities.
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TYPOGRAPHY -->
+<!-- ============================================================ -->
+<div id="typography" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Typography</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Heading and body utilities. Apply to any element. All responsive.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Heading scale</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <div class="h1 margin-bottom-8">h1 — 40px / 44</div>
+      <div class="h2 margin-bottom-8">h2 — 32px / 36</div>
+      <div class="h3 margin-bottom-8">h3 — 28px / 32</div>
+      <div class="h4 margin-bottom-8">h4 — 24px / 28</div>
+      <div class="h5 margin-bottom-8">h5 — 20px / 24</div>
+      <div class="h6">h6 — 18px / 22</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Body scale</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <div class="text-body-1 margin-bottom-8">text-body-1 — 16px / 24 — The quick brown fox</div>
+      <div class="text-body-2 margin-bottom-8">text-body-2 — 14px / 20 — The quick brown fox</div>
+      <div class="text-body-3">text-body-3 — 12px / 16 — The quick brown fox</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Font weight</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <div class="flex flex-wrap flex-gutter-16">
+        <span class="font-weight-300 text-body-1">300 Light</span>
+        <span class="font-weight-400 text-body-1">400 Normal</span>
+        <span class="font-weight-500 text-body-1">500 Medium</span>
+        <span class="font-weight-600 text-body-1">600 Semibold</span>
+        <span class="font-weight-700 text-body-1">700 Bold</span>
+        <span class="font-weight-800 text-body-1">800 Extrabold</span>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Alignment</div>
+    <div class="rounded-8 bg-surface border border-color-border margin-bottom-24">
+      <div class="text-left padding-12 border-bottom border-color-border">text-left</div>
+      <div class="text-center padding-12 border-bottom border-color-border">text-center</div>
+      <div class="text-right padding-12">text-right</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Decoration &amp; transform</div>
+    <div class="flex flex-gutter-x-24 flex-gutter-y-8 flex-wrap margin-bottom-24">
+      <span class="text-underline text-body-1">text-underline</span>
+      <span class="text-strike text-body-1">text-strike</span>
+      <span class="text-uppercase text-body-1">text-uppercase</span>
+      <span class="text-nowrap text-body-1">text-nowrap — no wrap</span>
+      <span class="text-ellipsis text-body-1 inline-block" style="max-width: 140px;">text-ellipsis truncates long text here</span>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Responsive — <code>h2 h4-sm</code> (resize to see)</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24">
+      <div class="h2 h4-sm">Heading resizes at 640px</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SPACING -->
+<!-- ============================================================ -->
+<div id="spacing" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Spacing</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Margin and padding. 4pt grid. Suffix <code>-sm</code> = 640px and below.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Padding scale (all sides)</div>
+    <div class="flex flex-wrap flex-gutter-8 margin-bottom-24">
+      <div class="padding-4 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,85%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-4</div>
+      </div>
+      <div class="padding-8 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,80%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-8</div>
+      </div>
+      <div class="padding-16 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,70%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-16</div>
+      </div>
+      <div class="padding-24 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,60%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-24</div>
+      </div>
+      <div class="padding-32 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,50%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-32</div>
+      </div>
+      <div class="padding-48 bg-surface border border-color-border">
+        <div class="size-40px rounded-4" style="background:hsl(182,70%,40%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted text-center margin-top-4">p-48</div>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Responsive — <code>padding-32 padding-16-sm</code> (resize to see)</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-32 padding-16-sm margin-bottom-24">
+      <p class="text-body-2 text-muted">32px on desktop → 16px on mobile.</p>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Margin auto centering — <code>margin-x-auto width-50</code></div>
+    <div class="rounded-8 bg-surface border border-color-border padding-16 margin-x-auto width-50 text-center">
+      Centered block
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIZE -->
+<!-- ============================================================ -->
+<div id="size" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Size</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Fixed pixel sizes, percentage widths, viewport units.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Square sizes — <code>.size-{n}px</code></div>
+    <div class="flex flex-items-end flex-gutter-8 margin-bottom-24">
+      <div>
+        <div class="size-24px rounded-4" style="background: hsl(182,70%,80%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted text-center margin-top-4">24</div>
+      </div>
+      <div>
+        <div class="size-32px rounded-4" style="background: hsl(182,70%,70%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted text-center margin-top-4">32</div>
+      </div>
+      <div>
+        <div class="size-48px rounded-4" style="background: hsl(182,70%,60%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted text-center margin-top-4">48</div>
+      </div>
+      <div>
+        <div class="size-60px rounded-4" style="background: hsl(182,70%,50%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted text-center margin-top-4">60</div>
+      </div>
+      <div>
+        <div class="size-80px rounded-4" style="background: hsl(182,70%,40%);"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted text-center margin-top-4">80</div>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Percentage widths</div>
+    <div class="margin-bottom-8 bg-surface border border-color-border rounded-8 overflow-hidden">
+      <div class="width-25 padding-8 text-center text-body-2" style="background: hsl(182,70%,90%);">25%</div>
+    </div>
+    <div class="margin-bottom-8 bg-surface border border-color-border rounded-8 overflow-hidden">
+      <div class="width-50 padding-8 text-center text-body-2" style="background: hsl(182,70%,80%);">50%</div>
+    </div>
+    <div class="margin-bottom-24 bg-surface border border-color-border rounded-8 overflow-hidden">
+      <div class="width-75 padding-8 text-center text-body-2" style="background: hsl(182,70%,70%);">75%</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Icon sizes — <code>.icon-{n}</code> (font-size)</div>
+    <div class="flex flex-items-end flex-gutter-16">
+      <div class="text-center">
+        <div class="icon-16 text-primary">★</div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted">16</div>
+      </div>
+      <div class="text-center">
+        <div class="icon-24 text-primary">★</div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted">24</div>
+      </div>
+      <div class="text-center">
+        <div class="icon-32 text-primary">★</div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted">32</div>
+      </div>
+      <div class="text-center">
+        <div class="icon-48 text-primary">★</div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted">48</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FLEX -->
+<!-- ============================================================ -->
+<div id="flex" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Flex</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      All responsive. Resize the window to see breakpoint behavior.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Direction — <code>flex-row</code> / <code>flex-column-sm</code></div>
+    <div class="flex flex-row flex-column-sm flex-gutter-8 margin-bottom-24">
+      <div class="rounded-4 padding-16 grow-1 text-center text-body-2 bg-tint">Item 1</div>
+      <div class="rounded-4 padding-16 grow-1 text-center text-body-2 bg-tint">Item 2</div>
+      <div class="rounded-4 padding-16 grow-1 text-center text-body-2 bg-tint">Item 3</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Justify between + items center</div>
+    <div class="flex flex-justify-between flex-items-center rounded-8 bg-surface border border-color-border padding-16 margin-bottom-24">
+      <span class="text-body-2 font-weight-bold">Left content</span>
+      <span class="text-body-3 text-muted">Right content</span>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Gutter — <code>flex-gutter-16</code></div>
+    <div class="flex flex-wrap flex-gutter-16 margin-bottom-24">
+      <div class="width-1-3"><div class="rounded-4 padding-16 text-center text-body-2 bg-tint">One third</div></div>
+      <div class="width-1-3"><div class="rounded-4 padding-16 text-center text-body-2 bg-tint">One third</div></div>
+      <div class="width-1-3"><div class="rounded-4 padding-16 text-center text-body-2 bg-tint">One third</div></div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Fill and Shrink</div>
+    <div class="flex flex-gutter-8 margin-bottom-24">
+      <div class="rounded-4 padding-16 fill text-body-2 bg-tint">.fill — grows</div>
+      <div class="rounded-4 padding-16 shrink-0 text-body-2 bg-tint">.shrink-0 — fixed</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Order — visual reorder without DOM change</div>
+    <div class="flex flex-gutter-8">
+      <div class="rounded-4 padding-16 order-3 text-body-2 text-center grow-1 bg-tint">DOM 1 / Visual 3</div>
+      <div class="rounded-4 padding-16 order-1 text-body-2 text-center grow-1 bg-tint">DOM 2 / Visual 1</div>
+      <div class="rounded-4 padding-16 order-2 text-body-2 text-center grow-1 bg-tint">DOM 3 / Visual 2</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- POSITIONING -->
+<!-- ============================================================ -->
+<div id="positioning" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Positioning</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Display, position, offset, center shortcuts, z-index.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Absolute offset — <code>relative</code> parent + <code>absolute top-0 right-0</code></div>
+    <div class="relative rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24" style="height: 80px;">
+      <span class="text-body-2">Parent element</span>
+      <div class="absolute top-0 right-0 padding-8 text-body-3 font-weight-bold text-primary">
+        top-0 right-0
+      </div>
+      <div class="absolute bottom-0 left-0 padding-8 text-body-3 text-muted">
+        bottom-0 left-0
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Center shortcuts — <code>relative</code> + <code>center</code></div>
+    <div class="relative rounded-8 bg-surface border border-color-border margin-bottom-24" style="height: 80px;">
+      <div class="center text-body-2 font-weight-bold text-primary">.center</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Z-index — <code>.z-1</code> through <code>.z-9</code></div>
+    <div class="relative" style="height: 60px;">
+      <div class="absolute z-1 rounded-8 padding-8 text-body-3 top-0" style="background: hsl(182,70%,85%); left: 0; width: 100px;">z-1</div>
+      <div class="absolute z-2 rounded-8 padding-8 text-body-3 top-0" style="background: hsl(182,70%,70%); left: 40px; width: 100px;">z-2</div>
+      <div class="absolute z-3 rounded-8 padding-8 text-body-3 text-white top-0" style="background: hsl(182,70%,55%); left: 80px; width: 100px;">z-3</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BORDER -->
+<!-- ============================================================ -->
+<div id="border" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Border &amp; Border Radius</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Border uses <code>currentColor</code> — set <code>color</code> on the element and the border follows.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Border sides</div>
+    <div class="flex flex-gutter-16 flex-wrap margin-bottom-24">
+      <div class="border border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border</div>
+      <div class="border-top border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-top</div>
+      <div class="border-right border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-right</div>
+      <div class="border-bottom border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-bottom</div>
+      <div class="border-left border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-left</div>
+      <div class="border-x border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-x</div>
+      <div class="border-y border-color-border padding-16 text-body-2 text-center" style="min-width: 80px;">.border-y</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Border width</div>
+    <div class="flex flex-gutter-16 flex-wrap margin-bottom-24">
+      <div class="border border-color-border padding-16 text-body-2">default (1px)</div>
+      <div class="border border-width-2 border-color-border padding-16 text-body-2">border-width-2</div>
+      <div class="border border-width-3 border-color-border padding-16 text-body-2">border-width-3</div>
+      <div class="border border-width-4 border-color-border padding-16 text-body-2">border-width-4</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Border radius</div>
+    <div class="flex flex-gutter-12 flex-items-center flex-wrap">
+      <div class="rounded-0 border border-color-border size-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">0</div>
+      <div class="rounded-4 border border-color-border size-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">4</div>
+      <div class="rounded-8 border border-color-border size-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">8</div>
+      <div class="rounded-16 border border-color-border size-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">16</div>
+      <div class="rounded-9999 border border-color-border padding-x-16 height-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">pill</div>
+      <div class="circle border border-color-border size-60px text-body-3 flex flex-items-center flex-justify-center bg-surface">50%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SHADOW -->
+<!-- ============================================================ -->
+<div id="shadow" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Shadow</h2>
+    <p class="text-body-2 text-muted">
+      Four elevation levels plus hover and active variants.
+    </p>
+    <div class="flex flex-gutter-24 flex-wrap margin-top-24">
+      <div class="rounded-8 bg-surface border border-color-border padding-24 shadow-none text-center text-body-2" style="min-width: 100px;">shadow-none</div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24 shadow-1 text-center text-body-2" style="min-width: 100px;">shadow-1</div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24 shadow-2 text-center text-body-2" style="min-width: 100px;">shadow-2</div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24 shadow-3 text-center text-body-2" style="min-width: 100px;">shadow-3</div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24 shadow-4 text-center text-body-2" style="min-width: 100px;">shadow-4</div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24 hover-shadow-3 text-center text-body-2 cursor-pointer" style="min-width: 120px;">
+        hover-shadow-3<br>
+        <span class="text-body-3 text-muted">hover me</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OPACITY -->
+<!-- ============================================================ -->
+<div id="opacity" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Opacity</h2>
+    <p class="text-body-2 text-muted">Five steps. Responsive.</p>
+    <div class="flex flex-gutter-16 flex-items-end margin-top-24">
+      <div class="text-center">
+        <div class="size-60px rounded-8 opacity-02 bg-primary"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted margin-top-4">0.2</div>
+      </div>
+      <div class="text-center">
+        <div class="size-60px rounded-8 opacity-04 bg-primary"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted margin-top-4">0.4</div>
+      </div>
+      <div class="text-center">
+        <div class="size-60px rounded-8 opacity-06 bg-primary"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted margin-top-4">0.6</div>
+      </div>
+      <div class="text-center">
+        <div class="size-60px rounded-8 opacity-08 bg-primary"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted margin-top-4">0.8</div>
+      </div>
+      <div class="text-center">
+        <div class="size-60px rounded-8 opacity-1 bg-primary"></div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 text-muted margin-top-4">1</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OVERFLOW -->
+<!-- ============================================================ -->
+<div id="overflow" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Overflow</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Controls clipping and scrolling. Responsive.
+    </p>
+
+    <div class="flex flex-gutter-16 flex-wrap">
+      <div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">overflow-hidden</div>
+        <div class="overflow-hidden rounded-8 bg-surface border border-color-border" style="width: 180px; height: 80px;">
+          <div class="padding-16 text-body-3" style="width: 360px; white-space: nowrap;">
+            Content wider than the box is clipped completely.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">overflow-x-auto</div>
+        <div class="overflow-x-auto rounded-8 bg-surface border border-color-border" style="width: 180px; height: 80px;">
+          <div class="padding-16 text-body-3" style="width: 360px; white-space: nowrap;">
+            Content wider than the box scrolls horizontally.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">overflow-scroll-hidden</div>
+        <div class="overflow-y-auto overflow-scroll-hidden rounded-8 bg-surface border border-color-border" style="width: 180px; height: 80px;">
+          <div class="padding-16 text-body-3">
+            Scrollable but no visible scrollbar.<br>
+            Line 2.<br>Line 3.<br>Line 4.<br>Line 5.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TEXT COLOR -->
+<!-- ============================================================ -->
+<div id="text-color" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Text Color</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Generated from <code>$colors</code> in <code>_variable.scss</code>. Technoart ships only structural colors (white, black + alpha variants, transparent). Your team adds semantic colors to <code>$colors</code>.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Default — <code>.text-{color}</code></div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <div class="flex flex-gutter-x-24 flex-gutter-y-8 flex-wrap">
+        <span class="text-body-1 text-black">.text-black</span>
+        <span class="text-body-1 text-black-60">.text-black-60</span>
+        <span class="text-body-1 text-black-40">.text-black-40</span>
+        <span class="text-body-1 text-black-20">.text-black-20</span>
+        <span class="text-body-1 rounded-4 padding-x-8 bg-black">
+          <span class="text-white">.text-white</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Hover — <code>.hover-text-{color}</code></div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <span class="text-body-1 text-black-40 hover-text-black cursor-pointer">
+        Hover me — starts muted, goes black (<code>hover-text-black</code>)
+      </span>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Group hover — <code>.group</code> + <code>.group-hover-text-{color}</code></div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 group cursor-pointer">
+      <div class="flex flex-items-center flex-gutter-x-12">
+        <span class="text-body-2 text-muted">Hover this card →</span>
+        <span class="text-body-1 text-black-20 group-hover-text-black font-weight-bold">child changes on parent hover</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BACKGROUND COLOR -->
+<!-- ============================================================ -->
+<div id="bg-color" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Background Color</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Same <code>$colors</code> map. Not responsive. Supports default, hover, active, and group states.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Default — <code>.bg-{color}</code></div>
+    <div class="flex flex-gutter-8 flex-wrap margin-bottom-24">
+      <div class="bg-black rounded-8 padding-16 text-body-2 text-white">.bg-black</div>
+      <div class="bg-black-60 rounded-8 padding-16 text-body-2 text-white">.bg-black-60</div>
+      <div class="bg-black-40 rounded-8 padding-16 text-body-2">.bg-black-40</div>
+      <div class="bg-black-20 rounded-8 padding-16 text-body-2">.bg-black-20</div>
+      <div class="bg-black-5 rounded-8 padding-16 text-body-2 border border-color-border">.bg-black-5</div>
+      <div class="bg-white rounded-8 padding-16 text-body-2 border border-color-border">.bg-white</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Hover — <code>.hover-bg-{color}</code></div>
+    <div class="flex flex-gutter-8 flex-wrap margin-bottom-24">
+      <div class="hover-bg-black-5 rounded-8 padding-16 text-body-2 border border-color-border cursor-pointer">hover-bg-black-5</div>
+      <div class="hover-bg-black-20 rounded-8 padding-16 text-body-2 border border-color-border cursor-pointer">hover-bg-black-20</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Active — <code>.active-bg-{color}</code></div>
+    <div class="active-bg-black-20 rounded-8 padding-16 text-body-2 border border-color-border inline-block cursor-pointer">
+      active-bg-black-20 — click and hold
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ANIMATE -->
+<!-- ============================================================ -->
+<div id="animate" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Animate</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Apply <code>.animate</code> as base, then add an animation class. Respects <code>prefers-reduced-motion</code>. Animations run on page load — reload to replay.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Fade in variants</div>
+    <div class="flex flex-gutter-12 flex-wrap margin-bottom-24">
+      <div class="animate fade-in rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">fade-in</div>
+      <div class="animate fade-in-up rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">fade-in-up</div>
+      <div class="animate fade-in-down rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">fade-in-down</div>
+      <div class="animate fade-in-left rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">fade-in-left</div>
+      <div class="animate fade-in-right rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">fade-in-right</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Slide and zoom</div>
+    <div class="flex flex-gutter-12 flex-wrap margin-bottom-24">
+      <div class="animate slide-in-up rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">slide-in-up</div>
+      <div class="animate slide-in-left rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">slide-in-left</div>
+      <div class="animate zoom-in rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 110px;">zoom-in</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Speed modifiers — <code>.speed-02s</code> to <code>.speed-3s</code></div>
+    <div class="flex flex-gutter-12 flex-wrap margin-bottom-24">
+      <div class="animate fade-in speed-02s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 80px;">0.2s</div>
+      <div class="animate fade-in speed-04s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 80px;">0.4s</div>
+      <div class="animate fade-in speed-08s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 80px;">0.8s</div>
+      <div class="animate fade-in speed-2s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 80px;">2s</div>
+      <div class="animate fade-in speed-3s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 80px;">3s</div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Delay modifiers — <code>.delay-1s</code> <code>.delay-2s</code> <code>.delay-3s</code></div>
+    <div class="flex flex-gutter-12 flex-wrap">
+      <div class="animate fade-in-up rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 90px;">no delay</div>
+      <div class="animate fade-in-up delay-1s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 90px;">delay-1s</div>
+      <div class="animate fade-in-up delay-2s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 90px;">delay-2s</div>
+      <div class="animate fade-in-up delay-3s rounded-4 padding-16 text-body-2 text-center bg-tint" style="min-width: 90px;">delay-3s</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- GROUP-SHOW -->
+<!-- ============================================================ -->
+<div id="group-show" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Group-show</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Shows children conditionally when a <code>.group</code> parent is hovered or focused.
+      Uses <code>display: none</code> — cannot be combined with <code>.animate</code> for transitions.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">group-hover-show — hover the card</div>
+    <div class="group rounded-8 bg-surface border border-color-border padding-20 margin-bottom-24 cursor-pointer">
+      <div class="flex flex-justify-between flex-items-center">
+        <span class="text-body-1 font-weight-bold">Hover this card</span>
+        <div class="group-hover-show flex flex-gutter-8">
+          <button class="button padding-x-12 padding-y-4 text-body-3 rounded-4 border-color-border">Edit</button>
+          <button class="button padding-x-12 padding-y-4 text-body-3 rounded-4 border-color-border">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">group-focus-show — click the input, then tab away to dismiss</div>
+    <div class="group rounded-8 bg-surface border border-color-border padding-20" tabindex="0">
+      <input type="text" placeholder="Focus me" class="form-text border-color-border width-100" style="border-radius: 6px; padding: 8px 12px; font-size: 14px;" />
+      <div class="group-focus-show padding-top-8 text-body-3 text-muted">
+        Helper text — visible only while focused
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HIDDEN -->
+<!-- ============================================================ -->
+<div id="hidden" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Hidden</h2>
+    <p class="text-body-2 margin-bottom-24 text-muted">
+      The most authoritative utility — imported last, always wins.
+      <code>-sm/md/lg</code> hides at that breakpoint and below.
+      <code>-sm/md/lg-greater</code> hides at that breakpoint and above.
+    </p>
+    <div class="flex flex-column flex-gutter-8">
+      <div class="hidden-sm-greater rounded-4 padding-16 text-body-2 text-center bg-tint">
+        Mobile only — <code>hidden-sm-greater</code> (hidden ≥ 640px)
+      </div>
+      <div class="hidden-sm rounded-4 padding-16 text-body-2 text-center bg-tint">
+        Desktop only — <code>hidden-sm</code> (hidden ≤ 640px)
+      </div>
+      <div class="rounded-8 bg-surface border border-color-border padding-16 text-body-2 text-center">
+        Always visible
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BUTTON -->
+<!-- ============================================================ -->
+<div id="button" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Button</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Structural base only — display, text-align, user-select, border, cursor, disabled state. Your team defines size, color, and variants.
+    </p>
+    <div class="flex flex-gutter-12 flex-wrap">
+      <button class="button padding-x-20 padding-y-8 text-body-1 font-weight-bold rounded-8 bg-primary border-color-primary text-white">
+        Primary button
+      </button>
+      <button class="button padding-x-20 padding-y-8 text-body-1 font-weight-bold rounded-8 text-primary border-color-primary">
+        Outline button
+      </button>
+      <button class="button padding-x-20 padding-y-8 text-body-2 rounded-8 opacity-04 cursor-not-allowed" disabled>
+        Disabled
+      </button>
+      <a class="button padding-x-20 padding-y-8 text-body-1 font-weight-bold rounded-8 bg-primary border-color-primary text-white" href="#">
+        Link as button
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FORM -->
+<!-- ============================================================ -->
+<div id="form" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Form</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Structural base for form controls. No color, no visual opinion.
+    </p>
+    <div class="flex flex-column flex-gutter-12" style="max-width: 400px;">
+      <input class="form-text border-color-border width-100" type="text" placeholder="Text input (.form-text)"
+        style="border-radius: 6px; padding: 10px 12px; font-size: 14px;" />
+      <textarea class="form-textarea border-color-border width-100" placeholder="Textarea (.form-textarea)"
+        style="border-radius: 6px; padding: 10px 12px; font-size: 14px; resize: vertical; min-height: 80px;"></textarea>
+      <select class="form-dropdown border-color-border width-100"
+        style="border-radius: 6px; padding: 10px 12px; font-size: 14px;">
+        <option>Dropdown (.form-dropdown)</option>
+        <option>Option 2</option>
+      </select>
+      <div class="form-checkbox form-checkbox-stroke">
+        <label class="flex flex-items-center cursor-pointer text-body-2" style="gap: 8px;">
+          <input type="checkbox" /> Checkbox stroke style
+        </label>
+      </div>
+      <div class="form-checkbox form-checkbox-fill">
+        <label class="flex flex-items-center cursor-pointer text-body-2" style="gap: 8px;">
+          <input type="checkbox" /> Checkbox fill style
+        </label>
+      </div>
+      <div class="form-radio form-radio-stroke">
+        <label class="flex flex-items-center cursor-pointer text-body-2" style="gap: 8px;">
+          <input type="radio" name="demo-radio" /> Radio stroke style
+        </label>
+      </div>
+      <div class="form-radio form-radio-fill">
+        <label class="flex flex-items-center cursor-pointer text-body-2" style="gap: 8px;">
+          <input type="radio" name="demo-radio" /> Radio fill style
+        </label>
+      </div>
+      <div class="form-toggle">
+        <label class="flex flex-items-center cursor-pointer text-body-2" style="gap: 8px;">
+          <input type="checkbox" /> Toggle
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE -->
+<!-- ============================================================ -->
+<div id="table" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Table</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Variants: <code>table-compact</code> <code>table-bordered</code> <code>table-border-none</code> <code>table-striped</code> <code>table-hovered</code>.
+      Use <code>th-shrink</code> / <code>th-expand</code> for column sizing.
+    </p>
+    <div class="overflow-x-auto">
+      <table class="table table-bordered table-hovered" style="width: 100%;">
+        <thead>
+          <tr>
+            <th class="th-shrink text-body-2 font-weight-bold" style="padding: 10px 12px; text-align: left;">ID</th>
+            <th class="th-expand text-body-2 font-weight-bold" style="padding: 10px 12px; text-align: left;">Name</th>
+            <th class="text-body-2 font-weight-bold" style="padding: 10px 12px; text-align: left;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-body-2" style="padding: 10px 12px;">001</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Example item one</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Active</td>
+          </tr>
+          <tr>
+            <td class="text-body-2" style="padding: 10px 12px;">002</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Example item two</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Inactive</td>
+          </tr>
+          <tr>
+            <td class="text-body-2" style="padding: 10px 12px;">003</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Example item three</td>
+            <td class="text-body-2" style="padding: 10px 12px;">Active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKELETON -->
+<!-- ============================================================ -->
+<div id="skeleton" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Skeleton</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Apply <code>.skeleton</code> to the same leaf elements as real content — not a separate component.
+      Same DOM structure = zero layout shift (CLS).
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Left: loading state. Right: real content. Same DOM structure.</div>
+    <div class="flex flex-gutter-16 flex-wrap margin-top-16">
+      <div class="rounded-8 bg-surface border border-color-border padding-24" style="width: 260px;">
+        <div class="skeleton rounded-8 margin-bottom-16" style="height: 140px;"></div>
+        <div class="skeleton rounded-4 margin-bottom-8" style="height: 20px; width: 70%;"></div>
+        <div class="skeleton rounded-4 margin-bottom-8" style="height: 14px; width: 90%;"></div>
+        <div class="skeleton rounded-4" style="height: 14px; width: 55%;"></div>
+      </div>
+      <div class="rounded-8 bg-surface border border-color-border padding-24" style="width: 260px;">
+        <div class="rounded-8 margin-bottom-16" style="height: 140px; background: hsl(182,70%,85%);"></div>
+        <div class="text-body-1 font-weight-bold margin-bottom-8">Card title here</div>
+        <div class="text-body-2 margin-bottom-8 text-muted">Short description of the card content goes here.</div>
+        <div class="text-body-3 text-muted">Tag · Category</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BACKGROUND IMAGE -->
+<!-- ============================================================ -->
+<div id="bg-image" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Background Image</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      <code>.has-bg-img</code> is the wrapper — <code>position: relative; overflow: hidden; z-index: 1</code>.
+      <code>.bg-img</code> is the absolutely-positioned background layer. Set the image via inline style on <code>.bg-img</code>.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Cover — <code>has-bg-img</code> + <code>bg-img</code></div>
+    <div class="has-bg-img rounded-8 margin-bottom-24" style="height: 200px;">
+      <div class="bg-img" style="background-image: linear-gradient(135deg, hsl(182,70%,30%), hsl(220,70%,40%));"></div>
+      <div class="relative height-100 flex flex-items-center flex-justify-center padding-32 text-white">
+        <div class="text-center">
+          <div class="h4 font-weight-bold margin-bottom-8">Foreground content</div>
+          <div class="text-body-2 opacity-08">Background is a separate absolutely-positioned layer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Fixed attachment — <code>bg-img-fixed</code> (scroll the page to see parallax effect)</div>
+    <div class="has-bg-img rounded-8" style="height: 120px;">
+      <div class="bg-img bg-img-fixed" style="background-image: linear-gradient(45deg, hsl(182,70%,40%) 25%, hsl(182,70%,60%) 75%);"></div>
+      <div class="relative height-100 flex flex-items-center padding-24 text-white">
+        <span class="text-body-2">bg-img-fixed — background stays fixed while content scrolls</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTAINER -->
+<!-- ============================================================ -->
+<div id="container" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Container</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Centered max-width containers. <code>container-1320</code> for wide layouts, <code>container-960</code> for readable content.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">container-960 — max-width 960px</div>
+    <div class="rounded-8 margin-bottom-16" style="background: hsl(182,70%,95%); padding: 4px;">
+      <div class="container-960 padding-16 text-body-2 text-center rounded-4" style="background: hsl(182,70%,85%);">
+        .container-960
+      </div>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">container-1320 — max-width 1320px</div>
+    <div class="rounded-8" style="background: hsl(182,70%,95%); padding: 4px;">
+      <div class="container-1320 padding-16 text-body-2 text-center rounded-4" style="background: hsl(182,70%,80%);">
+        .container-1320
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SCROLL-LOCKED -->
+<!-- ============================================================ -->
+<div id="scroll-locked" class="border-bottom border-color-border padding-y-48 padding-y-32-sm">
+  <div class="container-1320 padding-x-24">
+    <h2 class="h4 margin-bottom-4">Scroll-locked</h2>
+    <p class="text-body-2 margin-bottom-32 text-muted">
+      Locks body scroll. Add via JavaScript when a modal or drawer opens, remove when it closes.
+    </p>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Usage</div>
+    <div class="rounded-8 bg-surface border border-color-border padding-24 margin-bottom-24">
+      <code style="display: block; white-space: pre; line-height: 1.6;">&lt;body class="scroll-locked"&gt;
+  &lt;!-- page content --&gt;
+  &lt;div class="modal"&gt;...&lt;/div&gt;
+&lt;/body&gt;</code>
+    </div>
+
+    <div class="text-body-3 font-weight-600 text-uppercase letter-spacing-2 margin-bottom-4 text-muted">Live demo</div>
+    <div class="flex flex-gutter-8">
+      <button id="demo-lock-btn" class="button padding-x-20 padding-y-8 text-body-2 font-weight-bold rounded-8 bg-primary border-color-primary text-white"
+        onclick="document.body.classList.add('scroll-locked'); document.getElementById('demo-unlock-btn').style.display='inline-block'; this.style.display='none';">
+        Lock scroll
+      </button>
+      <button id="demo-unlock-btn" class="button padding-x-20 padding-y-8 text-body-2 font-weight-bold rounded-8 border-color-border"
+        style="display: none;"
+        onclick="document.body.classList.remove('scroll-locked'); document.getElementById('demo-lock-btn').style.display='inline-block'; this.style.display='none';">
+        Unlock scroll
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="padding-y-32 text-center text-body-3 text-muted bg-surface border-top border-color-border">
+  Technoart — MIT License
+</div>
+
+</body>
+</html>

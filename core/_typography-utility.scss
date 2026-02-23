@@ -1,0 +1,114 @@
+// _typography-utility.scss
+// Utility classes for text alignment, transformation, decoration, and spacing
+
+@use '../variable' as *;
+@use '../mixin' as *;
+
+// Headings with text wrap
+.h1, .h2, .h3, .h4, .h5, .h6 { @include text-wrap() }
+
+// Responsive utilities
+@mixin typography($breakpoint: "") {
+  // Font sizes
+  .h1#{$breakpoint} {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .h2#{$breakpoint} {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .h3#{$breakpoint} {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .h4#{$breakpoint} {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .h5#{$breakpoint} {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .h6#{$breakpoint} {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .text-body-1#{$breakpoint} {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .text-body-2#{$breakpoint} {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .text-body-3#{$breakpoint} {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .text-body-4#{$breakpoint} {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  // Text alignment utilities
+  .text-left#{$breakpoint} { text-align: left; }
+  .text-center#{$breakpoint} { text-align: center; }
+  .text-right#{$breakpoint} { text-align: right; }
+  .text-justify#{$breakpoint} { text-align: justify; }
+
+  // Text wrapping and ellipsis
+  .text-wrap#{$breakpoint} { @include text-wrap(); }
+  .text-nowrap#{$breakpoint} { white-space: nowrap; }
+  .text-ellipsis#{$breakpoint} { // Requires fixed-width container
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // Text decoration utilities
+  .text-line-none#{$breakpoint}, .hover-text-line-none#{$breakpoint}:hover { text-decoration: none; }
+  .text-strike#{$breakpoint}, .hover-text-strike#{$breakpoint}:hover { text-decoration: line-through; }
+  .text-underline#{$breakpoint}, .hover-text-underline#{$breakpoint}:hover { text-decoration: underline; }
+
+  // Font weight utilities
+  .font-weight-100#{$breakpoint} { font-weight: 100; }
+  .font-weight-200#{$breakpoint} { font-weight: 200; }
+  .font-weight-300#{$breakpoint} { font-weight: 300; }
+  .font-weight-400#{$breakpoint}, .font-weight-normal#{$breakpoint} { font-weight: 400; }
+  .font-weight-500#{$breakpoint} { font-weight: 500; }
+  .font-weight-600#{$breakpoint} { font-weight: 600; }
+  .font-weight-700#{$breakpoint}, .font-weight-bold#{$breakpoint} { font-weight: 700; }
+  .font-weight-800#{$breakpoint} { font-weight: 800; }
+}
+
+@include typography();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include typography("-#{$breakpoint}");
+  }
+}
+
+// Not responsive utilities
+.text-uppercase { text-transform: uppercase }
+.text-lowercase { text-transform: lowercase }
+.text-capitalize { text-transform: capitalize }
+
+.font-style-italic { font-style: italic }
+.font-style-normal { font-style: normal }
+
+.line-height-1 { line-height: 1; }
+.letter-spacing-2 { letter-spacing: 2px; }
+
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-progress { cursor: progress; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+.ul-square { list-style-type: square; }
+.ul-unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

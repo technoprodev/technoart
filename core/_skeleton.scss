@@ -1,0 +1,52 @@
+// _skeleton.scss
+// Skeleton loading styles for placeholders during content loading
+
+$skeleton-animation-duration: 3s !default; // Duration of the animation cycle
+
+// Animation for skeleton highlight effect
+@keyframes skeletonAnimation {
+  0% { transform: translate3d(-30%, 0, 0); }
+  100% { transform: translate3d(30%, 0, 0); }
+}
+
+.skeleton {
+  // Base styles for the skeleton container
+  &, *, ::after, ::before {
+    box-sizing: border-box;
+  }
+
+  direction: ltr;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-color: var(--skeleton-bg, #E7E7E7);
+
+  // Highlight animation overlay
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    width: 500%;
+    margin-left: -250%;
+    animation: skeletonAnimation $skeleton-animation-duration linear infinite;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 46%,
+        var(--skeleton-shimmer, rgba(255, 255, 255, 0.35)) 50%,
+        rgba(255, 255, 255, 0) 54%
+      ) 50% 50%;
+  }
+
+  // Skeleton child elements
+  > * {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column;
+  }
+}

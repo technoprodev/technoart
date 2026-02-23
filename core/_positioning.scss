@@ -1,0 +1,76 @@
+// _positioning.scss (Responsive)
+// Positioning elements (display, position and others)
+
+@use '../variable' as *;
+
+@mixin positioning($breakpoint: "") {
+  // Display utilities
+  .block#{$breakpoint} { display: block; }
+  .inline-block#{$breakpoint} { display: inline-block; }
+  .inline#{$breakpoint} { display: inline; }
+
+  // Position utilities
+  .static#{$breakpoint} { position: static; }
+  .relative#{$breakpoint} { position: relative; }
+  .absolute#{$breakpoint} { position: absolute; }
+  .fixed#{$breakpoint} { position: fixed; }
+  .sticky#{$breakpoint} { position: sticky; }
+
+  // Edge offsets (must be used with position: absolute or fixed)
+  .top-0#{$breakpoint} { top: 0; }
+  .right-0#{$breakpoint} { right: 0; }
+  .bottom-0#{$breakpoint} { bottom: 0; }
+  .left-0#{$breakpoint} { left: 0; }
+  .top-100#{$breakpoint} { top: 100%; }
+  .right-100#{$breakpoint} { right: 100%; }
+  .bottom-100#{$breakpoint} { bottom: 100%; }
+  .left-100#{$breakpoint} { left: 100%; }
+  .top-auto#{$breakpoint} { top: auto; }
+  .right-auto#{$breakpoint} { right: auto; }
+  .bottom-auto#{$breakpoint} { bottom: auto; }
+  .left-auto#{$breakpoint} { left: auto; }
+
+  // Centering utilities (must be used with position: absolute or fixed)
+  // Horizontal centering
+  .center-x#{$breakpoint} {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // Vertical centering
+  .center-y#{$breakpoint} {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Full centering (both horizontally and vertically)
+  .center#{$breakpoint} {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // Z-index utilities (controlled range to avoid misuse)
+  .z-min-2#{$breakpoint} { z-index: -2; }
+  .z-min-1#{$breakpoint} { z-index: -1; }
+  .z-0#{$breakpoint} { z-index: 0; }
+  .z-1#{$breakpoint} { z-index: 1; }
+  .z-2#{$breakpoint} { z-index: 2; }
+  .z-3#{$breakpoint} { z-index: 3; }
+  .z-4#{$breakpoint} { z-index: 4; }
+  .z-5#{$breakpoint} { z-index: 5; }
+  .z-6#{$breakpoint} { z-index: 6; }
+  .z-7#{$breakpoint} { z-index: 7; }
+  .z-8#{$breakpoint} { z-index: 8; }
+  .z-9#{$breakpoint} { z-index: 9; }
+  .z-max#{$breakpoint} { z-index: 2147483647; }
+  .z-unset#{$breakpoint} { z-index: unset; }
+}
+
+@include positioning();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include positioning("-#{$breakpoint}");
+  }
+}
+

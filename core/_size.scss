@@ -1,0 +1,71 @@
+// _size.scss (Responsive)
+// Controlling width and height
+
+@use '../variable' as *;
+
+// Percentages: Based on division by 10 for predictable scaling, with additional values (25, 75) for better flexibility in layout designs
+$sizes-percentage: (
+  0, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100,
+);
+
+@mixin size($breakpoint: "") {
+  // Loop through pixel sizes to generate utilities for width, height, and square sizes
+  @each $size in $sizes-pixel {
+    .size-#{$size}px#{$breakpoint} { height: #{$size}px; width: #{$size}px } // Square size utility
+    .height-#{$size}px#{$breakpoint} { height: #{$size}px } // Height utility (px)
+    .width-#{$size}px#{$breakpoint} { width: #{$size}px } // Width utility (px)
+    .icon-#{$size}#{$breakpoint} { font-size: #{$size}px } // Icon size utility
+  }
+
+  // Loop through percentage sizes to generate utilities for width and height
+  @each $percentage in $sizes-percentage {
+    .width-#{$percentage}#{$breakpoint} { width: $percentage * 1% } // Width utility (percentage)
+    .height-#{$percentage}#{$breakpoint} { height: $percentage * 1% } // Height utility (percentage)
+  }
+
+  // Fraction-based width utilities
+  .width-1-3#{$breakpoint} { width: calc(100% / 3) } // One-third width
+  .width-2-3#{$breakpoint} { width: calc(100% / 1.5) } // Two-thirds width
+  .width-1-6#{$breakpoint} { width: calc(100% / 6) } // One-sixth width
+  .width-1-12#{$breakpoint} { width: calc(100% / 12) } // One-twelve width
+
+  // Fraction-based height utilities
+  .height-1-3#{$breakpoint} { height: calc(100% / 3) } // One-third height
+  .height-2-3#{$breakpoint} { height: calc(100% / 1.5) } // Two-thirds height
+  .height-1-6#{$breakpoint} { height: calc(100% / 6) } // One-sixth height
+  .height-1-12#{$breakpoint} { height: calc(100% / 12) } // One-twelve height
+
+  // Viewport width and height utilities
+  .width-100v#{$breakpoint} { width: 100vw } // Full viewport width
+  .height-100v#{$breakpoint} { height: 100vh } // Full viewport height
+
+  // Auto width and height utilities
+  .width-auto#{$breakpoint} { width: auto } // Width auto utility
+  .height-auto#{$breakpoint} { height: auto } // Height auto utility
+
+  // Min-width and max-width utilities
+  .min-width-0#{$breakpoint} { min-width: 0 } // Minimum width set to 0
+  .min-width-100#{$breakpoint} { min-width: 100% } // Minimum width set to 100%
+  .max-width-0#{$breakpoint} { max-width: 0 } // Maximum width set to 0
+  .max-width-100#{$breakpoint} { max-width: 100% } // Maximum width set to 100%
+
+  // Min-height and max-height utilities
+  .min-height-0#{$breakpoint} { min-height: 0 } // Minimum height set to 0
+  .min-height-100#{$breakpoint} { min-height: 100% } // Minimum height set to 100%
+  .max-height-0#{$breakpoint} { max-height: 0 } // Maximum height set to 0
+  .max-height-100#{$breakpoint} { max-height: 100% } // Maximum height set to 100%
+
+  // Additional viewport-relative min/max utilities
+  .min-width-100v#{$breakpoint} { min-width: 100vw } // Minimum width set to viewport width
+  .min-height-100v#{$breakpoint} { min-height: 100vh } // Minimum height set to viewport height
+  .max-width-100v#{$breakpoint} { max-width: 100vw } // Maximum width set to viewport width
+  .max-height-100v#{$breakpoint} { max-height: 100vh } // Maximum height set to viewport height
+}
+
+@include size();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include size("-#{$breakpoint}");
+  }
+}
+

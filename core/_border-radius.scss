@@ -1,0 +1,10 @@
+// _border-radius.scss
+// Utility classes for setting border-radius values and circular shapes
+
+$sizes-border-radius: 0, 4, 8, 16, 9999;
+
+@each $size in $sizes-border-radius {
+  .rounded-#{$size} { border-radius: #{$size}px }
+}
+
+.circle { border-radius: 50% }

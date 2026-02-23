@@ -1,0 +1,49 @@
+// _hidden.scss
+// Utility classes for hiding elements completely
+
+@use '../variable' as *;
+
+// Utility for hiding elements on screens smaller than a specific breakpoint (Responsive)
+@mixin hidden($breakpoint: "") {
+  // Default or breakpoint-specific class for hiding elements
+  .hidden#{$breakpoint} { 
+    display: none; 
+  }
+}
+
+@include hidden();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include hidden("-#{$breakpoint}");
+  }
+}
+
+// Utility for hiding elements on screens greater than a specific breakpoint (Responsive)
+@mixin hidden-greater($breakpoint: "") {
+  // Class for hiding elements on screens larger than the defined breakpoint
+  .hidden#{$breakpoint}-greater { 
+    display: none; 
+  }
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value + 1px) {
+    @include hidden-greater("-#{$breakpoint}");
+  }
+}
+
+// Additional Utility Classes for Special Cases (Not responsive)
+
+// Class to hide elements during print
+@media print {
+  .hidden-print { 
+    display: none; 
+  }
+}
+
+// Class to hide elements on screens only (not during print)
+@media screen {
+  .hidden-screen { 
+    display: none; 
+  }
+}

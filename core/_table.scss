@@ -1,0 +1,62 @@
+// _table.scss
+// Styles for tables and responsive layouts
+
+.table {
+  width: 100%; // Ensure the table spans the full width of its container
+  border-collapse: collapse; // Prevent double borders between cells
+
+  thead tr:last-child {
+    border-bottom: 1px solid currentColor; // Add a bottom border for the last header row
+  }
+  tbody + tbody {
+    border-top: 1px solid currentColor; // Separate multiple <tbody> sections visually
+  }
+  tr:not(:first-child) {
+    border-top: 1px solid currentColor; // Add a top border for rows, except the first one
+  }
+  th {
+    padding: 16px; // Provide consistent spacing for table headers
+
+    &.th-shrink {
+      width: 1%; // Force minimal width for the column, making it shrink-to-fit
+      white-space: nowrap; // Prevent text from wrapping within this header
+    }
+  }
+  td {
+    padding: 16px; // Provide consistent spacing for table cells
+  }
+
+  &.table-compact {
+    th {
+      padding: 8px 12px; // Reduce padding for a more condensed table
+    }
+    td {
+      padding: 8px 12px; // Match cell padding with headers in compact mode
+    }
+  }
+
+  &.table-border-none tr {
+    border-top-style: none; // Remove top borders from rows
+  }
+
+  &.table-bordered {
+    border: 1px solid currentColor; // Add an outer border around the table
+
+    th:not(:last-child),
+    td:not(:last-child) {
+      border-right: 1px solid currentColor; // Add vertical borders between cells
+    }
+  }
+
+  &.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .02); // Light background for alternate rows for readability
+  }
+
+  &.table-hovered tbody tr:hover {
+    background-color: rgba(0, 0, 0, .04); // Highlight row on hover
+  }
+
+  .th-expand {
+    max-width: 100px; // Trick to expand table-header
+  }
+}

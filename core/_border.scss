@@ -1,0 +1,77 @@
+// _border.scss
+// Utility classes for controlling border styles, widths, and colors
+// Depends on `$colors` in `variable.scss`
+
+@use '../variable' as *;
+
+// Border styles and widths (Responsive)
+@mixin border($breakpoint: "") {
+  // Reset border styles to prevent inheritance issues
+  .border#{$breakpoint},
+  .border-x#{$breakpoint},
+  .border-y#{$breakpoint},
+  .border-top#{$breakpoint},
+  .border-right#{$breakpoint},
+  .border-bottom#{$breakpoint},
+  .border-left#{$breakpoint} {
+    border-color: var(--color-light-3); // Default border color
+    border-width: 1px;                  // Default border width
+  }
+
+  // Reset all sides to no border unless explicitly defined
+  .border-none#{$breakpoint},
+  .border-x#{$breakpoint},
+  .border-y#{$breakpoint},
+  .border-top#{$breakpoint},
+  .border-right#{$breakpoint},
+  .border-bottom#{$breakpoint},
+  .border-left#{$breakpoint} {
+    border-style: none; // Reset all sides to no border
+  }
+
+  // Specific border styles
+  .border#{$breakpoint} { border-style: solid; }
+  .border-x#{$breakpoint} { border-top-style: solid; border-bottom-style: solid; }
+  .border-y#{$breakpoint} { border-right-style: solid; border-left-style: solid; }
+  .border-top#{$breakpoint} { border-top-style: solid; }
+  .border-right#{$breakpoint} { border-right-style: solid; }
+  .border-bottom#{$breakpoint} { border-bottom-style: solid; }
+  .border-left#{$breakpoint} { border-left-style: solid; }
+
+  // Additional border widths for customization
+  .border-width-2#{$breakpoint} { border-width: 2px; }
+  .border-width-3#{$breakpoint} { border-width: 3px; }
+  .border-width-4#{$breakpoint} { border-width: 4px; }
+}
+
+@include border();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include border("-#{$breakpoint}");
+  }
+}
+
+// Border colors (Not responsive)
+// Normal state color
+@each $color, $value in $colors {
+  .border-#{$color} {
+    border-color: var(--color-#{$color});
+  }
+}
+
+// Hover state color
+@each $color, $value in $colors {
+  .group:hover:not(:active) .group-hover-border-#{$color},
+  .hover-border-#{$color}:hover:not(:active) {
+    border-color: var(--color-#{$color});
+  }
+}
+
+// Active state color
+@each $color, $value in $colors {
+  .group:active .group-active-border-#{$color},
+  .active-border-#{$color}:active {
+    border-color: var(--color-#{$color});
+  }
+}
+

@@ -1,0 +1,55 @@
+// _container.scss
+// Define container configurations with default and responsive widths
+
+@use 'sass:map';
+@use '../variable' as *;
+
+$containers: (
+  "1320": (
+    "default": 1320px,
+    "xl": 1140px,
+    "lg": 960px,
+    "md": 720px,
+    "sm": 540px,
+    "xs": 100%
+  ),
+  "960": (
+    "default": 960px,
+    "md": 820px,
+    "sm": 640px,
+    "xs": 100%
+  ),
+);
+
+@mixin container() {
+  // Generate base container classes
+  @each $name, $container in $containers {
+    $suffix: "";
+    @if $name != "" { $suffix: "-#{$name}"; }
+    .container#{$suffix} {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      max-width: 100%;
+      width: map.get($container, "default");
+    }
+  }
+
+  // Generate responsive styles for each breakpoint
+  @each $bp, $value in $breakpoints {
+    @each $name, $container in $containers {
+      @if map.get($container, $bp) {
+        $suffix: "";
+        @if $name != "" { $suffix: "-#{$name}"; }
+        @media (max-width: $value) {
+          .container#{$suffix} {
+            width: map.get($container, $bp); // Apply width for the breakpoint
+          }
+        }
+      }
+    }
+  }
+}
+
+@include container();

@@ -1,0 +1,21 @@
+// _opacity.scss (Responsive)
+// Controlling element opacity
+
+@use '../variable' as *;
+
+@mixin opacity($breakpoint: "") {
+  .opacity-0#{$breakpoint} { opacity: 0 }
+  .opacity-005#{$breakpoint} { opacity: .05 }
+  .opacity-02#{$breakpoint} { opacity: .2 }
+  .opacity-04#{$breakpoint} { opacity: .4 }
+  .opacity-06#{$breakpoint} { opacity: .6 }
+  .opacity-08#{$breakpoint} { opacity: .8 }
+  .opacity-1#{$breakpoint} { opacity: 1 }
+}
+@include opacity();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include opacity("-#{$breakpoint}");
+  }
+}
+

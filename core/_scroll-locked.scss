@@ -1,0 +1,12 @@
+// _scroll-locked.scss
+// Locks scroll on the body for overlays
+
+@mixin scroll-locked($breakpoint: "") {
+  body.scroll-locked#{$breakpoint} {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    touch-action: none; // iOS fix: jumpy scroll behavior
+  }
+}
+@include scroll-locked();

@@ -1,0 +1,34 @@
+// _core.scss
+// The main stylesheet containing utility classes and minimal component styles
+
+// Base styles and foundational elements
+@use 'core/reset';
+@use 'core/scroll-locked';
+@use 'core/container';
+
+// Components
+@use 'core/background-image';
+@use 'core/button';
+@use 'core/form';
+@use 'core/skeleton';
+@use 'core/table';
+
+// Utilities
+@use 'core/animate';
+@use 'core/background-color';
+@use 'core/border';
+@use 'core/border-radius';
+@use 'core/flex';
+@use 'core/group-show';
+@use 'core/opacity';
+@use 'core/overflow';
+@use 'core/positioning';
+@use 'core/shadow';
+@use 'core/size';
+@use 'core/spacing';
+@use 'core/text-color';
+@use 'core/typography-utility';
+
+// Hidden
+@use 'core/hidden';
+

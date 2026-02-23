@@ -1,8 +1,0 @@
-{
-  "globDirectory": "./",
-  "globPatterns": [
-    "_site/**/*.{html,css,js,json,png,jpg,svg}"
-  ],
-  "swSrc": "./sw.js",
-  "swDest": "./_site/sw.js"
-}
