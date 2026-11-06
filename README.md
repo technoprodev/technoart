@@ -12,6 +12,9 @@ taste (colours, fonts, corner radius) goes in one small file of your own.
 No build step and no framework. It fits Rails, Django, Laravel, htmx or a
 folder of HTML files as it is.
 
+It's plain CSS, so it works in React, Vue or Svelte too. The interactive
+parts just don't need their JavaScript.
+
 Docs, with every class and a live example: **[alloyhtml.com/docs](https://alloyhtml.com/docs)**
 
 ## Install
