@@ -19,13 +19,13 @@ Docs, with every class and a live example: **[alloyhtml.com/docs](https://alloyh
 From a CDN:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@alloyhtml/css@1/dist/alloy.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alloyhtml/css@1/dist/alloy.min.css">
 ```
 
-Or from npm:
+Or with npm, from this repo:
 
 ```
-npm install @alloyhtml/css
+npm install github:alloyhtml/css
 ```
 
 and link `node_modules/@alloyhtml/css/dist/alloy.min.css`, or import the Sass
@@ -62,7 +62,7 @@ corner radius in the kit reads from these tokens, so the markup never
 changes:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@alloyhtml/css@1/dist/alloy.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alloyhtml/css@1/dist/alloy.min.css">
 <link rel="stylesheet" href="/my-brand.css">
 ```
 
@@ -98,13 +98,13 @@ graphite, and `midnight`, a soft navy. Link one after the kit.
 To follow the visitor's device:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@alloyhtml/css@1/dist/themes/dark.min.css" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alloyhtml/css@1/dist/themes/dark.min.css" media="(prefers-color-scheme: dark)">
 ```
 
 Always dark, in midnight:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@alloyhtml/css@1/dist/themes/midnight.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alloyhtml/css@1/dist/themes/midnight.min.css">
 ```
 
 A theme is a file of token values, like your brand file. To make your own,
@@ -134,7 +134,7 @@ Then check what was written. `alloy-check` lists every class the kit
 doesn't define, with its file and line, and fails when it finds one:
 
 ```
-npx -p @alloyhtml/css alloy-check templates/
+npx -p github:alloyhtml/css alloy-check templates/
 ```
 
 `--css your.css` adds your own stylesheet's classes, and `--allow name`
