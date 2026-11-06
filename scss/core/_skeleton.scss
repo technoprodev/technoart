@@ -1,0 +1,124 @@
+// Loading placeholders, applied by toggling ONE class onto existing markup:
+// on one element (it becomes the bar) or on a whole area (every innermost
+// element inside it becomes a bar). .skeleton-whole with it paints the
+// element as one block instead of its leaves; .no-skeleton keeps a part
+// readable inside a loading area.
+//
+// Contract: .skeleton is LAYOUT-NEUTRAL. Adding or removing it must never
+// change an element's display, box size, or position. That is what lets you
+// write `<div class="card" :class="{ skeleton: loading }">` and keep a single
+// component instead of maintaining a parallel CardSkeleton alongside it — if
+// the card's structure changes, its loading state follows automatically.
+//
+// Because it is only a class, it works with any framework or none: Vue, React,
+// Alpine, htmx, or a line of vanilla JS.
+
+$skeleton-color: #E7E7E7 !default;                  // Placeholder bar fill
+$skeleton-radius: 4px !default;                      // Matches rounded-4
+$skeleton-duration: 1.4s !default;                   // One pulse, dim and back
+
+// Themeable via custom properties so dark mode can redefine them without
+// recompiling. The literal values are the light-theme defaults; the dark
+// remapping lives with the rest of the dark palette in the single
+// dark-theme-tokens mixin in _variable.scss (themes/dark.css), so the whole themed
+// surface can be audited in one place.
+:root {
+  --skeleton-color: #{$skeleton-color};
+}
+
+// The loading area breathes: it dims and comes back, every bar together.
+// One opacity animation on the outermost .skeleton, which the browser runs
+// off the main thread, however many bars it holds; a light sweeping each
+// bar would repaint every one of them on every frame.
+@keyframes skeleton-pulse {
+  from { opacity: 1; }
+  to   { opacity: 0.5; }
+}
+
+.skeleton:not(.skeleton .skeleton) {
+  animation: skeleton-pulse calc($skeleton-duration / 2) ease-in-out infinite alternate;
+}
+
+.skeleton {
+  // Real text stays in the DOM and keeps its exact height and width — it is
+  // simply invisible. This is why no content swap is needed: no &nbsp;, no
+  // placeholder strings, no second markup path. Elements that are genuinely
+  // empty until data arrives still need a non-breaking space to have height.
+  //
+  // Nothing below sets display, flex, width, height, margin, padding or
+  // position. Adding any of those would break the contract above.
+  cursor: default;
+  user-select: none;
+  // A placeholder isn't a link or a button yet: clicks go nowhere. (Add the
+  // inert attribute too, so the keyboard skips it, and aria-busy="true", so
+  // a screen reader waits for the content.)
+  pointer-events: none;
+
+  // Text goes invisible on every element inside but the ignored ones, which
+  // keep their own colour; this beats a text colour class (the :not() lifts
+  // it above one class). Placeholders too.
+  // !important here and on the bars below: a skeleton is a passing state
+  // that has to cover everything, including inline background images and
+  // text colours set by stronger kit rules.
+  &:not(:has(*)),
+  :not(.no-skeleton, .no-skeleton *) {
+    color: transparent !important;
+    &::placeholder { color: transparent !important; }
+  }
+
+  // Leaf elements (no element children) are the text runs and boxes, so
+  // they become the bars; containers stay clear, which gives a bar per line
+  // rather than one solid block. A control (a button, a field) is one bar
+  // whatever is inside it, and so is a .skeleton-whole. Wrap text in a
+  // <span> for a bar as long as the text instead of the whole line.
+  // On a leaf itself (.skeleton on one line of text), that element is the bar.
+  &:not(:has(*)),
+  *:not(:has(*)):not(.no-skeleton):not(.no-skeleton *),
+  :is(button, .button, input, select, textarea, .field),
+  &.skeleton-whole,
+  .skeleton-whole {
+    background-color: var(--skeleton-color) !important;
+    background-image: none !important;
+    border-color: transparent;
+  }
+  // A table cell holding its text directly is a bar inside its padding, so
+  // a row reads as separate bars rather than one solid strip.
+  :is(td, th):not(:has(*)) {
+    background-clip: content-box;
+  }
+
+  // Inside a control or a whole block, the parts stay out of sight: the bar
+  // is the control or the block.
+  :is(button, .button, .skeleton-whole) *,
+  &.skeleton-whole * {
+    visibility: hidden;
+  }
+
+  // Corners: a bar gets soft ones, unless the element has its own (a circle
+  // avatar, a rounded card) or is a control, which keeps its shape.
+  &:not(:has(*)):not(.circle):not([class*="rounded-"]),
+  *:not(:has(*)):not(.circle):not([class*="rounded-"]):not(:is(button, .button, input, select, textarea, .field)) {
+    border-radius: $skeleton-radius;
+  }
+
+  // A picture is a bar too: the image is moved out of its own box, so the
+  // bar behind it shows, at the same size. Video and frames just hide.
+  img {
+    object-fit: none;
+    object-position: -99999px -99999px;
+  }
+  video,
+  iframe,
+  svg {
+    visibility: hidden;
+  }
+}
+
+// Honour a reader's reduced-motion preference; the placeholder still reads as
+// a placeholder holding still.
+@media (prefers-reduced-motion: reduce) {
+  .skeleton *,
+  .skeleton {
+    animation: none !important;
+  }
+}

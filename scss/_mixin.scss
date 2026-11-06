@@ -1,0 +1,26 @@
+// Text Body
+// Apply standard font size and line height for body text
+@mixin text-body() {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+// Text Wrap
+// Ensures text wraps properly and avoids overflow issues in constrained containers
+@mixin text-wrap() {
+  max-width: 100%;
+  word-break: normal;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+// Disabled State
+// Styles for disabled elements: the page canvas laid at 70% over the
+// background, so it fades toward its own theme (a white wash turned a dark
+// button pale grey, and a border-image squared its corners), and a
+// not-allowed cursor
+@mixin disabled() {
+  $wash: color-mix(in srgb, var(--color-bg-base) 70%, transparent);
+  background-image: linear-gradient($wash, $wash);
+  cursor: not-allowed;
+}

@@ -1,0 +1,7 @@
+// While a <dialog> is open as a modal, the page behind it stops scrolling.
+// No class and no script: the browser's own :modal state drives it. The
+// scrollbar gutter stays, so nothing jumps sideways.
+html:has(dialog:modal) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}

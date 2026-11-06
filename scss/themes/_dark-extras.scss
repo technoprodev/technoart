@@ -1,0 +1,31 @@
+// _dark-extras.scss
+// What every dark theme sets besides its own token values. Only variables:
+// the core's classes read them, so a theme file never competes with the
+// utilities. Included by each dark theme (dark.scss, midnight.scss); a
+// light-only site never downloads any of it.
+
+// How much colour the inks keep; a theme with lighter cards sets less before
+// importing this file (midnight.scss).
+$ink-hue-share: 45% !default;
+$ink-brand-share: 70% !default;
+
+:root {
+  // Coloured tints, borders and text, mixed for dark surfaces.
+  @include dark-role-colors($ink-hue-share, $ink-brand-share);
+
+  // The neutral light steps map to the dark surfaces and the subtle border.
+  --tint-light-1: var(--color-bg-base);
+  --tint-light-2: var(--color-bg-base);
+  --tint-light-3: var(--color-bg-surface);
+  --tint-border-light-1: var(--color-border-subtle);
+  --tint-border-light-2: var(--color-border-subtle);
+  --tint-border-light-3: var(--color-border-subtle);
+
+  // The default border (.border, <hr>, table lines) without a colour class:
+  // the light palette's light-3 would be a near-white line here.
+  --color-border-default: var(--color-border-subtle);
+
+  // Form fields: a dark well below the card, instead of a white panel. The
+  // edge, text and placeholder follow the theme's own tokens already.
+  --field-bg: var(--color-bg-base);
+}

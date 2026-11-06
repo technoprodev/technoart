@@ -1,0 +1,62 @@
+// The kit, in the order it is written out. The order decides who wins when
+// two rules weigh the same: the later file wins. So each layer can override
+// the ones above it, and the layers are:
+//
+// 1. Foundations and layout: tokens, the reset, the page container.
+// 2. Components: the kit's parts (button, field, dialog, table ...). A rule
+//    on the part itself weighs one class, or nothing (:where), so any
+//    utility on it wins: padding-24 on a dialog, text-primary-1 on a link.
+//    Their states (:hover, :checked, open) and their behaviours (a closed
+//    tab panel, a slid-in drawer) weigh more on purpose: a utility must not
+//    show a closed panel.
+// 3. Utilities: one class, one job. Among them, later files win too:
+//    spacing after flex, so padding-16 on a flex child beats the gutter.
+// 4. Hidden, last: .hidden-sm and its family beat every display utility.
+//
+// When adding a rule, put it in its layer, give the part itself no more
+// than one class's weight, and check a utility on it still wins.
+
+// 1. Foundations and layout
+@import "core/tokens";
+@import "core/reset";
+@import "core/scroll-locked";
+@import "core/container";
+
+// 2. Components
+@import "core/background-image";
+@import "core/button";
+@import "core/form";
+@import "core/choice";
+@import "core/details";
+@import "core/dialog";
+@import "core/drawer";
+@import "core/menu";
+@import "core/tabs";
+@import "core/toast";
+@import "core/tooltip";
+@import "core/toggle";
+@import "core/show-on-parent";
+@import "core/table";
+@import "core/typography-component";
+// Last of the components: a loading state paints over all of them (its
+// colours are !important, as a passing state).
+@import "core/skeleton";
+
+// 3. Utilities
+@import "core/animate";
+@import "core/background-color";
+@import "core/border";
+@import "core/border-radius";
+@import "core/flex";
+@import "core/opacity";
+@import "core/overflow";
+@import "core/positioning";
+@import "core/shadow";
+@import "core/size";
+@import "core/spacing";
+@import "core/scroll-snap";
+@import "core/text-color";
+@import "core/typography-utility";
+
+// 4. Hidden, last
+@import "core/hidden";

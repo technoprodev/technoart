@@ -1,0 +1,58 @@
+// A native <dialog> styled by utilities. The browser's own padding, border
+// and colours are cleared, so the classes on the dialog decide its look. A
+// button with commandfor="id" command="show-modal" opens it; Esc, a click
+// outside it (closedby="any") or a command="close" button closes it. The
+// page behind stops scrolling (see _scroll-locked.scss).
+.dialog {
+  padding: 0;
+  border: none;
+  color: inherit;
+  max-width: 100vw;
+  max-height: 100vh;
+  max-height: 100dvh;
+  // Opens and closes with motion, no script: it rises in and drops out while
+  // the page dims. allow-discrete keeps the dialog on screen until the close
+  // has played (a closed dialog is display: none); @starting-style gives the
+  // opening its first frame. A browser without them just opens and closes.
+  transition: opacity 0.2s ease, transform 0.2s ease, display 0.2s allow-discrete, overlay 0.2s allow-discrete;
+}
+.dialog:not([open]) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease, display 0.2s allow-discrete, overlay 0.2s allow-discrete;
+}
+.dialog:not([open])::backdrop {
+  background-color: transparent;
+}
+@starting-style {
+  .dialog[open]::backdrop {
+    background-color: transparent;
+  }
+}
+// Less motion asked for: it fades, without moving.
+@media (prefers-reduced-motion: reduce) {
+  .dialog,
+  .dialog:not([open]) {
+    transform: none;
+  }
+}
+
+// While a dialog is open as a modal, the page behind it holds still, and on
+// a phone its foot clears the home bar.
+:root:has(.dialog:modal) {
+  overflow: hidden;
+}
+@media (max-width: 576px) {
+  .dialog {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}

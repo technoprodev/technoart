@@ -1,0 +1,119 @@
+// A table: .table, plus .table-compact, .table-bordered, .table-striped,
+// .table-hovered or .table-border-none. Its rows and cells are styled at no
+// specificity, so a utility on a cell or a row still wins: padding-0 on an
+// image cell, padding-x-24 on the first column, a bg-* on one row.
+.table {
+  width: 100%; // Ensure the table spans the full width of its container
+  border-collapse: collapse; // Prevent double borders between cells
+}
+
+:where(.table thead tr:last-child) {
+  border-bottom: 1px solid var(--color-border-default, var(--color-light-3)); // Add a bottom border for the last header row
+}
+:where(.table tbody + tbody) {
+  border-top: 1px solid var(--color-border-default, var(--color-light-3)); // Separate multiple <tbody> sections visually
+}
+:where(.table tr:not(:first-child)) {
+  border-top: 1px solid var(--color-border-default, var(--color-light-2)); // Add a top border for rows, except the first one
+}
+:where(.table th, .table td) {
+  padding: 16px; // Provide consistent spacing for cells
+}
+.table th.th-shrink {
+  width: 1%; // Force minimal width for the column, making it shrink-to-fit
+  white-space: nowrap; // Prevent text from wrapping within this header
+}
+
+// Compact: less padding.
+:where(.table-compact th, .table-compact td) {
+  padding: 8px 12px;
+}
+
+// No lines between rows.
+:where(.table-border-none tr) {
+  border-top-style: none;
+}
+
+// An outer border, and lines between columns.
+.table-bordered {
+  border: 1px solid var(--color-border-default, var(--color-light-3));
+}
+:where(.table-bordered th:not(:last-child), .table-bordered td:not(:last-child)) {
+  border-right: 1px solid var(--color-border-default, var(--color-light-3));
+}
+
+// Striped: a faint wash of the text colour on odd rows, darker on light,
+// lighter on dark.
+:where(.table-striped tbody tr:nth-of-type(odd)) {
+  background-color: color-mix(in srgb, var(--color-text-primary) 3%, transparent);
+}
+
+// Hovered: a row lights up under the mouse. A state, so it keeps its weight.
+.table-hovered tbody tr:hover {
+  background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
+}
+
+// Stacked: on a phone or a narrow tablet, each row becomes a card. No second
+// markup: the same <tr> and <td>, laid out again.
+//   - A cell with data-label="Total" becomes a line in the card: the label
+//     on the left, the value on the right.
+//   - A cell without one stays on the card's top line (the checkbox, the
+//     item, a menu). Put equal on the one that should take the room.
+//   - The header row is kept for screen readers but not shown, so give the
+//     page a sort menu as well as sorting headers.
+// A row can fold: a <details class="expand-row"> in one of its cells hides
+// the labelled lines until it is opened. Hide that cell on a wide screen
+// (hidden-sm-greater). The folding is a behaviour, so it keeps its weight.
+// Changing a table's display can drop its meaning for screen readers in
+// Safari, so give the markup its roles: role="table", "rowgroup", "row",
+// "columnheader" and "cell".
+@media (max-width: 768px) {
+  :where(.table-stack-sm) {
+    display: block;
+  }
+  :where(.table-stack-sm thead) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  :where(.table-stack-sm tbody) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  :where(.table-stack-sm tbody tr) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border-default, var(--color-light-3));
+    border-radius: 8px;
+  }
+  :where(.table-stack-sm td) {
+    display: block;
+    padding: 0;
+  }
+  :where(.table-stack-sm td[data-label]) {
+    order: 1;
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 8px;
+    text-align: right;
+  }
+  :where(.table-stack-sm td[data-label])::before {
+    content: attr(data-label);
+    color: var(--color-text-muted);
+    text-align: left;
+  }
+  .table-stack-sm tr:has(.expand-row:not([open])) > td[data-label] {
+    display: none;
+  }
+}

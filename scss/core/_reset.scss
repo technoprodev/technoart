@@ -1,0 +1,97 @@
+// Universal box-sizing and reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Remove margins and padding from most elements
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+// A fieldset groups fields without drawing a box; legend sits flush.
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+legend {
+  padding: 0;
+}
+
+// The page canvas and its text. Every surface (bg-base, bg-surface,
+// bg-raised) sits on top of this, and a theme file only changes the tokens,
+// so the page follows the theme too.
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+}
+
+// Images and media
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Form elements
+button, input, textarea, select {
+  font: inherit;
+  margin: 0;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Scroll bar
+/* Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust width as needed */
+  height: 12px;
+}
+
+/* The track is the page itself and the thumb is the text colour, faint, so
+   both follow the theme (a light track was a bright strip on dark pages). */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+  border-radius: 4px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent) transparent;
+}
+
+// Visible keyboard focus for every interactive element.
+// :focus-visible only matches keyboard/AT focus, so mouse clicks stay clean.
+// --color-focus-ring, not --color-primary-1: the brand teal measures 1.68:1 on
+// the light page canvas, under the 3:1 WCAG 2.1 SC 1.4.11 asks of a non-text
+// indicator. See the token's declaration in _variable.scss.
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+// Suppress the default ring where :focus-visible is supported, so the
+// treatment above is the single source of truth.
+:focus:not(:focus-visible) {
+  outline: none;
+}

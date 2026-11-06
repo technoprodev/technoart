@@ -1,0 +1,61 @@
+// A small message in the corner, on a manual popover: it stays until its
+// close button (or your code) hides it, and never blocks the page.
+//
+//   <div id="saved" popover="manual" class="toast ...">Saved</div>
+//   open:  popovertarget="saved"            (or your code: showPopover())
+//   close: popovertarget="saved" popovertargetaction="hide"
+//
+// When to show it is your app's decision; this is only where and how.
+
+// Clears the browser's popover box so your classes decide the look, and
+// pins it to the bottom right, 24px from the edges (16px from the bottom
+// and sides on a phone). All at no specificity, so position utilities move
+// it: top-0 bottom-auto for the top, left-0 right-auto for the left,
+// left-0 margin-x-auto for the centre. The gap is a margin, so it holds in
+// every corner.
+:where(.toast[popover]) {
+  position: fixed;
+  inset: auto 0 0 auto;
+  margin: 24px;
+  max-width: calc(100vw - 48px);
+  padding: 0;
+  border: 0;
+  color: inherit;
+}
+.toast[popover] {
+  transition: opacity 0.2s ease, transform 0.2s ease, display 0.2s allow-discrete, overlay 0.2s allow-discrete;
+}
+// Closed: hidden. Said here, not left to the browser, because a display
+// utility on the toast (.flex) would otherwise beat the browser's own rule
+// and keep a closed toast on screen. It comes in with a small fade and
+// grow, which reads the same from any edge.
+.toast[popover]:not(:popover-open) {
+  display: none;
+  opacity: 0;
+  transform: scale(0.96);
+}
+@starting-style {
+  .toast[popover]:popover-open {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+// Less motion asked for: it fades, without growing.
+@media (prefers-reduced-motion: reduce) {
+  .toast[popover],
+  .toast[popover]:not(:popover-open) {
+    transform: none;
+  }
+  @starting-style {
+    .toast[popover]:popover-open {
+      transform: none;
+    }
+  }
+}
+@media (max-width: 576px) {
+  :where(.toast[popover]) {
+    inset: auto 0 0 0;
+    margin: 16px;
+    max-width: none;
+  }
+}

@@ -1,0 +1,32 @@
+@mixin overflow($breakpoint: "") {
+  // General overflow utilities
+  .overflow-auto#{$breakpoint} { overflow: auto; }
+  .overflow-x-auto#{$breakpoint} { overflow-x: auto; }
+  .overflow-y-auto#{$breakpoint} { overflow-y: auto; }
+
+  .overflow-visible#{$breakpoint} { overflow: visible; }
+  .overflow-x-visible#{$breakpoint} { overflow-x: visible; }
+  .overflow-y-visible#{$breakpoint} { overflow-y: visible; }
+
+  .overflow-hidden#{$breakpoint} { overflow: hidden; }
+  .overflow-x-hidden#{$breakpoint} { overflow-x: hidden; }
+  .overflow-y-hidden#{$breakpoint} { overflow-y: hidden; }
+
+  .overflow-overlay#{$breakpoint} { overflow: overlay; }
+  .overflow-x-overlay#{$breakpoint} { overflow-x: overlay; }
+  .overflow-y-overlay#{$breakpoint} { overflow-y: overlay; }
+
+  // Scroll-hidden utility for hiding scrollbars (cross-browser compatible)
+  .overflow-scroll-hidden#{$breakpoint} {
+    -ms-overflow-style: none;  // IE and Edge
+    scrollbar-width: none;  // Firefox
+    &:-webkit-scrollbar { display: none; }
+  }
+}
+
+@include overflow();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include overflow("-#{$breakpoint}");
+  }
+}

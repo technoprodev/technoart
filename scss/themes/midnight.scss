@@ -1,0 +1,20 @@
+// themes/midnight.scss -> assets/css/themes/midnight.css
+// The Midnight theme. A soft navy dark.
+// Link it after the kit's stylesheet and it is on:
+//   <link rel="stylesheet" href="/assets/css/themes/midnight.css">
+// or let the visitor's device decide:
+//   <link rel="stylesheet" href="/assets/css/themes/midnight.css" media="(prefers-color-scheme: dark)">
+
+@import "../variable";
+@import "../mixin";
+
+:root {
+  @include midnight-theme-tokens;
+}
+
+// Midnight's cards are lighter than Dark's, so its coloured text keeps less
+// colour and more white to clear 4.5:1 on the tints.
+$ink-hue-share: 35%;
+$ink-brand-share: 60%;
+
+@import "dark-extras";

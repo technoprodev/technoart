@@ -1,0 +1,24 @@
+// Two containers, both fluid: each fills the screen up to its maximum and
+// keeps 24px of side padding at every width, so a page and the header above it line up
+// at every width. Wide (1320) for headers, footers and pages you browse;
+// narrow (960) for pages you read or fill in.
+
+$containers: (
+  "1320": 1320px,
+  "960": 960px,
+);
+
+@mixin container() {
+  @each $name, $max in $containers {
+    .container-#{$name} {
+      width: 100%;
+      max-width: $max;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
+
+@include container();

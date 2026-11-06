@@ -1,0 +1,87 @@
+// A sidebar that is docked beside the content on wide screens and becomes a
+// slide-in panel at 992px and below. Put .drawer on an element with the
+// popover attribute and an id; a button with popovertarget="id" opens it
+// (hide that button above 992px with .hidden-md-greater). Esc or a click
+// outside closes it. No script.
+//
+// Width is 260px; set --drawer-width on the element for another. On a
+// phone it slides in from the left; .drawer-end slides it in from the
+// right.
+//
+// Docked, the reset is wrapped in :where() so it has no specificity: any
+// utility on the drawer (bg-surface, sticky, top-0, height-100v ...) still
+// wins. Slid in, the rules carry the [popover] selector so they beat those
+// same utilities, which only describe the docked state.
+// The browser gives a popover its own text colour; inherit the page's
+// instead. Zero specificity, so a text utility on the drawer still wins.
+:where(.drawer[popover]) {
+  color: inherit;
+}
+@media (min-width: 993px) {
+  :where(.drawer[popover]) {
+    display: block;
+    position: static;
+    inset: auto;
+    width: var(--drawer-width, 260px);
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+    border: 0;
+  }
+}
+@media (max-width: 992px) {
+  // The browser's popover look, cleared at no specificity, so utilities on
+  // the drawer (padding, a border) win over it.
+  :where(.drawer[popover]) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .drawer[popover] {
+    position: fixed;
+    inset: var(--drawer-inset, 0 auto 0 0);
+    width: var(--drawer-width, 260px);
+    max-width: 85vw;
+    height: 100vh;
+    overflow-y: auto;
+    transform: translateX(var(--drawer-from, -100%));
+    transition: transform 0.25s ease-out, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+  }
+  .drawer-end[popover] {
+    --drawer-inset: 0 0 0 auto;
+    --drawer-from: 100%;
+  }
+  .drawer[popover]:popover-open {
+    transform: translateX(0);
+  }
+  // Closed: hidden, said here so a display utility (.flex) on the drawer
+  // can't beat the browser's own rule and leave it on screen.
+  .drawer[popover]:not(:popover-open) {
+    display: none;
+  }
+  @starting-style {
+    .drawer[popover]:popover-open {
+      transform: translateX(var(--drawer-from, -100%));
+    }
+  }
+  .drawer[popover]::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.25s ease, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+  }
+  .drawer[popover]:not(:popover-open)::backdrop {
+    background-color: transparent;
+  }
+  @starting-style {
+    .drawer[popover]:popover-open::backdrop {
+      background-color: transparent;
+    }
+  }
+}
+// Less motion asked for: the drawer appears in place instead of sliding.
+@media (max-width: 992px) and (prefers-reduced-motion: reduce) {
+  .drawer[popover] {
+    transition: none;
+  }
+}

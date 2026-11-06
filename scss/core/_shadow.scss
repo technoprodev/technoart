@@ -1,0 +1,30 @@
+$shadows: (
+  1: 1px 1px 4px rgba(180, 187, 208, .2),  // Subtle shadow for small elements
+  2: 3px 3px 8px rgba(180, 187, 208, .4),   // Light shadow for cards or buttons
+  3: 5px 5px 12px rgba(180, 187, 208, .6), // Medium shadow for floating elements
+  4: 7px 7px 16px rgba(180, 187, 208, .8),   // Strong shadow for deep elevation
+);
+
+@mixin shadow($breakpoint: "") {
+  // Utility class to remove box-shadow
+  .shadow-none { box-shadow: none }
+
+  // Generate classes for each shadow level
+  @each $shadow, $value in $shadows {
+    .shadow-#{$shadow}#{$breakpoint} { box-shadow: $value } // Default shadow
+  }
+
+  // Generate hover-specific shadow classes, excluding active state
+@media (hover: hover) {
+    @each $shadow, $value in $shadows {
+      .hover-shadow-#{$shadow}#{$breakpoint}:hover:not(:active) { box-shadow: $value } // Hover shadow
+    }
+}
+
+  // Generate active-specific shadow classes
+  @each $shadow, $value in $shadows {
+    .active-shadow-#{$shadow}#{$breakpoint}:active { box-shadow: $value } // Active shadow
+  }
+}
+
+@include shadow();

@@ -1,0 +1,131 @@
+// Mixin: Generates flex utilities for a given breakpoint
+@mixin flex($breakpoint: "") {
+
+  // Flex Containers
+  // Defines the container as a flexbox.
+  .flex#{$breakpoint} {
+    display: flex;
+    min-width: 0;
+  }
+  .inline-flex#{$breakpoint} { display: inline-flex; }
+
+  // Flex Direction
+  // Controls the direction of flex items.
+  .flex-row#{$breakpoint} { flex-direction: row; }
+  .flex-column#{$breakpoint} { flex-direction: column; }
+  .flex-row-reverse#{$breakpoint} { flex-direction: row-reverse; }
+  .flex-column-reverse#{$breakpoint} { flex-direction: column-reverse; }
+
+  // Flex Wrap
+  // Controls whether items should wrap onto multiple lines within the flex container.
+  .flex-wrap#{$breakpoint} { flex-wrap: wrap; }
+  .flex-nowrap#{$breakpoint} { flex-wrap: nowrap; }
+
+  // Justify Content
+  // Aligns items along the main axis.
+  .flex-justify-start#{$breakpoint} { justify-content: flex-start; }
+  .flex-justify-end#{$breakpoint} { justify-content: flex-end; }
+  .flex-justify-center#{$breakpoint} { justify-content: center; }
+  .flex-justify-between#{$breakpoint} { justify-content: space-between; }
+  .flex-justify-around#{$breakpoint} { justify-content: space-around; }
+
+  // Align Content
+  // Aligns multiple rows of items along the cross-axis.
+  .flex-content-start#{$breakpoint} { align-content: flex-start; }
+  .flex-content-end#{$breakpoint} { align-content: flex-end; }
+  .flex-content-center#{$breakpoint} { align-content: center; }
+  .flex-content-between#{$breakpoint} { align-content: space-between; }
+  .flex-content-around#{$breakpoint} { align-content: space-around; }
+  .flex-content-stretch#{$breakpoint} { align-content: stretch; }
+
+  // Align Items
+  // Aligns items along the cross-axis.
+  .flex-items-start#{$breakpoint} { align-items: flex-start; }
+  .flex-items-end#{$breakpoint} { align-items: flex-end; }
+  .flex-items-center#{$breakpoint} { align-items: center; }
+  .flex-items-baseline#{$breakpoint} { align-items: baseline; }
+  .flex-items-stretch#{$breakpoint} { align-items: stretch; }
+
+  // Gutter
+  // Adds spacing between flex items.
+  $sizes-gutter: 0, 4, 8, 12, 16, 20, 24, 32, 40;
+  @each $size in $sizes-gutter {
+    $px_size: calc($size / 2 * 1px);
+
+    // The negative margins widen the row past its parent, so the base
+    // max-width: 100% on a ul, dl or p (text-wrap) must not hold it back.
+    .flex-gutter-#{$size}#{$breakpoint} {
+      margin: $px_size * -1;
+      max-width: none;
+      & > * { padding: $px_size; }
+    }
+    .flex-gutter-x-#{$size}#{$breakpoint} {
+      margin-left: $px_size * -1;
+      margin-right: $px_size * -1;
+      max-width: none;
+      & > * {
+        padding-left: $px_size;
+        padding-right: $px_size;
+      }
+    }
+    .flex-gutter-y-#{$size}#{$breakpoint} {
+      margin-top: $px_size * -1;
+      margin-bottom: $px_size * -1;
+      & > * {
+        padding-top: $px_size;
+        padding-bottom: $px_size;
+      }
+    }
+  }
+
+  // Gap
+  // Spacing between flex items via CSS gap. Gutter (above) is padding on
+  // each child, so it only works for unpainted wrappers: a child that paints
+  // its own background or border swallows the padding (no visible space),
+  // and a child with its own padding class overrides it. Use gap for rows of
+  // buttons, chips and badges. Keep gutter for percentage-width columns,
+  // where gap would push the widths past 100%.
+  @each $size in $sizes-gutter {
+    .flex-gap-#{$size}#{$breakpoint} { gap: #{$size}px; }
+    .flex-gap-x-#{$size}#{$breakpoint} { column-gap: #{$size}px; }
+    .flex-gap-y-#{$size}#{$breakpoint} { row-gap: #{$size}px; }
+  }
+
+  // Align Self
+  // Controls individual item alignment within a flex container.
+  .align-auto#{$breakpoint} { align-self: auto; }
+  .align-start#{$breakpoint} { align-self: flex-start; }
+  .align-end#{$breakpoint} { align-self: flex-end; }
+  .align-center#{$breakpoint} { align-self: center; }
+  .align-baseline#{$breakpoint} { align-self: baseline; }
+  .align-stretch#{$breakpoint} { align-self: stretch; }
+
+  // Flex Grow and Shrink
+  // Controls how items grow or shrink within the container.
+  .grow-0#{$breakpoint} { flex-grow: 0; }
+  .grow-1#{$breakpoint} { flex-grow: 1; }
+  .shrink-0#{$breakpoint} { flex-shrink: 0; }
+  .shrink-1#{$breakpoint} { flex-shrink: 1; }
+
+  // Custom Behavior
+  // Defines additional flex behavior for specific use cases.
+  .fill#{$breakpoint} { flex: 1 1 auto; }
+  .equal#{$breakpoint} { flex: 1 0 0%; }
+
+  // Order
+  // Controls the visual order of items within a flex container.
+  .order-min-1#{$breakpoint} { order: -1; }
+  .order-0#{$breakpoint} { order: 0; }
+  .order-1#{$breakpoint} { order: 1; }
+  .order-2#{$breakpoint} { order: 2; }
+  .order-3#{$breakpoint} { order: 3; }
+  .order-4#{$breakpoint} { order: 4; }
+  .order-5#{$breakpoint} { order: 5; }
+}
+
+@include flex();
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include flex("-#{$breakpoint}");
+  }
+}

@@ -1,0 +1,50 @@
+// A small label for an icon-only button or link, shown under it while a
+// pointer rests on it, and on keyboard focus. The words are a child, .tip,
+// hidden from screen readers (the button's own aria-label names it), and
+// its look is utilities, so each place can have its own: dark in a header,
+// raised and bordered beside a list's rows.
+//
+//   <button type="button" class="tooltip" aria-label="Archive">
+//     <i class="material-icons" aria-hidden="true">archive</i>
+//     <span class="tip bg-inverse text-inverse text-body-3 padding-x-8 padding-y-4 rounded-4" aria-hidden="true">Archive</span>
+//   </button>
+//
+// .tooltip-up shows it above (a table's row actions: below the last row it
+// would be cut off by the table's scroll box); .tooltip-end lines it up with
+// the right edge (an icon at the right of a header, so it stays on screen).
+// A touch screen has no hover, so there it shows on focus only.
+
+// The tip is placed from the element; at no specificity, so a position
+// utility on it (.absolute) still wins.
+:where(.tooltip) {
+  position: relative;
+}
+// Where and when only; how it looks is the utilities on the tip.
+.tip {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.tooltip-up > .tip {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+.tooltip-end > .tip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+@media (hover: hover) {
+  .tooltip:hover > .tip {
+    display: block;
+  }
+}
+.tooltip:focus-visible > .tip,
+.tooltip:has(:focus-visible) > .tip {
+  display: block;
+}

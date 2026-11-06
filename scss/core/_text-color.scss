@@ -1,0 +1,83 @@
+// Define normal state text color utilities
+// Solid and dark steps read --ink-* first: lifted toward white in the dark
+// themes (see dark-role-colors in _variable.scss), the palette value in light.
+@each $color, $value in $colors {
+  @if not is-stateful($color) and not str-index($color, "-light") {
+    .text-#{$color} { color: var(--ink-#{$color}, var(--color-#{$color})); }
+  } @else if not str-index($color, "primary-") {
+    .text-#{$color} { color: var(--color-#{$color}); }
+  } @else if str-index($color, "-light") {
+    .text-#{$color} { color: var(--color-#{$color}); }
+  }
+}
+// The brand as text reads its ink too (lifted in the dark themes).
+@each $step in (1, 2, 3) {
+  .text-primary-#{$step} { color: var(--ink-primary-#{$step}, var(--color-primary-#{$step})); }
+  .text-primary-dark-#{$step} { color: var(--ink-primary-dark-#{$step}, var(--color-primary-dark-#{$step})); }
+}
+// On a white fill (a white button on a coloured banner) text keeps its
+// palette value in every theme: the lifted inks are switched off there.
+.bg-white {
+  @each $color, $value in $colors {
+    @if not is-stateful($color) and not str-index($color, "-light") {
+      --ink-#{$color}: initial;
+    }
+  }
+  @each $step in (1, 2, 3) {
+    --ink-primary-#{$step}: initial;
+    --ink-primary-dark-#{$step}: initial;
+  }
+}
+
+// Semantic text roles, generated the same way from a different map.
+// `.text-primary` is the primary BODY TEXT colour -- not the brand accent,
+// which is `.text-primary-1` / `-2` / `-3`.
+// Depends on `$semantic-text` in `variable.scss`.
+@each $token, $value in $semantic-text {
+  .#{$token} { color: var(--color-#{$token}); }
+}
+
+// White text on a brand fill reads through --color-on-primary, white unless a
+// theme says otherwise. A brand that is light in dark mode (a green, an
+// orange) sets it to a dark colour there, so its buttons stay readable
+// without darkening the brand until it vanishes as text on dark cards. Sits
+// before the hover rules, so .hover-text-* still wins on hover.
+.bg-primary-1.text-white,
+.bg-primary-2.text-white,
+.bg-primary-3.text-white { color: var(--color-on-primary, #fff); }
+
+// Define hover state text color utilities
+// Hover and active variants exist for brand, neutral and black/white
+// colours only: nothing hovers into a decoration hue.
+// Hover only where something can hover: on a touch screen a tap would
+// leave the hover look stuck on (a card keeps its shadow).
+@media (hover: hover) {
+  @each $color, $value in $colors {
+    @if is-stateful($color) {
+      $ink: if(index((primary-1, primary-2, primary-3), $color), "var(--ink-#{$color}, var(--color-#{$color}))", "var(--color-#{$color})");
+      .hover-text-#{$color}:hover { color: #{$ink}; }
+    }
+  }
+}
+
+// Define active state text color utilities
+@each $color, $value in $colors {
+  @if is-stateful($color) {
+    .active-text-#{$color}:active { color: var(--color-#{$color}); }
+  }
+}
+
+// Semantic hover/active text roles, generated the same way from
+// $semantic-text as the plain semantic text roles above. $token already
+// includes its own "text-" prefix (the map's keys are "text-primary",
+// "text-secondary", etc), so "hover-" + $token reads correctly as
+// "hover-text-primary" with no manual prefixing needed -- same reasoning
+// _background-color.scss's semantic hover/active surfaces use for "bg-".
+@media (hover: hover) {
+  @each $token, $value in $semantic-text {
+    .hover-#{$token}:hover { color: var(--color-#{$token}); }
+  }
+}
+@each $token, $value in $semantic-text {
+  .active-#{$token}:active { color: var(--color-#{$token}); }
+}

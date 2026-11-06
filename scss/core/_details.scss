@@ -1,0 +1,27 @@
+// <details> / <summary>: open and close with no script. Add name="faq" (any
+// shared name) to several <details> to keep only one open at a time.
+
+// Every summary is a plain row: no browser marker, a pointer. Draw your own
+// icon in it (.rotate-when-open, or .show-when-open / .show-when-closed).
+summary {
+  list-style: none;
+  cursor: pointer;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+// An icon in the summary that turns over while its <details> is open.
+.rotate-when-open {
+  transition: transform 0.2s ease;
+}
+details[open] > summary .rotate-when-open {
+  transform: rotate(180deg);
+}
+
+// Two icons in a summary, one per state: .show-when-closed while shut,
+// .show-when-open while open. For a menu button that turns into an X.
+details:not([open]) > summary .show-when-open,
+details[open] > summary .show-when-closed {
+  display: none;
+}

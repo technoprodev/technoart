@@ -1,0 +1,455 @@
+$breakpoints: (
+  "lg": 1200px,  // Standard desktops
+  "md": 992px,   // Tablets in landscape
+  "sm": 768px,   // Tablets in portrait
+  "xs": 576px,   // Phones in portrait
+);
+
+// Brand, neutral and black/white colours get hover and active variants
+// (.hover-bg-light-1, .active-bg-primary-2 ...). Decoration hues
+// (red, green, violet ...) get only .bg-, .text- and .border-: nothing hovers
+// into a decoration colour, and skipping those variants keeps the stylesheet
+// small.
+$stateful-prefixes: ("primary", "light", "gray", "dark", "white", "black", "transparent");
+@function is-stateful($color) {
+  @each $prefix in $stateful-prefixes {
+    @if str-index($color, $prefix) == 1 { @return true; }
+  }
+  @return false;
+}
+
+$colors: (
+  // Brand colors
+  "primary-1": hsl(258, 70%, 58%),
+  "primary-2": hsl(257, 72%, 52%),
+  "primary-3": hsl(256, 75%, 46%),
+  "primary-light-1": hsl(260, 100%, 98%),
+  "primary-light-2": hsl(262, 100%, 96%),
+  "primary-light-3": hsl(264, 100%, 93%),
+  "primary-dark-1": hsl(258, 65%, 42%),
+  "primary-dark-2": hsl(258, 70%, 36%),
+  "primary-dark-3": hsl(258, 75%, 30%),
+
+  // Alternate brand ramps -- same hue/saturation/lightness recipe as
+  // primary-* above (hue drifts -1/-5 per step for the base-light-dark
+  // runs), just centered on a different hue. Used by the landing page's
+  // live variant switcher (accent-color axis) and, as a side effect of
+  // sharing the primary-* generator loop, available as plain .bg-violet-1
+  // / .text-amber-dark-1 / etc. utility classes too.
+  "violet-1": hsl(255, 70%, 50%),
+  "violet-2": hsl(254, 75%, 45%),
+  "violet-3": hsl(253, 80%, 40%),
+  "violet-light-1": hsl(258, 100%, 98%),
+  "violet-light-2": hsl(261, 100%, 95%),
+  "violet-light-3": hsl(264, 100%, 92%),
+  "violet-dark-1": hsl(255, 80%, 30%),
+  "violet-dark-2": hsl(255, 90%, 25%),
+  "violet-dark-3": hsl(255, 100%, 20%),
+
+  "amber-1": hsl(35, 70%, 50%),
+  "amber-2": hsl(34, 75%, 45%),
+  "amber-3": hsl(33, 80%, 40%),
+  "amber-light-1": hsl(38, 100%, 98%),
+  "amber-light-2": hsl(41, 100%, 95%),
+  "amber-light-3": hsl(44, 100%, 92%),
+  "amber-dark-1": hsl(35, 80%, 30%),
+  "amber-dark-2": hsl(35, 90%, 25%),
+  "amber-dark-3": hsl(35, 100%, 20%),
+
+  // Neutral colors
+  "light-1": hsl(210, 30%, 98%),
+  "light-2": hsl(210, 27%, 96%),
+  "light-3": hsl(210, 24%, 94%),
+  "gray-1": hsl(208, 17%, 55%),
+  "gray-2": hsl(216, 15%, 50%),
+  "gray-3": hsl(224, 13%, 45%),
+  "dark-1": hsl(231, 24%, 30%),
+  "dark-2": hsl(233, 18%, 25%),
+  "dark-3": hsl(235, 12%, 20%),
+
+  // Feedback colors
+
+  // Utility colors
+
+  // Numbered steps (-1/2/3, -light-1/2/3, -dark-1/2/3) for the 7 utility
+  // colors above, added so Chip's soft/solid variants (which build
+  // bg-#{colorClass}-1 / bg-#{colorClass}-light-3 / text-#{colorClass}-dark-3)
+  // work for every colorClass, not just "primary". Same hue/saturation/lightness recipe as the
+  // primary-*/violet-*/amber-* ramps: hue drifts -1/-2 across the base steps,
+  // +3/+6/+9 across the light steps, saturation/lightness fixed per step.
+  // Coexist with the plain "red"/"red-light"/"red-dark" keys above (used
+  // elsewhere as single-step literals) without colliding -- different map keys.
+  "red-1": hsl(350, 70%, 50%),
+  "red-2": hsl(349, 75%, 45%),
+  "red-3": hsl(348, 80%, 40%),
+  "red-light-1": hsl(353, 100%, 98%),
+  "red-light-2": hsl(356, 100%, 95%),
+  "red-light-3": hsl(359, 100%, 92%),
+  "red-dark-1": hsl(350, 80%, 30%),
+  "red-dark-2": hsl(350, 90%, 25%),
+  "red-dark-3": hsl(350, 100%, 20%),
+
+  "magenta-1": hsl(290, 70%, 50%),
+  "magenta-2": hsl(289, 75%, 45%),
+  "magenta-3": hsl(288, 80%, 40%),
+  "magenta-light-1": hsl(293, 100%, 98%),
+  "magenta-light-2": hsl(296, 100%, 95%),
+  "magenta-light-3": hsl(299, 100%, 92%),
+  "magenta-dark-1": hsl(290, 80%, 30%),
+  "magenta-dark-2": hsl(290, 90%, 25%),
+  "magenta-dark-3": hsl(290, 100%, 20%),
+
+  "blue-1": hsl(230, 70%, 50%),
+  "blue-2": hsl(229, 75%, 45%),
+  "blue-3": hsl(228, 80%, 40%),
+  "blue-light-1": hsl(233, 100%, 98%),
+  "blue-light-2": hsl(236, 100%, 95%),
+  "blue-light-3": hsl(239, 100%, 92%),
+  "blue-dark-1": hsl(230, 80%, 30%),
+  "blue-dark-2": hsl(230, 90%, 25%),
+  "blue-dark-3": hsl(230, 100%, 20%),
+
+  "cyan-1": hsl(170, 70%, 50%),
+  "cyan-2": hsl(169, 75%, 45%),
+  "cyan-3": hsl(168, 80%, 40%),
+  "cyan-light-1": hsl(173, 100%, 98%),
+  "cyan-light-2": hsl(176, 100%, 95%),
+  "cyan-light-3": hsl(179, 100%, 92%),
+  "cyan-dark-1": hsl(170, 80%, 30%),
+  "cyan-dark-2": hsl(170, 90%, 25%),
+  "cyan-dark-3": hsl(170, 100%, 20%),
+
+  "green-1": hsl(110, 70%, 50%),
+  "green-2": hsl(109, 75%, 45%),
+  "green-3": hsl(108, 80%, 40%),
+  "green-light-1": hsl(113, 100%, 98%),
+  "green-light-2": hsl(116, 100%, 95%),
+  "green-light-3": hsl(119, 100%, 92%),
+  "green-dark-1": hsl(110, 80%, 30%),
+  "green-dark-2": hsl(110, 90%, 25%),
+  "green-dark-3": hsl(110, 100%, 20%),
+
+
+  "orange-1": hsl(20, 70%, 50%),
+  "orange-2": hsl(19, 75%, 45%),
+  "orange-3": hsl(18, 80%, 40%),
+  "orange-light-1": hsl(23, 100%, 98%),
+  "orange-light-2": hsl(26, 100%, 95%),
+  "orange-light-3": hsl(29, 100%, 92%),
+  "orange-dark-1": hsl(20, 80%, 30%),
+  "orange-dark-2": hsl(20, 90%, 25%),
+  "orange-dark-3": hsl(20, 100%, 20%),
+
+  // Grayscale
+  "white": #FFFFFF,
+  "white-5": rgba(255, 255, 255, 0.05),
+  "white-20": rgba(255, 255, 255, 0.2),
+  "white-40": rgba(255, 255, 255, 0.4),
+  "white-60": rgba(255, 255, 255, 0.6),
+  "white-80": rgba(255, 255, 255, 0.8),
+  "black": #06070A,
+  "black-5": rgba(0, 0, 0, 0.05),
+  "black-20": rgba(0, 0, 0, 0.2),
+  "black-40": rgba(0, 0, 0, 0.4),
+  "black-60": rgba(0, 0, 0, 0.6),
+  "black-80": rgba(0, 0, 0, 0.8),
+
+  // Transparent
+  "transparent": transparent,
+);
+
+// ---------------------------------------------------------------------------
+// Semantic token layer
+// ---------------------------------------------------------------------------
+// The role-named tokens from the spec's "Theming and dark mode". Its prose
+// says twelve and its table lists eleven; the table is the authority and all
+// eleven of its names are here. They
+// exist because dark mode is a *designed remapping*, not an arithmetic
+// inversion: light-1 (98% L) maps to roughly dark-3 (20% L), mid-greys stay
+// mid-grey, and elevation changes which direction it points. A literal colour
+// name cannot express any of that; a role name can.
+//
+// Literals are deliberately retained alongside these: `bg-white` keeps meaning
+// white in both themes, forever. Use a SEMANTIC class when the surface's role
+// is what matters (a card, the page, a well); use a LITERAL class when the
+// colour is what matters (a white logo, a brand-coloured button).
+//
+// Keys are the full utility-class name, so each map feeds exactly one utility
+// family and nothing else. That is what keeps `bg-inverse` (a dark panel) and
+// `text-inverse` (the light text that reads on it) independent — they are a
+// pair, not a synonym, and a shared "inverse" key would collapse them.
+//
+// Values are palette steps wherever a palette step exists. Where one does not,
+// the value is a new hsl() step in the same neutral ramp, and it is there
+// because the contrast check rejected everything closer.
+
+$semantic-backgrounds: (
+  "bg-base":    map-get($colors, "light-2"),  // Page canvas, one step off white
+  "bg-surface": map-get($colors, "light-1"),  // Default component surface, a subtle lift
+  "bg-raised":  map-get($colors, "white"),    // Modal, dropdown, popover
+  "bg-sunken":  map-get($colors, "light-3"),  // Input well, inset panel -- a real recess
+  "bg-inverse": map-get($colors, "dark-3"),   // Dark band on a light page
+);
+
+$semantic-borders: (
+  // "subtle" was light-3, matching the unlabelled default border colour in
+  // _border.scss. Measured, that is a mistake: bg-sunken is also light-3, so
+  // `.bg-sunken.border-subtle` -- an input well with a subtle border, the
+  // canonical use of both tokens together -- rendered at exactly 1.000:1.
+  // Not faint: absent. This is one step darker, which keeps it a hairline
+  // (1.13:1 on bg-sunken, 1.29:1 on bg-raised) while making it exist.
+  // Consequence worth knowing: `border-subtle` is no longer the same value as
+  // the default border, so migrating a `.border` to `.border-subtle` in Plan 2
+  // will slightly darken it. The existing default at 1.047:1 on the page
+  // canvas is arguably too faint to see either; that is Plan 2's call.
+  "border-subtle": hsl(210, 22%, 89%),
+  // Lands on the same mid-grey as text-muted below, and that is the palette
+  // having one mid-grey that satisfies both roles rather than a copy-paste.
+  // They diverge in dark mode, where each is pinned by a different threshold.
+  "border-strong": map-get($colors, "gray-2"),  // 4.06:1 on bg-surface -- clearly visible
+);
+
+$semantic-text: (
+  // NOTE: "text-primary" means the PRIMARY BODY TEXT COLOUR. It is not the
+  // brand accent -- that is `text-primary-1` / `primary-2` / `primary-3`, a
+  // different family with a different meaning. Do not merge them.
+  "text-primary":   map-get($colors, "dark-1"),  // 9.23:1 on bg-base
+  "text-secondary": hsl(224, 13%, 38%),         // 5.90:1 on bg-sunken, the lowest surface
+  "text-muted":     hsl(216, 15%, 44%),         // 4.61:1 on bg-sunken: still WCAG AA
+  "text-inverse":   map-get($colors, "white"),   // 13.45:1 on bg-inverse
+);
+
+// Three text greys, all WCAG AA (4.5:1) on every surface, kept apart by
+// lightness (30%, 38%, 44%). They are text tokens of their own rather than
+// palette greys: the palette's gray-2 and gray-3 are tuned for borders and
+// fills, and only two of its steps clear 4.5:1. The contrast check enforces it.
+
+$semantic-colors: map-merge(
+  map-merge($semantic-backgrounds, $semantic-borders),
+  $semantic-text
+);
+
+// The light theme: the kit's built-in look, emitted on :root by
+// core/_tokens.scss. The brand colours read --brand-* first, so a product's
+// brand (set by its own small stylesheet, in any order) wins over the kit's
+// violet. Theme files in scss/themes/ replace these values.
+@mixin light-theme-tokens {
+  @each $color, $value in $colors {
+    @if str-index($color, "primary") == 1 {
+      --color-#{$color}: var(--brand-#{$color}, #{$value});
+    } @else {
+      --color-#{$color}: #{$value};
+    }
+  }
+  @each $token, $value in $semantic-colors {
+    --color-#{$token}: #{$value};
+  }
+
+  // Typography axis. Family only -- the type scale stays fixed because 49
+  // inline pixel heights in the markup would clip if it changed.
+  // 'Plus Jakarta Sans' is not bundled: load it yourself (the README says
+  // how), or the stack falls back to the system font.
+  // `system-ui` is every current browser's own UI font, so the usual
+  // -apple-system / 'Segoe UI' list isn't needed after it.
+  --font-family-base: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-family-heading: var(--font-family-base);
+  // The serif for mastheads and editorial names. Not bundled either; point
+  // this at any serif to swap it.
+  --font-family-serif: 'Merriweather', Georgia, serif;
+
+  // Focus ring. Its own token rather than the brand, and deliberately not a
+  // member of $semantic-backgrounds/-borders/-text: those maps each generate a
+  // utility family, and .bg-focus-ring is not something anyone should write.
+  // A ring is chrome, so it uses the darkest brand step: well past the 3:1
+  // WCAG 2.1 SC 1.4.11 asks of a non-text indicator, on every light surface.
+  // Enforced by the contrast check in both themes.
+  --color-focus-ring: #{map-get($colors, "primary-dark-3")};
+
+  // Link colour. Its own tokens, one step darker than primary-1, so a link
+  // reads as brand but sits a little heavier than a filled button. Both
+  // clear 4.5:1 on every light surface; enforced by the contrast check.
+  --color-link: #{map-get($colors, "primary-dark-2")};
+  --color-link-hover: #{map-get($colors, "primary-dark-3")};
+  // Text on a brand fill (.bg-primary-1.text-white). White in light; the dark
+  // themes set a dark colour, because their lifted brand is too light for
+  // white text.
+  --color-on-primary: #{map-get($colors, "white")};
+}
+
+// ---------------------------------------------------------------------------
+// The Midnight theme (themes/midnight.css)
+// ---------------------------------------------------------------------------
+// The kit's first dark theme, kept as a theme of its own: a soft navy dark.
+// The graphite theme below is "dark".
+// Written by hand, once, because the mapping is designed rather than computed.
+// Everything the theme changes lives in this one block — surfaces, text,
+// borders, the brand colour and the skeleton bars — so the set
+// of themed values can be audited by reading a single rule instead of being
+// hunted across the partials that happen to consume each one.
+@mixin midnight-theme-tokens {
+  // Native controls, scrollbars and dialogs draw dark too.
+  color-scheme: dark;
+
+  // Surfaces. ELEVATION IS LIGHTNESS HERE. In light mode a raised card is
+  // white *plus a shadow*; on a dark background that shadow is nearly
+  // invisible, so the lightness ladder has to carry the whole job and its
+  // steps are correspondingly wider (raised/base spreads 1.33:1 here against
+  // 1.09:1 in light).
+  --color-bg-base:    #{map-get($colors, "dark-3")};   // Deepest normal layer
+  --color-bg-surface: #{map-get($colors, "dark-2")};   // One step up
+  --color-bg-raised:  #{map-get($colors, "dark-1")};   // Lighter than surface, not darker
+  --color-bg-sunken:  #{map-get($colors, "black")};    // Below the page itself
+  // `inverse` flips: a light panel popping out of a dark page.
+  --color-bg-inverse: #{map-get($colors, "light-1")};
+
+  // Borders. "subtle" is deliberately NOT dark-1: that is bg-raised, so a
+  // subtle border on a modal or dropdown -- the canonical pairing -- would
+  // have measured exactly 1.000:1 and drawn nothing. Sits above the raised
+  // step instead (1.38:1 on bg-raised, 1.60:1 on bg-surface), still a
+  // hairline and still ~2.7x fainter than border-strong.
+  // "strong" stays a mid-grey per the spec's "gray-2 stays near gray-2" rule
+  // and clears 3:1 on every dark surface.
+  --color-border-subtle: hsl(230, 18%, 38%);
+  // gray-1 was the obvious pick and it measures 2.98:1 against bg-raised --
+  // a hair under the 3:1 the border has to clear to count as visible. Lifted
+  // to the next point on the same ramp instead.
+  --color-border-strong: hsl(212, 15%, 63%);
+
+  // Text. The greys do NOT mirror their light-mode counterparts: gray-3 and
+  // gray-2 sit at 2.2:1 and 2.8:1 on bg-surface here, far under AA, so the
+  // secondary and muted steps are new points on the same neutral ramp, chosen
+  // against the contrast check rather than by eye.
+  --color-text-primary:   #{map-get($colors, "light-1")};  // Not pure white: less halation on dark
+  --color-text-secondary: hsl(212, 16%, 82%);              // 6.50:1 on bg-raised
+  --color-text-muted:     hsl(214, 14%, 70%);              // 4.61:1 on bg-raised, AA
+  --color-text-inverse:   #{map-get($colors, "dark-3")};   // Reads on the now-light bg-inverse
+
+  // Brand iris, DESATURATED rather than darkened: a 70%-saturation hue that
+  // reads well on white vibrates on black. Hue is held at 258 so the brand
+  // still looks like itself. The 1-2-3 ramp reverses direction here, getting
+  // lighter rather than darker, so a hover still brightens on a dark page.
+  // Step 1 is a fill AND a text colour, so it sits in the middle: about 3.3:1
+  // under white button text and 3.1 to 3.6:1 as text on the dark surfaces.
+  // Body-size links use --color-link below, which is lighter.
+  --color-primary-1: var(--brand-dark-primary-1, hsl(258, 50%, 67%));
+  --color-primary-2: var(--brand-dark-primary-2, hsl(257, 55%, 74%));
+  --color-primary-3: var(--brand-dark-primary-3, hsl(256, 60%, 80%));
+  // Text on a brand fill: near black, because the lifted brand is too light
+  // to hold white text at 4.5:1 (white on primary-1 measured 3.24:1).
+  --color-on-primary: var(--brand-dark-on-primary, #0a0a0b);
+
+  // Focus ring, dark: the link colour below, which clears 3:1 on every dark
+  // surface with room to spare.
+  //
+  // Deliberately a literal rather than var(), and not hoisted into a shared
+  // Sass variable: the contrast check resolves compiled literals and would
+  // (correctly) refuse an unmeasurable var() reference, and the source-level
+  // "brand is desaturated, not just darkened" test parses the hsl() triple out
+  // of the primary-1 line above. The contrast check enforces this line in dark, so
+  // a drift here fails the build rather than passing silently.
+  --color-focus-ring: hsl(258, 55%, 80%);
+
+  // Link colour, dark. Lighter than primary-1 so body-size link text clears
+  // 4.5:1 on every dark surface; hover goes lighter again. Literals for the
+  // same reason as the focus ring above.
+  --color-link: hsl(258, 55%, 80%);
+  --color-link-hover: hsl(256, 60%, 86%);
+
+  // Skeleton bars (default in core/_skeleton.scss). Same relationship to the
+  // surface as the light-mode bar, a little lighter than what it sits on,
+  // rebuilt from the dark end of the ramp rather than inverted.
+  --skeleton-color: hsl(231, 18%, 34%);
+}
+
+// ---------------------------------------------------------------------------
+// Dark theme (themes/dark.css)
+// ---------------------------------------------------------------------------
+// Soft graphite: neutral greys with no blue cast. The page is a mid-dark
+// grey, cards are a lighter grey on it, and surface (buttons, icon tiles,
+// table heads) is near-black, a deep accent rather than a step up. Text is a
+// step brighter than usual, because the cards are light for a dark theme.
+// Brand, link and focus values are the same as the Midnight theme's
+// (the contrast check measures both).
+@mixin dark-theme-tokens {
+  color-scheme: dark;
+
+  --color-bg-base:    #242427;
+  --color-bg-surface: #080808;
+  --color-bg-raised:  #404045;
+  --color-bg-sunken:  #18181a;
+  --color-bg-inverse: #f4f4f5;
+
+  --color-border-subtle: #4e4e54;
+  --color-border-strong: #8a8a8f;   // 3:1 on base, surface and raised
+
+  --color-text-primary:   #f4f4f5;
+  --color-text-secondary: #cdcdd4;  // 6.5:1 on raised
+  --color-text-muted:     #ababb1;  // 4.5:1 on raised, AA
+  --color-text-inverse:   #18181a;
+
+  --color-primary-1: var(--brand-dark-primary-1, hsl(258, 50%, 67%));
+  --color-primary-2: var(--brand-dark-primary-2, hsl(257, 55%, 74%));
+  --color-primary-3: var(--brand-dark-primary-3, hsl(256, 60%, 80%));
+  // Text on a brand fill: dark, for the same reason as in the Midnight theme.
+  --color-on-primary: var(--brand-dark-on-primary, #0a0a0b);
+
+  --color-focus-ring: hsl(258, 55%, 80%);
+  --color-link: hsl(258, 55%, 80%);
+  --color-link-hover: hsl(256, 60%, 86%);
+
+  --skeleton-color: #4a4a50;
+}
+
+// Dark colour roles. In the dark themes a palette colour needs a different
+// value depending on its job, so each job gets its own variable, defined
+// once here and read by the utilities with the palette as the fallback (in
+// light none of these exist, so every class shows its palette value):
+//   --tint-*        pale tints as backgrounds: the hue mixed into the raised
+//                   surface, so they are not bright patches on a dark page
+//   --tint-border-* the same tints as borders, one step stronger
+//   --ink-*         solid and dark steps as text: lifted toward white to
+//                   clear 4.5:1 on dark surfaces
+// Mixing from the variables, not literals, means a product that rebrands
+// --color-primary-1 gets tints and text in its own colour.
+// $hue: how much of a colour its ink keeps (the rest is white); $brand: the
+// same for the brand as text. A theme with lighter cards keeps less.
+@mixin dark-role-colors($hue: 45%, $brand: 70%) {
+  @each $color, $value in $colors {
+    $i: str-index($color, "-light");
+    @if $i {
+      $base: str-slice($color, 1, $i - 1);
+      @if not map-has-key($colors, $base) { $base: "#{$base}-1"; }
+      $mix: 14%;
+      @if str-slice($color, -2) == "-2" { $mix: 20%; }
+      @if str-slice($color, -2) == "-3" { $mix: 26%; }
+      --tint-#{$color}: color-mix(in srgb, var(--color-#{$base}) #{$mix}, var(--color-bg-raised));
+      --tint-border-#{$color}: color-mix(in srgb, var(--color-#{$base}) 40%, var(--color-bg-raised));
+    } @else if not is-stateful($color) {
+      $family: str-slice($color, 1, str-index($color, "-") - 1);
+      --ink-#{$color}: color-mix(in srgb, var(--color-#{$family}-1) #{$hue}, white);
+    }
+  }
+  @each $step in (1, 2, 3) {
+    --ink-primary-dark-#{$step}: color-mix(in srgb, var(--color-primary-1) #{$hue}, white);
+    // The brand as text: lifted a little, so every brand clears 4.5:1 on
+    // every dark surface; fills (buttons) keep the brand itself.
+    --ink-primary-#{$step}: color-mix(in srgb, var(--color-primary-#{$step}) #{$brand}, white);
+  }
+}
+
+
+// Spacing (margin, padding): 4px steps for the small gaps, then the steps
+// layouts actually use. 140 stays for the image boxes sized by padding.
+$sizes-pixel: (
+  0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 60, 80, 100, 120, 140,
+);
+
+// Squares (.size-Npx): dots, avatars, icon tiles, thumbnails.
+$sizes-square: (
+  8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 80,
+);
+
+// Icon font sizes (.icon-N).
+$sizes-icon: (
+  12, 16, 20, 24, 32, 48,
+);

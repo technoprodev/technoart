@@ -1,0 +1,9 @@
+// A sideways row that settles on an item after every scroll or swipe: a
+// carousel with no script. Put .scroll-snap-x on the scrolling row and
+// .snap-start on each item.
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}

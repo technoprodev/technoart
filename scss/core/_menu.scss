@@ -1,0 +1,85 @@
+// A menu that opens from a button: a sort list, a filter, an account menu.
+// Put .menu on an element with the popover attribute and an id; a button
+// with popovertarget="id" opens it. No script.
+//
+//   <button type="button" popovertarget="sort">Sort</button>
+//   <div id="sort" popover class="menu bg-raised border border-subtle rounded-8 shadow-3 padding-8">…</div>
+//
+// It opens under its button, lined up with the button's left edge
+// (.menu-end: its right edge), and turns to the other side by itself when
+// there is no room. Esc, a click outside or the button again closes it. It
+// sits above the page, so a scrolling box or a sticky header can't cut it
+// off or cover it. On a phone or a narrow tablet (up to 768px) it rises as
+// a sheet from the bottom of the screen, so it fits whichever side its
+// button is on.
+//
+// The browser's popover box is cleared at no specificity, so the classes on
+// the menu decide its look; where it opens is said with more weight, so a
+// position utility can't pull it away from its button.
+:where(.menu[popover]) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  overflow-y: auto;
+}
+.menu[popover] {
+  transition: opacity 0.15s ease, transform 0.15s ease, display 0.15s allow-discrete, overlay 0.15s allow-discrete;
+}
+.menu[popover]:not(:popover-open) {
+  display: none;
+  opacity: 0;
+}
+@media (min-width: 769px) {
+  .menu[popover] {
+    position-area: bottom span-right;
+    position-try-fallbacks: flip-inline, flip-block, flip-block flip-inline;
+    margin-top: 4px;
+    min-width: 220px;
+    min-width: max(220px, anchor-size(width));
+    max-height: 70vh;
+  }
+  .menu-end[popover] {
+    position-area: bottom span-left;
+  }
+  .menu[popover]:not(:popover-open) {
+    transform: translateY(-4px);
+  }
+  @starting-style {
+    .menu[popover]:popover-open {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .menu[popover] {
+    inset: auto 12px calc(12px + env(safe-area-inset-bottom, 0px)) 12px;
+    width: auto;
+    max-height: 70vh;
+  }
+  .menu[popover]:not(:popover-open) {
+    transform: translateY(12px);
+  }
+  @starting-style {
+    .menu[popover]:popover-open {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  .menu[popover]::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+// Less motion asked for: it fades, without moving.
+@media (prefers-reduced-motion: reduce) {
+  .menu[popover],
+  .menu[popover]:not(:popover-open) {
+    transform: none;
+  }
+  @starting-style {
+    .menu[popover]:popover-open {
+      transform: none;
+    }
+  }
+}

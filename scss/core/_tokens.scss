@@ -1,0 +1,6 @@
+// The light theme's values on :root: the kit's built-in look. A theme file
+// in themes/ (linked after this stylesheet) replaces them.
+:root {
+  color-scheme: light;
+  @include light-theme-tokens;
+}

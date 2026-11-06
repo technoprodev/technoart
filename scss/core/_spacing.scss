@@ -1,0 +1,95 @@
+@mixin spacing($spacing, $breakpoint: "") {
+  $sides: "", "-x", "-y", "-top", "-right", "-bottom", "-left"; // Define all possible sides for spacing.
+
+  // Loop through each side to generate utility classes
+  @each $side in $sides {
+    @each $size in $sizes-pixel { // Loop through predefined spacing sizes in pixels.
+      $sizePx: $size * 1px; // Convert spacing size to px.
+
+      // Generate utility class for the current spacing, side, size, and breakpoint
+      .#{$spacing}#{$side}-#{$size}#{$breakpoint} {
+        @if $side == "-x" { // For horizontal spacing.
+          #{$spacing}-left: $sizePx;
+          #{$spacing}-right: $sizePx;
+        }
+        @else if $side == "-y" { // For vertical spacing.
+          #{$spacing}-top: $sizePx;
+          #{$spacing}-bottom: $sizePx;
+        }
+        @else { // For specific sides or no side.
+          #{$spacing}#{$side}: $sizePx;
+        }
+      }
+    }
+
+    // Generate utility classes for margin auto (centering)
+    @if $spacing == "margin" {
+      .margin#{$side}-auto#{$breakpoint} {
+        @if $side == "-x" { // Horizontal auto margin.
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @else if $side == "-y" { // Vertical auto margin.
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+        @else { // Auto margin for specific sides.
+          margin#{$side}: auto;
+        }
+      }
+    }
+  }
+}
+
+@include spacing("margin");
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include spacing("margin", "-#{$breakpoint}");
+  }
+}
+
+@include spacing("padding");
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    @include spacing("padding", "-#{$breakpoint}");
+  }
+}
+
+// Negative margins.
+// The mixin above only ever emits positive values (see the loop over
+// $sizes-pixel), and that is deliberate everywhere except a handful of
+// overlap tricks (avatar/icon stacks that pull siblings under one another,
+// a card badge that hangs over its own top edge). Rather than mirror the
+// entire positive scale as negatives -- almost none of which anything
+// actually uses -- this emits explicit classes for only the pixel values the
+// markup needs. `n` (not a second `-`, which would read as a typo'd
+// double-hyphen) marks the value negative: `margin-right-n8` is
+// unambiguously "margin-right, negative 8px".
+$negative-margins: (
+  "margin-right-n8": (margin-right, 8px),
+  "margin-top-n20": (margin-top, 20px),
+);
+@each $class, $pair in $negative-margins {
+  .#{$class} {
+    #{nth($pair, 1)}: nth($pair, 2) * -1;
+  }
+}
+
+// A row that runs to the screen's edges through the page's 24px side padding
+// (container-*), with padding-x-24 so its first and last item still line up
+// with the content: a tab row or a chip row that scrolls sideways on a
+// phone. A row that snaps (.scroll-snap-x) snaps its items to that same
+// line. -sm only below 768px.
+.margin-x-n24 {
+  margin-left: -24px;
+  margin-right: -24px;
+  scroll-padding-inline: 24px;
+}
+@media (max-width: 768px) {
+  .margin-x-n24-sm {
+    margin-left: -24px;
+    margin-right: -24px;
+    scroll-padding-inline: 24px;
+  }
+}
+

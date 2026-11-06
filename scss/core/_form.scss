@@ -1,0 +1,393 @@
+// Fields: .field on an <input>, a <select> or a <textarea>. One look with
+// every state drawn, sized for the pointer: denser with a mouse, larger with
+// a thumb, from the same class (docs/controls.md). A product changes the look
+// through the variables below, in its brand file; a page never does.
+//
+// The size is the control's height, --control-h: the vertical padding is
+// worked out from it, so a one-line field is exactly that tall. Buttons use
+// the same heights (_button.scss), so a field and its button sit flush.
+.field {
+  --control-h: 40px;
+  --control-lh: 24px;
+  display: block;
+  width: 100%;
+  background-clip: padding-box;
+  padding: calc((var(--control-h) - var(--control-lh) - 2px) / 2) 12px;
+
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: var(--control-lh);
+
+  color: var(--field-text, var(--color-text-primary));
+  background-color: var(--field-bg, var(--color-bg-raised));
+  // An edge of at least 3:1 against the page, so a field is found by its
+  // shape and not only by its fill.
+  border: 1px solid var(--field-border, var(--color-border-strong));
+  border-radius: var(--control-radius, 8px);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &::placeholder {
+    opacity: 1; // for ios
+    color: var(--field-placeholder, var(--color-text-muted));
+  }
+
+  // Hover is for a mouse only; touch has no hover.
+  @media (hover: hover) {
+    &:hover:not(:disabled):not([readonly]):not(:focus) {
+      border-color: var(--field-border-hover, var(--color-text-secondary));
+    }
+  }
+
+  // Focus: the brand edge and a soft ring, in place of the global outline
+  // (_reset.scss). A text field matches :focus-visible on a click too, so the
+  // outline would double up with the edge; the ring is the indicator here.
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-primary-1);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-1) 30%, transparent);
+  }
+
+  // Invalid: set aria-invalid="true" (with an .error-message), or let the
+  // browser decide after the visitor edits a required or typed field.
+  &[aria-invalid="true"],
+  &:user-invalid {
+    border-color: var(--color-red-1);
+  }
+  &[aria-invalid="true"]:focus,
+  &:user-invalid:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-red-1) 30%, transparent);
+  }
+
+  &:disabled {
+    opacity: 1; // for ios
+    color: var(--color-text-muted);
+    background-color: var(--field-disabled-bg, var(--color-bg-sunken));
+    border-color: var(--color-border-subtle);
+    cursor: not-allowed;
+  }
+  &[readonly] {
+    background-color: var(--field-disabled-bg, var(--color-bg-sunken));
+  }
+}
+
+// A textarea grows with what is typed, from two and a half lines up (a
+// max-height utility caps it); a browser without field-sizing keeps the
+// starting size and lets it be dragged taller. (At a class's weight, so
+// utilities still win.)
+:where(textarea).field {
+  --control-lh: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  min-height: calc(var(--control-h) * 2.5);
+  field-sizing: content;
+  resize: vertical;
+  // A pill brand (--control-radius: 999px) still gets a box, not a capsule.
+  border-radius: min(var(--control-radius, 8px), 16px);
+}
+
+// A file picker draws its own button inside; give it room.
+.field[type="file"] {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+// Sizes. Compact for dense desktop screens (table filters, toolbars, a
+// quantity in a cart row); large for a hero search.
+.field-sm {
+  --control-h: 32px;
+  --control-lh: 20px;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.field-lg {
+  --control-h: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+// With a thumb: every size 8px taller, and 16px text, so a phone never zooms
+// into a field when it is tapped.
+@media (pointer: coarse) {
+  .field { --control-h: 48px; }
+  .field-sm { --control-h: 40px; --control-lh: 24px; font-size: 16px; }
+  .field-lg { --control-h: 56px; }
+}
+
+// The message under an invalid field. Link it to the field with
+// aria-describedby, so a screen reader reads it too.
+.error-message {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-red-dark-1, var(--color-red-dark-1));
+}
+
+// Floating label: the label sits inside the field and moves up while it is
+// focused or filled. The input needs placeholder=" " (a space), so
+// :placeholder-shown can tell empty from filled, and the <label> after it.
+.float-label {
+  position: relative;
+
+  > .field {
+    --control-h: 56px;
+    padding-top: 23px;
+    padding-bottom: 7px;
+    line-height: 24px;
+  }
+  > label {
+    position: absolute;
+    left: 13px;
+    top: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--field-placeholder, var(--color-text-muted));
+    pointer-events: none;
+    transition: top 0.15s ease, font-size 0.15s ease, line-height 0.15s ease;
+  }
+  > :focus + label,
+  > :not(:placeholder-shown) + label,
+  > select.field + label {
+    top: 6px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  > :focus + label {
+    color: var(--ink-primary-1, var(--color-primary-1));
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+  opacity: 1;
+}
+
+// A <select>: the kit's own arrow, and room for it. (At a class's weight, so
+// utilities still win.)
+:where(select).field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNCA2TDggMTBMMTIgNiIgc3Ryb2tlPSIjNjY2ODZCIiBzdHJva2Utd2lkdGg9IjEuMzMzMzMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px; // original padding 16px + 12px of arrow img
+}
+
+// A field with no box of its own (.field.field-bare), for a field inside a
+// designed container (a segmented search pill, a chat composer): the
+// container draws the edge, the background and the focus ring (with
+// :focus-within), and the field only holds the text. It keeps the kit's
+// type and the muted placeholder. After the <select> rule, so a bare select
+// has no arrow; at a class's weight, so utilities on it (a text size) win.
+:where(.field).field-bare {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &::placeholder {
+    opacity: 1; // for ios
+    color: var(--color-text-muted);
+  }
+  // The container shows focus instead (:focus-within on it).
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// Checkboxes, radios and switches: the class goes on the <label>, which
+// holds the input and an <i> that draws it:
+//
+//   <label class="check-fill"><input type="checkbox"><i></i> On sale</label>
+//
+// The box and its text sit on one line, one label per row; put several in a
+// .flex row for a line of them. At a class's weight, so utilities on the
+// label still win.
+:where(label).check-stroke,
+:where(label).check-fill,
+:where(label).radio-stroke,
+:where(label).radio-fill,
+:where(label).switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.check-stroke input,
+.check-fill input,
+.radio-stroke input,
+.radio-fill input {
+  // The real input stays in the page, unseen, so a keyboard reaches it and
+  // a screen reader reads it; the <i> after it draws the box.
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  // Focus from the keyboard rings the box.
+  &:focus-visible + i {
+    outline: 2px solid var(--color-focus-ring, var(--color-primary-1));
+    outline-offset: 2px;
+  }
+
+  // Styled container
+  // The box has the same edge as a text field (at least 3:1 against the
+  // page), so an empty box is still easy to see.
+  & + i {
+    background: var(--field-bg, var(--color-bg-raised));
+    flex: 0 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--field-border, var(--color-border-strong));
+    position: relative;
+  }
+
+  &:disabled + i {
+    background: var(--field-disabled-bg, var(--color-bg-sunken));
+    border-color: var(--color-border-subtle);
+  }
+
+}
+
+// Stroke-style checkbox: Border highlights with a checkmark
+// Fill-style checkbox: Filled background with a contrasting checkmark
+.check-stroke input,
+.check-fill input {
+  & + i {
+    border-radius: 4px;
+
+    &:before {
+      content: '';
+      display: none;
+      width: 10px;
+      height: 6px;
+      transform: translateY(-1px) rotate(-45deg);
+    }
+  }
+  &:checked + i {
+    &:before {
+      display: block;
+    }
+  }
+}
+
+.check-stroke input {
+  &:checked + i {
+    border-color: var(--color-primary-1);
+
+    &:before {
+      border-left: 2px solid var(--color-primary-1);
+      border-bottom: 2px solid var(--color-primary-1);
+    }
+  }
+}
+.check-fill input {
+  &:checked + i {
+    background-color: var(--color-primary-1);
+    border-color: var(--color-primary-1);
+
+    &:before {
+      border-left: 2px solid var(--color-white);
+      border-bottom: 2px solid var(--color-white);
+    }
+  }
+}
+
+// Stroke-style radio: Outlined circle with a filled center when checked
+// Fill-style radio: Fully filled circle with a contrasting center when checked
+.radio-stroke input,
+.radio-fill input {
+  & + i {
+    border-radius: 50%;
+
+    &:before {
+      content: '';
+      display: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  }
+  &:checked + i {
+    &:before {
+      display: block;
+    }
+  }
+}
+.radio-stroke input {
+  &:checked + i {
+    border-color: var(--color-primary-1);
+
+    &:before {
+      background-color: var(--color-primary-1);
+    }
+  }
+}
+.radio-fill input {
+  &:checked + i {
+    background-color: var(--color-primary-1);
+    border-color: var(--color-primary-1);
+
+    &:before {
+      background-color: var(--color-white);
+    }
+  }
+}
+
+// The switch: a track and a thumb that slides. The real input stays in the
+// page, unseen (as for checkboxes above), and focus from the keyboard rings
+// the switch.
+.switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.switch input:focus-visible + i {
+  outline: 2px solid var(--color-focus-ring, var(--color-primary-1));
+  outline-offset: 2px;
+}
+.switch input + i {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: var(--color-gray-1);
+  border-radius: 1000px;
+
+  width: 48px;
+  height: 24px;
+}
+.switch i::after {
+  content: '';
+  position: absolute;
+  top: 50%; transform: translateY(-50%); // vertically centered absolute
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: left .3s;
+  left: 2px;
+
+  width: 20px;
+  height: 20px;
+}
+.switch input:checked + i { background-color: var(--color-primary-1) }
+.switch input:checked + i::after { left: 26px }

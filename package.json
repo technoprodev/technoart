@@ -1,16 +1,33 @@
 {
-  "name": "technoart",
-  "version": "0.1.0",
-  "description": "A constrained CSS utility library",
-  "main": "dist/technoart.css",
-  "scripts": {
-    "build": "sass index.scss dist/technoart.css --style=compressed --no-source-map",
-    "build:dev": "sass index.scss dist/technoart.css --style=expanded",
-    "dev": "sass --watch index.scss:dist/technoart.css"
+  "name": "@alloyhtml/css",
+  "version": "1.0.0",
+  "description": "A CSS kit for server-rendered apps: utilities, components and themes that work with JavaScript off.",
+  "style": "dist/alloy.css",
+  "files": [
+    "dist",
+    "scss",
+    "ai",
+    "bin"
+  ],
+  "bin": {
+    "alloy-check": "bin/check.mjs"
   },
-  "keywords": ["css", "utility", "design-system", "scss"],
+  "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "node build.mjs"
+  },
+  "keywords": ["css", "scss", "utility", "design-system", "no-javascript", "html"],
+  "homepage": "https://alloyhtml.com/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alloyhtml/css.git"
+  },
+  "author": "Fandy Pradana",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "sass": "^1.70.0"
+    "sass": "1.77.6"
   }
 }

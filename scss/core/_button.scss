@@ -1,0 +1,90 @@
+.button {
+  // The same heights as the fields (_form.scss): 40px with a mouse, 48px
+  // with a thumb, and -sm / -lg around them. The vertical padding is worked
+  // out from --control-h, so a one-line button is exactly that tall and a
+  // button next to a field sits flush with it.
+  --control-h: 40px;
+  --control-lh: 24px;
+  // A row, centred both ways, so an icon beside the label sits on its middle
+  // (on the text's baseline it rode 3px high).
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  border-radius: var(--button-radius, var(--control-radius, 8px));
+  padding: calc((var(--control-h) - var(--control-lh) - 2px) / 2) 20px;
+  font-size: 16px;
+  line-height: var(--control-lh);
+  font-weight: 700;
+
+  // A strut one text line tall, so a button holding only an icon is as tall
+  // as one with a label (a row of them has no line box of its own). It is an
+  // item of the row too, so space an icon from its label with a margin, not
+  // a gap utility.
+  &::before {
+    content: "";
+    height: var(--control-lh);
+  }
+
+  // A button that can't be used (disabled, or aria-disabled on a link or a
+  // span standing in for one) doesn't show the hand.
+  &:not(:disabled):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  &:disabled, &[aria-disabled="true"] {
+    opacity: 1 !important; // fix ios problem
+    @include disabled();
+  }
+
+  // There is deliberately NO `.bg-primary-1:focus-visible { outline-color:
+  // white }` here any more. It was added on the premise that the ring needs to
+  // contrast against the button's own teal fill -- but `outline` with a
+  // positive `outline-offset` (the base rule uses 2px) is painted entirely
+  // OUTSIDE the border box, separated from it by a gap of whatever is behind
+  // the button. Measured in Chrome against the shipped rule, the ring occupies
+  // exactly the 3rd and 4th pixels out from the border edge and the 1st-2nd are
+  // page background; no part of it is ever over the teal.
+  //
+  // So the override was not merely unnecessary, it was harmful: it painted a
+  // white ring onto near-white light-mode surfaces at 1.09:1 on bg-base,
+  // 1.05:1 on bg-surface and 1.00:1 on bg-raised -- an invisible focus ring on
+  // the product's most prominent button, which is the exact defect the ring
+  // exists to prevent. The default --color-focus-ring measures 6.45-7.06:1 on
+  // those same surfaces, and still clears 3:1 (3.83:1) in the pathological
+  // case of a primary button sitting on a primary-teal band.
+}
+
+// Sizes: compact for table rows, toolbars and chips; large for a hero call
+// to action. With a thumb every size is 8px taller.
+.button-sm {
+  --control-h: 32px;
+  --control-lh: 20px;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.button-lg {
+  --control-h: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (pointer: coarse) {
+  .button { --control-h: 48px; }
+  .button-sm { --control-h: 40px; }
+  .button-lg { --control-h: 56px; }
+
+  // Except in a header: a header is a bar of fixed height (the layouts
+  // declare it as --shell-top), so its controls keep the height they have
+  // with a mouse instead of growing it. 40px is still a comfortable tap.
+  header :is(.button, .field) { --control-h: 40px; }
+  header :is(.button-sm, .field-sm) { --control-h: 32px; }
+  header :is(.button-lg, .field-lg) { --control-h: 48px; }
+}

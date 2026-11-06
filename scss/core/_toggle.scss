@@ -1,0 +1,35 @@
+// Show one thing or another by a checkbox, with no script. .toggle goes on
+// a <label> holding a checkbox (Save / Saved, Follow / Following), or on any
+// area with checkboxes in it (a bar that shows while rows are picked, a
+// monthly / yearly switch). While any checkbox inside is checked, its
+// .show-when-on parts show; while none is, its .show-when-off parts.
+//
+//   <label class="toggle">
+//     <input type="checkbox" aria-label="Save">
+//     <i class="show-when-off">favorite_border</i>
+//     <i class="show-when-on">favorite</i>
+//   </label>
+//
+// Toggles don't nest: an area's checkboxes would reach a toggle inside it.
+.toggle:not(:has(input[type="checkbox"]:checked)) .show-when-on,
+.toggle:has(input[type="checkbox"]:checked) .show-when-off {
+  display: none;
+}
+
+// On a label the toggle is the button: its checkbox stays in the page for
+// keyboards and screen readers, unseen, and keyboard focus rings the label.
+:where(label).toggle {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+:where(label).toggle > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+:where(label).toggle:has(> input:focus-visible) {
+  outline: 2px solid var(--color-primary-1);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

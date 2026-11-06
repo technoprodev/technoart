@@ -1,0 +1,49 @@
+// Tabs with no script. Each tab is a <label> holding a radio button; the
+// radios share a name, so only one is ever chosen, and the arrow keys move
+// between them. The panel at the same position as the chosen tab shows.
+//
+//   <div class="tabs">
+//     <div>                            tab 1, tab 2 ... (labels)
+//     <div class="panel">              panel 1
+//     <div class="panel">              panel 2
+//
+// The first child of .tabs holds the row of tabs, directly or inside
+// something else (a sticky bar, a container). Up to 12 tabs. With none
+// chosen, the first panel shows.
+
+// The radio stays in the page for keyboards and screen readers, just unseen.
+.tab input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.tab {
+  position: relative;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+}
+.tab:hover {
+  color: var(--color-text-primary);
+}
+.tab:has(input:checked) {
+  color: var(--ink-primary-1, var(--color-primary-1));
+  border-bottom-color: var(--color-primary-1);
+}
+.tab:has(input:focus-visible) {
+  outline: 2px solid var(--color-primary-1);
+  outline-offset: 2px;
+}
+
+// Panel n is child n + 1 of .tabs (the tab row is child 1).
+.tabs > .panel {
+  display: none;
+}
+.tabs:not(:has(> :first-child .tab input:checked)) > .panel:nth-child(2) {
+  display: block;
+}
+@for $n from 1 through 12 {
+  .tabs:has(> :first-child .tab:nth-child(#{$n}) input:checked) > .panel:nth-child(#{$n + 1}) {
+    display: block;
+  }
+}

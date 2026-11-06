@@ -1,0 +1,104 @@
+// Border styles and widths (Responsive)
+@mixin border($breakpoint: "") {
+  // Reset border styles to prevent inheritance issues
+  .border#{$breakpoint},
+  .border-x#{$breakpoint},
+  .border-y#{$breakpoint},
+  .border-top#{$breakpoint},
+  .border-right#{$breakpoint},
+  .border-bottom#{$breakpoint},
+  .border-left#{$breakpoint} {
+    border-color: var(--color-border-default, var(--color-light-3)); // Default border colour: light-3, or the theme's (a dark theme sets it)
+    border-width: 1px;                  // Default border width
+  }
+
+  // Reset all sides to no border unless explicitly defined
+  .border-none#{$breakpoint},
+  .border-x#{$breakpoint},
+  .border-y#{$breakpoint},
+  .border-top#{$breakpoint},
+  .border-right#{$breakpoint},
+  .border-bottom#{$breakpoint},
+  .border-left#{$breakpoint} {
+    border-style: none; // Reset all sides to no border
+  }
+
+  // Specific border styles
+  .border#{$breakpoint} { border-style: solid; }
+  .border-x#{$breakpoint} { border-top-style: solid; border-bottom-style: solid; }
+  .border-y#{$breakpoint} { border-right-style: solid; border-left-style: solid; }
+  .border-top#{$breakpoint} { border-top-style: solid; }
+  .border-right#{$breakpoint} { border-right-style: solid; }
+  .border-bottom#{$breakpoint} { border-bottom-style: solid; }
+  .border-left#{$breakpoint} { border-left-style: solid; }
+
+  // Additional border widths for customization
+  .border-width-2#{$breakpoint} { border-width: 2px; }
+  .border-width-3#{$breakpoint} { border-width: 3px; }
+  .border-width-4#{$breakpoint} { border-width: 4px; }
+}
+
+@include border();
+
+// Border colors (Not responsive)
+// Normal state color
+@each $color, $value in $colors {
+  @if str-index($color, "-light") or str-index($color, "light-") == 1 {
+    .border-#{$color} { border-color: var(--tint-border-#{$color}, var(--color-#{$color})); }
+  } @else {
+    .border-#{$color} { border-color: var(--color-#{$color}); }
+  }
+}
+
+
+// Semantic border roles, generated the same way from a different map.
+// `border-subtle` is close to, but deliberately one step darker than, the
+// unlabelled default border colour above: at light-3 it was identical to
+// `bg-sunken`, so a subtle border on a well drew nothing at all.
+// Depends on `$semantic-borders` in `variable.scss`.
+@each $token, $value in $semantic-borders {
+  .#{$token} {
+    border-color: var(--color-#{$token});
+  }
+}
+// The same states every other colour has, so a quiet button can darken its
+// edge on hover (.hover-border-strong) like any colour class would.
+@media (hover: hover) {
+  @each $token, $value in $semantic-borders {
+    .hover-#{$token}:hover:not(:active) {
+      border-color: var(--color-#{$token});
+    }
+  }
+}
+@each $token, $value in $semantic-borders {
+  .active-#{$token}:active {
+    border-color: var(--color-#{$token});
+  }
+}
+
+// The border in the element's own text colour: an underline for the current
+// tab, a ring that matches its label. Follows every theme with the text.
+.border-current {
+  border-color: currentColor;
+}
+
+// Hover state color, where something can hover (_background-color.scss).
+@media (hover: hover) {
+  @each $color, $value in $colors {
+    @if is-stateful($color) {
+      .hover-border-#{$color}:hover:not(:active) {
+        border-color: var(--color-#{$color});
+      }
+    }
+  }
+}
+
+// Active state color
+@each $color, $value in $colors {
+  @if is-stateful($color) {
+    .active-border-#{$color}:active {
+      border-color: var(--color-#{$color});
+    }
+  }
+}
+

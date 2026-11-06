@@ -1,0 +1,68 @@
+// Show a child only while its parent element is hovered (or has keyboard
+// focus inside it, so a keyboard opens it too), or only while focus is
+// inside the parent. The parent is the element directly around it: put a
+// menu straight inside the element that opens it.
+//
+//   <div class="relative">
+//     <a href="/products">Products</a>
+//     <div class="show-on-parent-hover absolute …">a menu of links</div>
+//   </div>
+//
+// A menu opened by a click (sort, filters, an account) is a .menu instead
+// (_menu.scss): it closes with Esc and can't be cut off.
+:not(:hover):not(:focus-within) > .show-on-parent-hover {
+  display: none;
+}
+:not(:focus-within) > .show-on-parent-focus {
+  display: none;
+}
+
+// On a phone or a narrow tablet, while focus is inside it, a
+// .fullscreen-on-focus-sm takes the whole screen and the page behind stops
+// scrolling: a search that opens full screen. Give it tabindex="-1", so a
+// click inside keeps it open. Inside it, what shows on focus
+// (.show-on-parent-focus) sits in the page instead of floating over it.
+// --fullscreen-padding sets its padding while open.
+//
+// .close-fullscreen goes right before it: a button shown only while it is
+// full screen. Pressing it moves focus out, which closes it. Hidden with
+// enough weight that a display utility on the button (.flex, .block) can't
+// show it at the wrong time.
+.close-fullscreen:not(:has(+ .fullscreen-on-focus-sm:focus-within)) {
+  display: none;
+}
+@media (min-width: 769px) {
+  .close-fullscreen.close-fullscreen {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .fullscreen-on-focus-sm:focus-within {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: var(--fullscreen-padding, 8px 12px);
+    background-color: var(--color-bg-base);
+  }
+  .fullscreen-on-focus-sm:focus-within > .show-on-parent-focus {
+    position: static;
+    max-height: none;
+    margin: 8px 0 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+  .close-fullscreen:has(+ .fullscreen-on-focus-sm:focus-within) {
+    display: flex;
+  }
+  body:has(.fullscreen-on-focus-sm:focus-within) {
+    overflow: hidden;
+  }
+  // Whatever holds it (a sticky header with its own z-index) comes up with
+  // it, so a phone's bottom bar can't cover the open search.
+  :has(.fullscreen-on-focus-sm:focus-within) {
+    z-index: 1000;
+  }
+}

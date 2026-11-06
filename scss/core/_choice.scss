@@ -1,0 +1,58 @@
+// One pick from a few: a colour, a size, a review filter. Each option is a
+// <label> holding a radio, so picking one unpicks the others with no
+// script, the choice submits with a form, and keyboards move through the
+// set with the arrow keys.
+//
+//   <label class="choice"><input type="radio" name="size" checked>M</label>
+//   <label class="choice"><input type="radio" name="size">L</label>
+//
+// It loads before the utilities, so utilities on the label (bg-*, border-*,
+// rounded-*, padding-*, text sizes, block) change its resting look. The
+// picked edge reads --choice-picked, the brand colour unless a product or a
+// page sets it.
+
+.choice {
+  // The compact control size (.button-sm): 32px with a mouse, 40px with a
+  // thumb, and the brand's corner radius. A bigger option (a ticket card) is
+  // a .choice with utilities: block, padding-20, rounded-8.
+  --control-h: 32px;
+  --control-lh: 20px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: calc((var(--control-h) - var(--control-lh) - 2px) / 2) 12px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--control-radius, 8px);
+  background-color: var(--color-bg-raised);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: var(--control-lh);
+  cursor: pointer;
+  user-select: none;
+}
+@media (pointer: coarse) {
+  .choice { --control-h: 40px; }
+}
+// The radio stays in the page for keyboards and screen readers, unseen.
+.choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.choice:hover {
+  border-color: var(--color-border-strong);
+}
+.choice:has(input:checked) {
+  border-color: var(--choice-picked, var(--color-primary-1));
+  box-shadow: inset 0 0 0 1px var(--choice-picked, var(--color-primary-1));
+  font-weight: 600;
+}
+.choice:has(input:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+.choice:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

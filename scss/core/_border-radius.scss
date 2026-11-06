@@ -1,0 +1,29 @@
+@mixin rounded($breakpoint: "") {
+  $sizes-border-radius: 0, 4, 8, 12, 16, 20;
+  @each $size in $sizes-border-radius {
+    .rounded-#{$size}#{$breakpoint} { border-radius: #{$size}px }
+    .rounded-top-#{$size}#{$breakpoint} { border-top-left-radius: #{$size}px; border-top-right-radius: #{$size}px }
+    .rounded-right-#{$size}#{$breakpoint} { border-top-right-radius: #{$size}px; border-bottom-right-radius: #{$size}px }
+    .rounded-bottom-#{$size}#{$breakpoint} { border-bottom-left-radius: #{$size}px; border-bottom-right-radius: #{$size}px }
+    .rounded-left-#{$size}#{$breakpoint} { border-top-left-radius: #{$size}px; border-bottom-left-radius: #{$size}px }
+    .rounded-top-left-#{$size}#{$breakpoint} { border-top-left-radius: #{$size}px }
+    .rounded-top-right-#{$size}#{$breakpoint} { border-top-right-radius: #{$size}px }
+    .rounded-bottom-left-#{$size}#{$breakpoint} { border-bottom-left-radius: #{$size}px }
+    .rounded-bottom-right-#{$size}#{$breakpoint} { border-bottom-right-radius: #{$size}px }
+  }
+}
+@include rounded();
+// Not per breakpoint, except .rounded-0: something that goes edge to edge
+// on a small screen (a dialog, a sheet) drops its corners there.
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    .rounded-0-#{$breakpoint} { border-radius: 0 }
+  }
+}
+
+@mixin circle($breakpoint: "") {
+  .circle#{$breakpoint} {
+    border-radius: 50%;
+  }
+}
+@include circle();

@@ -1,0 +1,20 @@
+// themes/dark.scss -> assets/css/themes/dark.css
+// The Dark theme. Soft graphite: a mid-dark grey page, lighter grey cards, near-black accents.
+// Link it after the kit's stylesheet and it is on:
+//   <link rel="stylesheet" href="/assets/css/themes/dark.css">
+// or let the visitor's device decide:
+//   <link rel="stylesheet" href="/assets/css/themes/dark.css" media="(prefers-color-scheme: dark)">
+
+@import "../variable";
+@import "../mixin";
+
+// Lighter cards than a black theme, so text on a tint needs more lift (the
+// same shares as Midnight).
+$ink-hue-share: 35%;
+$ink-brand-share: 60%;
+
+:root {
+  @include dark-theme-tokens;
+}
+
+@import "dark-extras";

@@ -1,0 +1,90 @@
+// Default background color classes
+// Pale tints read --tint-* first: defined only in the dark themes (see
+// dark-role-colors in _variable.scss), so light shows the palette value.
+@each $color, $value in $colors {
+  @if str-index($color, "-light") or str-index($color, "light-") == 1 {
+    .bg-#{$color} { background-color: var(--tint-#{$color}, var(--color-#{$color})); }
+  } @else {
+    .bg-#{$color} { background-color: var(--color-#{$color}); }
+  }
+}
+
+
+// Semantic surfaces. Same generator, different map: these name a surface's
+// ROLE, so they follow the theme, while the literal classes above keep
+// meaning exactly the colour they are named after in both themes.
+// Depends on `$semantic-backgrounds` in `variable.scss`.
+@each $token, $value in $semantic-backgrounds {
+  .#{$token} {
+    background-color: var(--color-#{$token});
+  }
+}
+
+// Semantic hover surfaces. Same reasoning as the plain semantic surfaces
+// above: a hover state needs to land on a *different* step than whatever
+// surface it's already resting on, and that only works if hover-bg-* comes
+// in semantic flavours too, not just literal ones.
+//
+// $token already includes its own "bg-" prefix (the map's keys are
+// "bg-base", "bg-surface", etc, not bare "base"/"surface") -- unlike the
+// literal generator below, whose $colors keys are bare names ("white",
+// "light-1") and so DO need "bg-" prepended by hand. Prepending it here too
+// would double up into ".hover-bg-bg-base", which is why this block writes
+// `.hover-#{$token}`, not `.hover-bg-#{$token}`.
+// Hover only where something can hover: on a touch screen a tap would
+// leave the hover look stuck on (a card keeps its shadow).
+@media (hover: hover) {
+  @each $token, $value in $semantic-backgrounds {
+    .hover-#{$token}:hover:not(:active) {
+      background-color: var(--color-#{$token});
+    }
+  }
+}
+
+// Semantic active surfaces. Same reasoning and prefix handling as the
+// semantic hover surfaces above -- an active (pressed) state needs its own
+// step too, not just literal active-bg-* families, so a semantic-surface
+// element has somewhere dark-mode-aware to go on :active.
+@each $token, $value in $semantic-backgrounds {
+  .active-#{$token}:active {
+    background-color: var(--color-#{$token});
+  }
+}
+
+// Hover background color classes (for devices with hover capability)
+@media (hover: hover) {
+  @each $color, $value in $colors {
+    @if is-stateful($color) {
+      // Changes the background color when an element is hovered. A pale
+      // tint reads its dark-theme value first, as .bg-* does, so a hover
+      // never turns a dark card pale under its light text.
+      @if str-index($color, "-light") or str-index($color, "light-") == 1 {
+        .hover-bg-#{$color}:hover:not(:active) {
+          background-color: var(--tint-#{$color}, var(--color-#{$color}));
+        }
+      } @else {
+        .hover-bg-#{$color}:hover:not(:active) {
+          background-color: var(--color-#{$color});
+        }
+      }
+    }
+  }
+}
+
+// Active background color classes
+@each $color, $value in $colors {
+  @if is-stateful($color) {
+    // Changes the background color when an element is active (clicked);
+    // pale tints as on hover.
+    @if str-index($color, "-light") or str-index($color, "light-") == 1 {
+      .active-bg-#{$color}:active {
+        background-color: var(--tint-#{$color}, var(--color-#{$color}));
+      }
+    } @else {
+      .active-bg-#{$color}:active {
+        background-color: var(--color-#{$color});
+      }
+    }
+  }
+}
+
