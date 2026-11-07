@@ -118,6 +118,32 @@ copy one of these and change the values.
 Icons aren't included. The sizes (`icon-16`, `icon-24`) work with any icon
 font.
 
+### Scrollbars
+
+The browser's own scrollbars stay unless you ask. For thin ones in the
+theme's colours, put `.scrollbar-thin` on `<html>`, or on one scrolling box.
+
+## Adding it to an existing app
+
+Some of the kit applies before you use a single class. In an app that already
+has its own CSS, these change:
+
+- The reset: no margins on `body`, headings, paragraphs and lists,
+  `border-box` sizing everywhere, images no wider than their box, tables with
+  collapsed borders.
+- `body` takes the kit's background, text colour and font, and `h1` to `h6`
+  take its sizes, so an `h1` is 40px.
+- Links have no underline and take the colour of the text around them. Add
+  `.a` to a link to make it look like one.
+- Keyboard focus shows the kit's ring.
+- The page stops scrolling while a modal `<dialog>` is open.
+- A `<summary>` that draws its own icon loses the browser's marker.
+
+Some names are common enough that your app may use them already: the classes
+`.button`, `.dialog`, `.field`, `.flex`, `.hidden`, `.tab`, `.tooltip` and
+`.text-center`, and the animations `fade-in`, `slide-in-up` and `zoom-in`.
+Where both define one, the stylesheet linked last wins.
+
 ## With AI
 
 Without Alloy, ask AI for ten pages and you get ten ideas of what a button

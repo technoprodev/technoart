@@ -171,37 +171,9 @@ table {
   border-spacing: 0;
 }
 
-/* Webkit (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 12px; /* Adjust width as needed */
-  height: 12px;
-}
-
-/* The track is the page itself and the thumb is the text colour, faint, so
-   both follow the theme (a light track was a bright strip on dark pages). */
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-text-primary) 25%, transparent);
-  border-radius: 4px;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent) transparent;
-}
-
 :focus-visible {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
 }
 
 html:has(dialog:modal) {
@@ -695,11 +667,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 summary {
-  list-style: none;
   cursor: pointer;
 }
 
-summary::-webkit-details-marker {
+summary:has(.rotate-when-open, .show-when-open, .show-when-closed) {
+  list-style: none;
+}
+
+summary:has(.rotate-when-open, .show-when-open, .show-when-closed)::-webkit-details-marker {
   display: none;
 }
 
@@ -5505,6 +5480,29 @@ a:where(.a:not(.a-color-reset)),
   opacity: 1;
 }
 
+.scrollbar-thin,
+.scrollbar-thin * {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar,
+.scrollbar-thin *::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track,
+.scrollbar-thin *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb,
+.scrollbar-thin *::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+  border-radius: 4px;
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -5557,7 +5555,7 @@ a:where(.a:not(.a-color-reset)),
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.overflow-scroll-hidden:-webkit-scrollbar {
+.overflow-scroll-hidden::-webkit-scrollbar {
   display: none;
 }
 
@@ -5602,7 +5600,7 @@ a:where(.a:not(.a-color-reset)),
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .overflow-scroll-hidden-lg:-webkit-scrollbar {
+  .overflow-scroll-hidden-lg::-webkit-scrollbar {
     display: none;
   }
 }
@@ -5647,7 +5645,7 @@ a:where(.a:not(.a-color-reset)),
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .overflow-scroll-hidden-md:-webkit-scrollbar {
+  .overflow-scroll-hidden-md::-webkit-scrollbar {
     display: none;
   }
 }
@@ -5692,7 +5690,7 @@ a:where(.a:not(.a-color-reset)),
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .overflow-scroll-hidden-sm:-webkit-scrollbar {
+  .overflow-scroll-hidden-sm::-webkit-scrollbar {
     display: none;
   }
 }
@@ -5737,7 +5735,7 @@ a:where(.a:not(.a-color-reset)),
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .overflow-scroll-hidden-xs:-webkit-scrollbar {
+  .overflow-scroll-hidden-xs::-webkit-scrollbar {
     display: none;
   }
 }

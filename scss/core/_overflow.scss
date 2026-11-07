@@ -20,8 +20,32 @@
   .overflow-scroll-hidden#{$breakpoint} {
     -ms-overflow-style: none;  // IE and Edge
     scrollbar-width: none;  // Firefox
-    &:-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar { display: none; }
   }
+}
+
+// Thin scrollbars in the theme's colours, on this element and everything
+// inside it. Put it on <html> for the whole page. Without it, the browser's
+// own scrollbar stays, and it still follows dark mode.
+.scrollbar-thin,
+.scrollbar-thin * {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent) transparent;
+}
+// Safari reads these instead.
+.scrollbar-thin::-webkit-scrollbar,
+.scrollbar-thin *::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.scrollbar-thin::-webkit-scrollbar-track,
+.scrollbar-thin *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb,
+.scrollbar-thin *::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+  border-radius: 4px;
 }
 
 @include overflow();

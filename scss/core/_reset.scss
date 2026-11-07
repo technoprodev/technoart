@@ -55,31 +55,6 @@ table {
   border-spacing: 0;
 }
 
-// Scroll bar
-/* Webkit (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 12px; /* Adjust width as needed */
-  height: 12px;
-}
-
-/* The track is the page itself and the thumb is the text colour, faint, so
-   both follow the theme (a light track was a bright strip on dark pages). */
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-text-primary) 25%, transparent);
-  border-radius: 4px;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent) transparent;
-}
-
 // Visible keyboard focus for every interactive element.
 // :focus-visible only matches keyboard/AT focus, so mouse clicks stay clean.
 // --color-focus-ring, not --color-primary-1: the brand teal measures 1.68:1 on
@@ -88,10 +63,4 @@ table {
 :focus-visible {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
-}
-
-// Suppress the default ring where :focus-visible is supported, so the
-// treatment above is the single source of truth.
-:focus:not(:focus-visible) {
-  outline: none;
 }

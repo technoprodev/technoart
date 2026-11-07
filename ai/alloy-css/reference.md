@@ -394,6 +394,7 @@ Has breakpoint versions (-lg, -md, -sm, -xs).
 | .overflow-visible / -x-visible / -y-visible | Content spills out. |
 | .overflow-hidden / -x-hidden / -y-hidden | Content is clipped. |
 | .overflow-scroll-hidden | Scrolls, but hides the scrollbar. |
+| .scrollbar-thin | Thin scrollbars in the theme's colours, on this element and everything inside it. Put it on <html> for the whole page; without it the browser's own scrollbar stays. |
 | .overflow-overlay / .overflow-x-overlay / .overflow-y-overlay | Scrollbars draw over the content instead of taking space. Browser support is partial, so treat it as a progressive enhancement. |
 
 ```html
@@ -1344,7 +1345,7 @@ The menu can sit anywhere in the markup, even inside a form: its fields still se
 | Markup / class | Goes on |
 |---|---|
 | <details> | Wraps the menu button and the panel. Clicking the button again closes it. |
-| <summary> | The menu button. The kit removes the browser's marker from every summary and gives it a pointer. |
+| <summary> | The menu button. A summary that holds .show-when-closed or .show-when-open loses the browser's marker; every summary gets a pointer. |
 | .show-when-closed / .show-when-open | Two icons in the summary, such as a list and an X. Only the one for the current state shows. |
 
 ```html
@@ -1365,7 +1366,7 @@ Rows that open to show more: FAQs, sidebar groups. Built on <details>, so it ope
 |---|---|
 | <details> | Each row. Add the open attribute to start it open. |
 | name="faq" | The same name (any name) on several <details> keeps only one of them open at a time. |
-| <summary> | The row you click. The kit removes the browser's marker from every summary and gives it a pointer. |
+| <summary> | The row you click. A summary that holds .rotate-when-open loses the browser's marker; every summary gets a pointer. |
 | .rotate-when-open | An icon inside the summary. It turns over while the row is open. |
 
 ```html

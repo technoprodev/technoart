@@ -1,13 +1,16 @@
 // <details> / <summary>: open and close with no script. Add name="faq" (any
 // shared name) to several <details> to keep only one open at a time.
 
-// Every summary is a plain row: no browser marker, a pointer. Draw your own
-// icon in it (.rotate-when-open, or .show-when-open / .show-when-closed).
+// Every summary gets a pointer. One that draws its own icon
+// (.rotate-when-open, or .show-when-open / .show-when-closed) loses the
+// browser's marker; any other summary keeps it.
 summary {
-  list-style: none;
   cursor: pointer;
 }
-summary::-webkit-details-marker {
+summary:has(.rotate-when-open, .show-when-open, .show-when-closed) {
+  list-style: none;
+}
+summary:has(.rotate-when-open, .show-when-open, .show-when-closed)::-webkit-details-marker {
   display: none;
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@alloyhtml/css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CSS kit for server-rendered apps: utilities, components and themes that work with JavaScript off.",
   "style": "dist/alloy.css",
   "files": [
@@ -16,7 +16,14 @@
     "build": "node build.mjs",
     "prepublishOnly": "node build.mjs"
   },
-  "keywords": ["css", "scss", "utility", "design-system", "no-javascript", "html"],
+  "keywords": [
+    "css",
+    "scss",
+    "utility",
+    "design-system",
+    "no-javascript",
+    "html"
+  ],
   "homepage": "https://alloyhtml.com/docs",
   "repository": {
     "type": "git",
