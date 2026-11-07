@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "node build.mjs",
+    "test": "node --test \"test/**/*.test.mjs\"",
     "prepublishOnly": "node build.mjs"
   },
   "keywords": ["css", "scss", "utility", "design-system", "no-javascript", "html"],
