@@ -1489,14 +1489,14 @@ A short message in the corner of the screen that stays until closed. Built on a 
 
 | Markup / class | Goes on |
 |---|---|
-| <div id="saved" popover="manual"> | The toast. Manual means a click elsewhere does not close it. |
+| <div id="saved" popover="manual" role="status"> | The toast. Manual means a click elsewhere does not close it. role="status" makes screen readers read it out when it shows. |
 | .toast | The toast: bottom right by default (along the bottom edge on phones), and it fades in. Your classes decide the look, and position utilities move it. |
 | popovertarget="saved" | A button that shows it. |
 | popovertarget="saved" popovertargetaction="hide" | The close button inside it. |
 
 ```html
 <button type="button" popovertarget="docs-toast" class="button bg-primary-1 border-primary-1 text-white padding-x-16">Save changes</button>
-<div id="docs-toast" popover="manual" class="toast flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
+<div id="docs-toast" popover="manual" role="status" class="toast flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
   <i class="icon-20 material-icons">check</i>
   <span class="text-body-2 grow-1">Changes saved</span>
   <button type="button" popovertarget="docs-toast" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons">close</i></button>
@@ -1519,7 +1519,7 @@ Move it with position utilities; the 24px gap from the edges stays.
 
 ```html
 <button type="button" popovertarget="docs-toast-top" class="button bg-raised border-subtle text-primary padding-x-16">Show at the top</button>
-<div id="docs-toast-top" popover="manual" class="toast top-0 bottom-auto left-0 margin-x-auto flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
+<div id="docs-toast-top" popover="manual" role="status" class="toast top-0 bottom-auto left-0 margin-x-auto flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
   <span class="text-body-2 grow-1">You're offline. Changes will sync later.</span>
   <button type="button" popovertarget="docs-toast-top" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons">close</i></button>
 </div>

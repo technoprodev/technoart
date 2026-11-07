@@ -1,7 +1,7 @@
 // A small message in the corner, on a manual popover: it stays until its
 // close button (or your code) hides it, and never blocks the page.
 //
-//   <div id="saved" popover="manual" class="toast ...">Saved</div>
+//   <div id="saved" popover="manual" role="status" class="toast ...">Saved</div>
 //   open:  popovertarget="saved"            (or your code: showPopover())
 //   close: popovertarget="saved" popovertargetaction="hide"
 //
