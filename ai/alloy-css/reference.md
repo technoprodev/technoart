@@ -757,8 +757,8 @@ Has breakpoint versions (-lg, -md, -sm, -xs).
 | .text-uppercase / .text-lowercase / .text-capitalize | Case. |
 | .text-line-none / .text-strike / .text-underline | No line / strikethrough / underline. |
 | .text-underline-primary | Underline in the brand color. |
-| .text-wrap / .text-nowrap / .text-ellipsis | Wrapping. |
-| .line-clamp-2 | Two lines at most, ending in an ellipsis. |
+| .text-wrap / .text-nowrap | Wrapping. |
+| .text-ellipsis / .text-ellipsis-2 / .text-ellipsis-3 | Text cut to one, two or three lines, ending in an ellipsis. |
 | .font-style-italic / .font-style-normal | Italic / upright. |
 | .font-family-serif | The serif face that ships with the kit. |
 
