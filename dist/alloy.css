@@ -419,8 +419,8 @@ html:has(dialog:modal) {
   color: var(--ink-primary-1, var(--color-primary-1));
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+.field[type=number]::-webkit-inner-spin-button,
+.field[type=number]::-webkit-outer-spin-button {
   opacity: 1;
 }
 

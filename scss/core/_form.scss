@@ -160,8 +160,9 @@
   }
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
+// A number field shows its arrows all the time, not only on hover (Chrome).
+.field[type=number]::-webkit-inner-spin-button,
+.field[type=number]::-webkit-outer-spin-button {
   opacity: 1;
 }
 

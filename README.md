@@ -138,10 +138,13 @@ has its own CSS, these change:
 - Keyboard focus shows the kit's ring.
 - The page stops scrolling while a modal `<dialog>` is open.
 - A `<summary>` that draws its own icon loses the browser's marker.
+- The page uses the light colour scheme, so the browser's own form controls
+  stay light unless you link a dark theme.
 
 Some names are common enough that your app may use them already: the classes
 `.button`, `.dialog`, `.field`, `.flex`, `.hidden`, `.tab`, `.tooltip` and
-`.text-center`, and the animations `fade-in`, `slide-in-up` and `zoom-in`.
+`.text-center`, the animations `fade-in`, `slide-in-up` and `zoom-in`, and CSS variables
+starting with `--color-` and `--font-`.
 Where both define one, the stylesheet linked last wins.
 
 ## With AI
