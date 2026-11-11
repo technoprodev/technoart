@@ -801,13 +801,13 @@ Material Icons, written as their name. Google's font (Apache 2.0), in its own fi
 
 | Class | Goes on |
 |---|---|
-| .material-icons | An <i> or <span> whose text is the icon's name: <i class="material-icons">favorite</i>. |
+| .material-icons | An <i> or <span> whose text is the icon's name, hidden from screen readers so they don't read the name out: <i class="material-icons" aria-hidden="true">favorite</i>. |
 | .icon-{size} | Its size in pixels: 12, 16, 20, 24, 32, 48. Without one it is 24. |
 
 ```html
-<i class="material-icons icon-20 text-primary-1">favorite</i>
-<i class="material-icons icon-24 text-secondary">shopping_cart</i>
-<i class="material-icons icon-32 text-green-1">check_circle</i>
+<i class="material-icons icon-20 text-primary-1" aria-hidden="true">favorite</i>
+<i class="material-icons icon-24 text-secondary" aria-hidden="true">shopping_cart</i>
+<i class="material-icons icon-32 text-green-1" aria-hidden="true">check_circle</i>
 ```
 
 Colour comes from any text colour class. A decorative icon next to a label needs aria-hidden="true"; an icon on its own needs an aria-label on its button or link.
@@ -886,7 +886,7 @@ No class of its own: a relative wrapper, the icon or button absolute and full he
 
 ```html
 <form class="relative margin-bottom-12" role="search" action="#">
-  <span class="absolute top-0 bottom-0 left-0 flex flex-items-center flex-justify-center text-muted" style="width: 40px; pointer-events: none" aria-hidden="true"><i class="material-icons icon-20">search</i></span>
+  <span class="absolute top-0 bottom-0 left-0 flex flex-items-center flex-justify-center text-muted" style="width: 40px; pointer-events: none" aria-hidden="true"><i class="material-icons icon-20" aria-hidden="true">search</i></span>
   <input class="field padding-left-40 padding-right-40" name="q" aria-label="Search" placeholder="Search">
   <button type="reset" aria-label="Clear" class="absolute top-0 bottom-0 right-0 flex flex-items-center flex-justify-center bg-transparent border-none cursor-pointer text-muted hover-text-primary active-text-primary-1" style="width: 40px"><i class="material-icons icon-20" aria-hidden="true">close</i></button>
 </form>
@@ -1351,8 +1351,8 @@ The menu can sit anywhere in the markup, even inside a form: its fields still se
 ```html
 <details class="relative">
   <summary class="flex flex-items-center flex-justify-center size-40px border border-subtle rounded-8">
-    <i class="icon-24 material-icons text-secondary show-when-closed">format_list_bulleted</i>
-    <i class="icon-24 material-icons text-secondary show-when-open">close</i>
+    <i class="icon-24 material-icons text-secondary show-when-closed" aria-hidden="true">format_list_bulleted</i>
+    <i class="icon-24 material-icons text-secondary show-when-open" aria-hidden="true">close</i>
   </summary>
   <div class="absolute left-0 top-100 margin-top-8 z-3 bg-raised border border-subtle rounded-8 shadow-2 padding-12 text-body-2 text-secondary">The menu panel.</div>
 </details>
@@ -1373,14 +1373,14 @@ Rows that open to show more: FAQs, sidebar groups. Built on <details>, so it ope
 <details name="docs-faq" open class="border border-subtle rounded-8 margin-bottom-8">
   <summary class="flex flex-items-center flex-justify-between padding-12">
     <span class="text-body-2 font-weight-600 text-primary">How long does delivery take?</span>
-    <i class="icon-20 material-icons text-secondary rotate-when-open">expand_more</i>
+    <i class="icon-20 material-icons text-secondary rotate-when-open" aria-hidden="true">expand_more</i>
   </summary>
   <div class="padding-x-12 padding-bottom-12 text-body-2 text-secondary">Two to four working days.</div>
 </details>
 <details name="docs-faq" class="border border-subtle rounded-8">
   <summary class="flex flex-items-center flex-justify-between padding-12">
     <span class="text-body-2 font-weight-600 text-primary">Can I return an item?</span>
-    <i class="icon-20 material-icons text-secondary rotate-when-open">expand_more</i>
+    <i class="icon-20 material-icons text-secondary rotate-when-open" aria-hidden="true">expand_more</i>
   </summary>
   <div class="padding-x-12 padding-bottom-12 text-body-2 text-secondary">Yes, within 30 days. Opening this closes the other.</div>
 </details>
@@ -1444,8 +1444,8 @@ Show one thing or another by a checkbox: a button that flips between Save and Sa
 ```html
 <label class="toggle">
   <input type="checkbox" aria-label="Save">
-  <span class="show-when-off button flex flex-items-center bg-raised border-subtle text-primary font-weight-600 padding-x-16"><i class="icon-20 material-icons margin-right-8">favorite_border</i>Save</span>
-  <span class="show-when-on button flex flex-items-center bg-red-light-1 border-red-light-3 text-red-1 font-weight-600 padding-x-16"><i class="icon-20 material-icons margin-right-8">favorite</i>Saved</span>
+  <span class="show-when-off button flex flex-items-center bg-raised border-subtle text-primary font-weight-600 padding-x-16"><i class="icon-20 material-icons margin-right-8" aria-hidden="true">favorite_border</i>Save</span>
+  <span class="show-when-on button flex flex-items-center bg-red-light-1 border-red-light-3 text-red-1 font-weight-600 padding-x-16"><i class="icon-20 material-icons margin-right-8" aria-hidden="true">favorite</i>Saved</span>
 </label>
 ```
 
@@ -1489,17 +1489,17 @@ A short message in the corner of the screen that stays until closed. Built on a 
 
 | Markup / class | Goes on |
 |---|---|
-| <div id="saved" popover="manual"> | The toast. Manual means a click elsewhere does not close it. |
+| <div id="saved" popover="manual" role="status"> | The toast. Manual means a click elsewhere does not close it. role="status" makes screen readers read it out when it shows. |
 | .toast | The toast: bottom right by default (along the bottom edge on phones), and it fades in. Your classes decide the look, and position utilities move it. |
 | popovertarget="saved" | A button that shows it. |
 | popovertarget="saved" popovertargetaction="hide" | The close button inside it. |
 
 ```html
 <button type="button" popovertarget="docs-toast" class="button bg-primary-1 border-primary-1 text-white padding-x-16">Save changes</button>
-<div id="docs-toast" popover="manual" class="toast flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
-  <i class="icon-20 material-icons">check</i>
+<div id="docs-toast" popover="manual" role="status" class="toast flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
+  <i class="icon-20 material-icons" aria-hidden="true">check</i>
   <span class="text-body-2 grow-1">Changes saved</span>
-  <button type="button" popovertarget="docs-toast" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons">close</i></button>
+  <button type="button" popovertarget="docs-toast" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons" aria-hidden="true">close</i></button>
 </div>
 ```
 
@@ -1519,9 +1519,9 @@ Move it with position utilities; the 24px gap from the edges stays.
 
 ```html
 <button type="button" popovertarget="docs-toast-top" class="button bg-raised border-subtle text-primary padding-x-16">Show at the top</button>
-<div id="docs-toast-top" popover="manual" class="toast top-0 bottom-auto left-0 margin-x-auto flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
+<div id="docs-toast-top" popover="manual" role="status" class="toast top-0 bottom-auto left-0 margin-x-auto flex flex-items-center flex-gap-12 bg-inverse text-inverse rounded-8 shadow-3 padding-x-16 padding-y-12">
   <span class="text-body-2 grow-1">You're offline. Changes will sync later.</span>
-  <button type="button" popovertarget="docs-toast-top" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons">close</i></button>
+  <button type="button" popovertarget="docs-toast-top" popovertargetaction="hide" class="button bg-transparent border-transparent text-inverse padding-4" aria-label="Close"><i class="icon-20 material-icons" aria-hidden="true">close</i></button>
 </div>
 ```
 
@@ -1676,7 +1676,7 @@ A titled block: a heading row with a trailing action, then content.
   <div class="flex flex-items-center shrink-0 margin-bottom-16">
     <div class="font-weight-600 text-primary text-body-1 text-body-2-sm margin-right-4">Your to-dos</div>
     <div class="flex flex-items-center margin-left-auto">
-      <i class="icon-16 material-icons">chevron_right</i>
+      <i class="icon-16 material-icons" aria-hidden="true">chevron_right</i>
     </div>
   </div>
   <div class="flex flex-column flex-justify-center grow-1">
@@ -1769,11 +1769,11 @@ A big number over a label with a chevron, all one link.
 <div class="flex text-center">
   <a href="#" class="a a-color-reset hover-text-primary-1 text-secondary width-50">
     <div class="font-weight-600 text-primary h3">2,400+</div>
-    <div class="flex flex-items-center flex-justify-center font-weight-500 text-body-2 margin-top-4">Downloads<i class="icon-16 material-icons margin-left-4">chevron_right</i></div>
+    <div class="flex flex-items-center flex-justify-center font-weight-500 text-body-2 margin-top-4">Downloads<i class="icon-16 material-icons margin-left-4" aria-hidden="true">chevron_right</i></div>
   </a>
   <a href="#" class="a a-color-reset hover-text-primary-1 text-secondary width-50">
     <div class="font-weight-600 text-primary h3">4.9 / 5</div>
-    <div class="flex flex-items-center flex-justify-center font-weight-500 text-body-2 margin-top-4">Rating<i class="icon-16 material-icons margin-left-4">chevron_right</i></div>
+    <div class="flex flex-items-center flex-justify-center font-weight-500 text-body-2 margin-top-4">Rating<i class="icon-16 material-icons margin-left-4" aria-hidden="true">chevron_right</i></div>
   </a>
 </div>
 ```
@@ -1842,11 +1842,11 @@ A vertical list of rows with an icon, a label and an optional badge, one of them
 ```html
 <div class="flex flex-column text-ellipsis bg-surface padding-x-16 padding-y-12 rounded-8">
   <a href="#" class="flex flex-items-center padding-y-8 padding-x-12 rounded-4 hover-bg-raised text-secondary">
-    <span class="flex flex-items-center margin-right-12 size-24px"><i class="icon-20 material-icons">home</i></span>
+    <span class="flex flex-items-center margin-right-12 size-24px"><i class="icon-20 material-icons" aria-hidden="true">home</i></span>
     <span class="grow-1 text-nowrap text-ellipsis">Overview</span>
   </a>
   <a href="#" class="flex flex-items-center padding-y-8 padding-x-12 rounded-4 bg-primary-light-1 hover-bg-primary-light-2 hover-text-primary-dark-1 text-primary-3">
-    <span class="flex flex-items-center margin-right-12 size-24px"><i class="icon-20 material-icons">dashboard</i></span>
+    <span class="flex flex-items-center margin-right-12 size-24px"><i class="icon-20 material-icons" aria-hidden="true">dashboard</i></span>
     <span class="grow-1 text-nowrap text-ellipsis">Board</span>
     <span class="inline-flex flex-items-center height-24px padding-x-8 rounded-4 text-body-4 font-weight-600 text-uppercase letter-spacing-1 bg-primary-light-2 text-primary-dark-2">new</span>
   </a>
@@ -1868,7 +1868,7 @@ A dropdown of recent searches on a wide screen; on a phone, the whole screen wit
   <button type="button" class="close-fullscreen fixed flex-items-center flex-justify-center bg-transparent border-none text-primary cursor-pointer" style="top: 8px; left: 4px; z-index: 1001; width: 40px; height: 48px" aria-label="Close search"><i class="icon-24 material-icons" aria-hidden="true">chevron_left</i></button>
   <div class="fullscreen-on-focus-sm relative" tabindex="-1" style="--fullscreen-padding: 8px 12px 8px 44px">
     <form class="relative" role="search" action="#">
-      <span class="absolute top-0 bottom-0 left-0 flex flex-items-center flex-justify-center text-muted" style="width: 40px; pointer-events: none" aria-hidden="true"><i class="material-icons icon-20">search</i></span>
+      <span class="absolute top-0 bottom-0 left-0 flex flex-items-center flex-justify-center text-muted" style="width: 40px; pointer-events: none" aria-hidden="true"><i class="material-icons icon-20" aria-hidden="true">search</i></span>
       <input class="field padding-left-40" type="search" name="q" placeholder="Search" aria-label="Search" autocomplete="off" enterkeyhint="search">
     </form>
     <div class="show-on-parent-focus absolute left-0 right-0 z-4 padding-8 bg-raised border border-subtle rounded-12 shadow-3" style="top: calc(100% + 4px)">
@@ -1894,7 +1894,7 @@ One line with an icon, a message and an optional button.
 
 ```html
 <div class="flex flex-items-center bg-raised border rounded-8 padding-x-20 padding-y-12">
-  <i class="material-icons icon-20 margin-right-8 text-orange-3">whatshot</i>
+  <i class="material-icons icon-20 margin-right-8 text-orange-3" aria-hidden="true">whatshot</i>
   <div class="font-weight-600 margin-right-16 text-body-1 text-primary">New training is available to opt in</div>
   <a class="active-bg-primary-3 active-border-primary-3 button bg-primary-1 border-primary-1 hover-bg-primary-2 hover-border-primary-2 margin-left-auto shrink-0 text-white">Learn more</a>
 </div>
