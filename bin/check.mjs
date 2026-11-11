@@ -31,10 +31,16 @@ for (let i = 0; i < args.length; i++) {
 }
 if (!paths.length) paths.push('.');
 
-const CLASS = /\.((?:\\.|[\w-])+)/g;
+// A class name starts with a letter, _ or -, so .5rem isn't one.
+const CLASS = /\.(-?(?:[_a-zA-Z]|\\.)(?:\\.|[\w-])*)/g;
+// Dots in comments, strings and url() aren't selectors (photo.png), so drop those first.
+const NOT_SELECTORS = /\/\*[\s\S]*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|url\([^)]*\)/g;
+const classesIn = (css) =>
+  [...css.replace(NOT_SELECTORS, '').matchAll(CLASS)].map(([, name]) => name.replace(/\\(.)/g, '$1'));
+
 const defined = new Set();
 for (const sheet of sheets) {
-  for (const [, name] of readFileSync(sheet, 'utf8').matchAll(CLASS)) defined.add(name.replace(/\\/g, ''));
+  for (const name of classesIn(readFileSync(sheet, 'utf8'))) defined.add(name);
 }
 
 function* files(path) {
@@ -45,8 +51,9 @@ function* files(path) {
   } else if (MARKUP.has(extname(path)) || path.endsWith('.blade.php')) yield path;
 }
 
-// class="..." and className="...", in single or double quotes.
-const ATTR = /\bclass(?:Name)?\s*=\s*("([^"]*)"|'([^']*)')/g;
+// class="..." and className="...", in single or double quotes. Bound ones
+// like :class or x-bind:class hold JS, not class names, so they're skipped.
+const ATTR = /(?<=\s)class(?:Name)?\s*=\s*("([^"]*)"|'([^']*)')/g;
 const TEMPLATE = /\{\{|\{%|<%|\$\{|@\{|\{#/;
 
 let unknown = 0;
@@ -56,7 +63,7 @@ for (const path of paths) {
     // A page's own <style> block counts as defined, for that page.
     const local = new Set();
     for (const [, css] of text.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) {
-      for (const [, name] of css.matchAll(CLASS)) local.add(name.replace(/\\/g, ''));
+      for (const name of classesIn(css)) local.add(name);
     }
     const seen = new Set();
     for (const match of text.matchAll(ATTR)) {
